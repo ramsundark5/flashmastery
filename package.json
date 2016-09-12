@@ -7,10 +7,10 @@
     "postinstall": "react-native link react-native-vector-icons && react-native link react-native-code-push"
   },
   "dependencies": {
-    "native-base": "^0.5.8",
     "react": "15.3.1",
     "react-native": "0.33.0",
     "react-native-code-push": "^1.14.6-beta",
-    "react-native-router-flux": "^3.35.0"
+    "react-native-router-flux": "^3.35.0",
+    "react-native-vector-icons": "^2.1.0"
   }
 }

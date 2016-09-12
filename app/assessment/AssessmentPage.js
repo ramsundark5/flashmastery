@@ -1,21 +1,62 @@
 import React, { Component } from 'react';
-import { Header, Title, Container, Content, InputGroup, Input, Button, Icon, View } from 'native-base';
+import {View, Text, StyleSheet} from 'react-native';
+import { Container, Content, Center, Footer, HorizontalRow, Button } from '../common/Common';
 
-export default class ProfilePage extends Component {
+export default class AssessmentPage extends Component {
     componentDidMount(){
 
     }
     
+    markAsLearning(){
+
+    }
+
+    markAsMastered(){
+
+    }
+
     render(){
         return(
             <Container>
-                <Header/>
                 <Content>
-                    <InputGroup>
-                        <Input stackedLabel label='Name' placeholder='Name' />
-                    </InputGroup>
+                    <Center>
+                        <Text style={styles.vocabText}>Car</Text>
+                    </Center>
                 </Content>
+                <Footer>
+                    <HorizontalRow style={styles.answerButtonContainer}>
+                        <Button onPress={() => this.markAsLearning()} style={styles.answerButton} textStyle={styles.answerText}>
+                            Learning
+                        </Button>
+                        <View style={styles.dummySpace}></View>
+                        <Button onPress={() => this.markAsMastered()} style={styles.answerButton} textStyle={styles.answerText}>
+                            Mastered
+                        </Button>
+                    </HorizontalRow>
+                </Footer>
             </Container>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    answerButtonContainer:{
+        justifyContent: 'space-between',
+        padding: 10,
+    },
+    answerButton:{
+        flex: 1,
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+    },
+    answerText:{
+        color: 'white',
+        textAlign: 'center'
+    },
+    vocabText: {
+        fontSize: 32,
+    },
+    dummySpace:{
+        margin: 10
+    }
+});
