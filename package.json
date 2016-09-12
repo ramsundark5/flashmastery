@@ -3,10 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "postinstall": "react-native link react-native-vector-icons && react-native link react-native-code-push"
   },
   "dependencies": {
+    "native-base": "^0.5.8",
     "react": "15.3.1",
-    "react-native": "0.33.0"
+    "react-native": "0.33.0",
+    "react-native-code-push": "^1.14.6-beta",
+    "react-native-router-flux": "^3.35.0"
   }
 }
