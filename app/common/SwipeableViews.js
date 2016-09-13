@@ -15,7 +15,6 @@ export default class SwipeableViews extends Component {
     static defaultProps = {
         initialPage: 0,
         pageStyle: null,
-        pageWidth: width,
         noItemsText: "Sorry, there are currently \n no items available"
     };
 
@@ -26,8 +25,7 @@ export default class SwipeableViews extends Component {
     }
 
     goToPage(position) {
-        let { pageWidth } = this.props;
-        let pagePosition = position * (pageWidth);
+        let pagePosition = position * (width);
         // in android, you can't scroll directly in componentDidMount
         // (http://stackoverflow.com/questions/33208477/react-native-android-scrollview-scrollto-not-working)
         // however this doesn't work in android for some reason:
@@ -43,8 +41,7 @@ export default class SwipeableViews extends Component {
     }
 
     handleScrollEnd = (e) => {
-        let { pageWidth } = this.props;
-        let pageOffset = pageWidth;
+        let pageOffset = width;
         //select page based on the position of the middle of the screen.
         let currentPosition = e.nativeEvent.contentOffset.x + (width / 2);
         let currentPage = ~~(currentPosition / pageOffset);
