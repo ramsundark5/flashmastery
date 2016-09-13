@@ -10,6 +10,7 @@ import {
 
 const { width } = Dimensions.get("window");
 
+/** taken from https://github.com/machadogj/react-native-carousel-control */
 export default class SwipeableViews extends Component {
     
     static defaultProps = {
@@ -22,22 +23,6 @@ export default class SwipeableViews extends Component {
         if (this.props.children && this.props.initialPage > 0 && this.props.initialPage < this.props.children.length) {
             this.goToPage(this.props.initialPage);
         }
-    }
-
-    goToPage(position) {
-        let pagePosition = position * (width);
-        // in android, you can't scroll directly in componentDidMount
-        // (http://stackoverflow.com/questions/33208477/react-native-android-scrollview-scrollto-not-working)
-        // however this doesn't work in android for some reason:
-        // InteractionManager.runAfterInteractions(() => {
-        //     this.scrollView.scrollTo({ y: 0, x: pagePosition}, true);
-        //     console.log('scrollView.scrollTo x:', pagePosition);
-        // });
-        // So I was left with an arbitrary timeout.
-        setTimeout(()=> {
-            this.scrollView.scrollTo({ y: 0, x: pagePosition}, true);
-        }, 200);
-        this._onPageChange(position);
     }
 
     handleScrollEnd = (e) => {
@@ -60,14 +45,9 @@ export default class SwipeableViews extends Component {
     _renderChildren(){
         let children = this.props.children.map((c, index) => {
                 return (
-                    <TouchableWithoutFeedback
-                        key={ index }
-                        onPress={ () => this.goToPage(index) }>
-                        <View
-                            style={ [ styles.page, this.props.pageStyle ] }>
+                    <View key={ index } style={[styles.page, this.props.pageStyle]}>
                             { c }
-                        </View>
-                    </TouchableWithoutFeedback>
+                    </View>
                 );
             });
         return children;
