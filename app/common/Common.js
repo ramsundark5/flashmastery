@@ -6,7 +6,6 @@ import Footer from './Footer';
 import HorizontalRow from './HorizontalRow';
 import Button from './Button';
 import Loader from './Loader';
-import SwipeableViews from './SwipeableViews';
 
 module.exports = {
 	Container,
@@ -16,6 +15,5 @@ module.exports = {
 	Footer,
 	HorizontalRow,
 	Button,
-	Loader,
-	SwipeableViews
+	Loader
 };
