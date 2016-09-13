@@ -40,4 +40,8 @@ buck-out/
 android/app/libs
 android/keystores/debug.keystore
 
+#vscode
 .vscode
+
+#secure files
+GoogleService-Info.plist
