@@ -1,39 +1,24 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import { Container, Content, Center, Footer, HorizontalRow, Button } from '../common/Common';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import { Container, Content, Center, Footer, HorizontalRow, Button, SwipeableViews } from '../common/Common';
+import AssessmentItem from './AssessmentItem';
+const { width } = Dimensions.get('window');
+import Carousel from "react-native-carousel-control";
+import Swiper from 'react-native-swiper';
 
 export default class AssessmentPage extends Component {
     componentDidMount(){
 
     }
     
-    markAsLearning(){
-
-    }
-
-    markAsMastered(){
-
-    }
-
     render(){
         return(
             <Container>
-                <Content>
-                    <Center>
-                        <Text style={styles.vocabText}>Car</Text>
-                    </Center>
-                </Content>
-                <Footer>
-                    <HorizontalRow style={styles.answerButtonContainer}>
-                        <Button onPress={() => this.markAsLearning()} style={styles.answerButton} textStyle={styles.answerText}>
-                            Learning
-                        </Button>
-                        <View style={styles.dummySpace}></View>
-                        <Button onPress={() => this.markAsMastered()} style={styles.answerButton} textStyle={styles.answerText}>
-                            Mastered
-                        </Button>
-                    </HorizontalRow>
-                </Footer>
+                <SwipeableViews>
+                    <AssessmentItem/>
+                    <AssessmentItem/>
+                    <AssessmentItem/>
+                </SwipeableViews>
             </Container>
         );
     }
