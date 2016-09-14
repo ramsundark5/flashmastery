@@ -127,6 +127,7 @@ android {
 }
 
 dependencies {
+    compile project(':realm')
     compile project(':react-native-firestack')
     compile project(':react-native-code-push')
     compile project(':react-native-vector-icons')

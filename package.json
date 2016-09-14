@@ -4,17 +4,17 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "postinstall": "react-native link react-native-vector-icons && react-native link react-native-code-push && react-native link react-native-firestack"
+    "postinstall": "react-native link react-native-vector-icons && react-native link react-native-code-push && react-native link realm"
   },
   "dependencies": {
     "firebase": "^3.3.2",
     "react": "15.3.1",
     "react-native": "0.33.0",
     "react-native-code-push": "^1.14.6-beta",
-    "react-native-firestack": "fullstackreact/react-native-firestack",
     "react-native-router-flux": "^3.35.0",
     "react-native-vector-icons": "^2.1.0",
     "react-swipeable-views": "^0.7.3",
+    "realm": "^0.14.3",
     "warning": "^3.0.0"
   }
 }
