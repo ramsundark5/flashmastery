@@ -6,6 +6,7 @@ import Footer from './Footer';
 import HorizontalRow from './HorizontalRow';
 import Button from './Button';
 import Loader from './Loader';
+import ResponsiveGrid from './ResponsiveGrid';
 
 module.exports = {
 	Container,
@@ -15,5 +16,6 @@ module.exports = {
 	Footer,
 	HorizontalRow,
 	Button,
-	Loader
+	Loader,
+	ResponsiveGrid
 };

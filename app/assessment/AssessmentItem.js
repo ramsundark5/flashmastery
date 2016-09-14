@@ -16,10 +16,11 @@ export default class AssessmentItem extends Component {
     }
 
     render(){
+        const {assignment} = this.props;
         return(
             <Content>
                 <Center>
-                    <Text style={styles.vocabText}>Car</Text>
+                    <Text style={styles.vocabText}>{assignment.word}</Text>
                 </Center>
                 <Footer>
                     <HorizontalRow style={styles.answerButtonContainer}>

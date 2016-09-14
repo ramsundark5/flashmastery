@@ -5,7 +5,7 @@ import FirebaseConfig from './app/database/FirebaseConfig';
 
 class flashmastery extends Component {
   componentDidMount(){
-    FirebaseConfig.init();
+     //FirebaseConfig.init();
   }
 
   render() {
