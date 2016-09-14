@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
-import Routes from './app/Routes';
+import Root from './app/Root';
 
 class flashmastery extends Component {
-  componentDidMount(){
-  }
-
+  
   render() {
     return (
-      <Routes/>
+      <Root/>
     );
   }
 }
