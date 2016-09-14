@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
-import { Container, Content, Center, Footer, HorizontalRow, Button } from '../common/Common';
-import KeyboardSpacer from 'react-native-keyboard-spacer';
+import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import { HorizontalRow, Button } from '../common/Common';
 
-export default class AddAssignmentFooter extends Component {
+export default class AddCustomAssignmentFooter extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -12,7 +11,6 @@ export default class AddAssignmentFooter extends Component {
     }
 
     _onAddAssignment(){
-        console.log('on add assignment called');
         let newAssignment = { word: this.state.text };
         this.setState({
             text: ''
@@ -29,7 +27,7 @@ export default class AddAssignmentFooter extends Component {
                             style={[styles.addTextInput]}
                             placeholder={'Type here..'}
                             value={this.state.text}
-                            onChange={(event) => this.setState({text: event.nativeEvent.text})} />
+                            onChangeText={(changedText) => this.setState({text: changedText})}/>
                 </View>
 
                 <TouchableOpacity style={[styles.addButtonContainer]}>
