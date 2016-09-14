@@ -10,9 +10,11 @@ export default class AssessmentPage extends Component {
     }
     
     render(){
-        const data = LocalDatabase['kindergarten'];
+        const {assignmentName} = this.props;
+        console.log('inside render of AssessmentPage '+assignmentName);
+        const data = LocalDatabase['Kindergarten'];
         return(
-            <Container>
+            <Container style={styles.container}>
                 <SwipeableViews>
                     {
                         data.map( 
@@ -26,4 +28,8 @@ export default class AssessmentPage extends Component {
 }
 
 const styles = StyleSheet.create({
+    container:{
+        padding: 0,
+        //backgroundColor: "#1DE9B6"
+    },
 });

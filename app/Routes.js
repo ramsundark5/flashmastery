@@ -10,8 +10,8 @@ const Routes = ({loading, needRegistration}) => (
         <Loader/> :
         <Router>
             <Scene key="profilePage" component={ProfilePage} title="Profile"/>
-            <Scene key="home" initial={true} component={HomePage}/>
-            <Scene key="assessment" component={AssessmentPage}/>
+            <Scene key="homePage" initial={true} component={HomePage} title="Home"/>
+            <Scene key="assessmentPage" component={AssessmentPage} title="Vocab"/>
         </Router>
 );
 

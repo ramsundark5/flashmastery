@@ -5,6 +5,5 @@ export const LocalDatabase = {
     "Kindergarten": Kindergarten, 
     "1st Grade": Grade1,
     "2nd Grade": Grade1, 
-    "3rd Grade": Grade1,
-    "Custom Set": Grade1 
+    "3rd Grade": Grade1
 };
