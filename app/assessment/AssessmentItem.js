@@ -20,7 +20,9 @@ export default class AssessmentItem extends Component {
         return(
             <Content>
                 <Center>
-                    <Text style={styles.vocabText}>{assignment.word}</Text>
+                    <View style={{marginBottom: 100}}>
+                        <Text style={styles.vocabText}>{assignment.word}</Text>
+                    </View>
                 </Center>
                 <Footer>
                     <HorizontalRow style={styles.answerButtonContainer}>
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
     },
     vocabText: {
         fontSize: 32,
+        color: '#0277BD'
     },
     dummySpace:{
         margin: 10

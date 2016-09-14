@@ -30,6 +30,6 @@ export default class AssessmentPage extends Component {
 const styles = StyleSheet.create({
     container:{
         padding: 0,
-        //backgroundColor: "#1DE9B6"
+        backgroundColor: "#E0F2F1"
     },
 });

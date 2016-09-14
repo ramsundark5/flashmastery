@@ -9,13 +9,16 @@ const Routes = ({loading, needRegistration}) => (
     loading ?
         <Loader/> :
         <Router>
-            <Scene key="profilePage" component={ProfilePage} title="Profile"/>
-            <Scene key="homePage" initial={true} component={HomePage} title="Home"/>
-            <Scene key="assessmentPage" component={AssessmentPage} title="Vocab"/>
+            <Scene key="profilePage" component={ProfilePage} title="Profile" titleStyle={styles.titleStyle}/>
+            <Scene key="homePage" initial={true} component={HomePage} title="Home" titleStyle={styles.titleStyle}/>
+            <Scene key="assessmentPage" component={AssessmentPage} title="Vocab" titleStyle={styles.titleStyle}/>
         </Router>
 );
 
 const styles = StyleSheet.create({
+    titleStyle:{
+        color: "#0076FF"
+    }
 });
 
 export default Routes;
