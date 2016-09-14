@@ -16,11 +16,9 @@ export default class AssignmentPage extends Component {
         return(
             <Container style={styles.container}>
                 <SwipeableViews>
-                    {
-                        data.map( 
-                            (assignment, index) => <AssignmentItem key={index} assignment={assignment} />
-                        )
-                    }
+                    {data.map( (assignment, index) => 
+                        <AssignmentItem key={index} assignment={assignment} />
+                    )}
                 </SwipeableViews>
             </Container>
         );

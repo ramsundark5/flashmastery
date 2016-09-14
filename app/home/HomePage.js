@@ -17,7 +17,7 @@ export default class HomePage extends Component {
     }
 
     _addNewCustomSet(){
-
+        Actions.customAssignmentPage();
     }
 
     render(){
@@ -55,14 +55,13 @@ export default class HomePage extends Component {
     _renderAddCustom(bgcolor){
         //<Text style={styles.nameText}>Add Custom</Text>
         return (
-            <View style={[styles.tile, {backgroundColor: bgcolor}]}>
+            <TouchableOpacity onPress={() => this._addNewCustomSet()} 
+                style={[styles.tile, {backgroundColor: bgcolor}]}>
                 <Center>
-                    <TouchableOpacity onPress={() => this._addNewCustomSet()}>
-                        <Icon name='md-add'
-                            style={[styles.showAddIcon]}/>
-                    </TouchableOpacity>
+                    <Icon name='md-add'
+                        style={[styles.showAddIcon]}/>
                 </Center>
-            </View>
+            </TouchableOpacity>
         );
     }
 }
