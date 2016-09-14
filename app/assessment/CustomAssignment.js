@@ -2,21 +2,20 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import { Container, Content, Center, Footer, HorizontalRow, Button } from '../common/Common';
 
-export default class AssessmentItem extends Component {
+export default class CustomAssignment extends Component {
+    constructor(){
+        let assignmentList = realm.objects('TodoList');
+        this.state = {
+            vocabTexts: [],
+            text: ''
+        };
+    }
     componentDidMount(){
 
     }
     
-    markAsLearning(){
-
-    }
-
-    markAsMastered(){
-
-    }
-
     render(){
-        const {assignment} = this.props;
+        const {vocabTexts, text} = this.state;
         return(
             <Content>
                 <Center>
@@ -41,23 +40,4 @@ export default class AssessmentItem extends Component {
 }
 
 const styles = StyleSheet.create({
-    answerButtonContainer:{
-        margin: 10,
-    },
-    answerButton:{
-        flex: 1,
-        backgroundColor: '#48BBEC',
-        borderColor: '#48BBEC',
-    },
-    answerText:{
-        color: 'white',
-        textAlign: 'center'
-    },
-    vocabText: {
-        fontSize: 32,
-        color: '#0277BD'
-    },
-    dummySpace:{
-        margin: 10
-    }
 });

@@ -13,7 +13,7 @@ export default class HomePage extends Component {
     }
     
     _onSelectBasicAssignment(assignmentName){
-        Actions.assessmentPage({assignmentName: assignmentName});
+        Actions.assignmentPage({assignmentName: assignmentName});
     }
 
     _addNewCustomSet(){
