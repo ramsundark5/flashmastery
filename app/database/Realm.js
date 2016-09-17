@@ -1,49 +1,71 @@
 import Realm from 'realm';
 
-class Assignment extends Realm.Object {}
-Assignment.schema = {
-    name: 'Assignment',
+class Card extends Realm.Object {}
+Card.schema = {
+    name: 'Card',
     primaryKey: 'id',
     properties: {
-        id: 'int',
-        word: 'string',
+        id: 'string',
+        type: 'string',
+        front: 'string',
+        frontType: 'string',
+        back: 'string',
+        backType: 'string',
+        pronounciation: 'string',
+        sound: 'string',
+        image: 'string',
+        desription: 'string',
+        url: 'string',
+        lastModified: 'date'
     },
 };
 
-class AssignmentList extends Realm.Object {}
-AssignmentList.schema = {
-    name: 'AssignmentList',
+class Deck extends Realm.Object {}
+Deck.schema = {
+    name: 'Deck',
     primaryKey: 'id',
     properties: {
-        id: 'int',
+        id: 'string',
         name: 'string',
-        assignments: {type: 'list', objectType: 'Assignment'},
+        cards: {type: 'list', objectType: 'Card'},
+        lastModified: 'date'
     },
 };
 
-class AssignmentResult extends Realm.Object {}
-AssignmentResult.schema = {
-    name: 'AssignmentResult',
+class DeckSet extends Realm.Object {}
+DeckSet.schema = {
+    name: 'DeckSet',
     primaryKey: 'id',
     properties: {
-        id: 'int',
-        user: 'int',
-        verifiedBy: 'int',
-        assignment: {type: 'Assignment'},
-        correctAnswer: {type: 'bool', default: false},
+        id: 'string',
+        name: 'string',
+        decks: {type: 'list', objectType: 'Deck'},
+        lastModified: 'date'
     },
 };
 
-class AssignmentResultList extends Realm.Object {}
-AssignmentResultList.schema = {
-    name: 'AssignmentResultList',
+class DeckPractiseResult extends Realm.Object {}
+DeckPractiseResult.schema = {
+    name: 'DeckPractiseResult',
     primaryKey: 'id',
     properties: {
-        id: 'int',
-        user: 'int',
-        assignment: {type: 'Assignment'},
-        correctAnswer: {type: 'bool', default: false},
+        id: 'string',
+        user: 'string',
+        verifiedBy: 'string',
+        card: {type: 'Card'},
+        answeredCorrect: {type: 'bool', default: false},
+        lastModified: 'date'
     },
 };
 
-export default new Realm({schema: [Assignment, AssignmentList, AssignmentResult, AssignmentResultList]});
+class VersionInfo extends Realm.Object {}
+VersionInfo.schema = {
+    name: 'VersionInfo',
+    properties: {
+        version: 'int',
+        lastModified: 'date',
+        lastUpdated: {type: 'date'}
+    },
+};
+
+export default new Realm({schema: [Card, Deck, DeckSet, DeckPractiseResult, VersionInfo]});

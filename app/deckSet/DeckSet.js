@@ -1,65 +1,43 @@
 import React, { Component } from 'react';
 import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
 import { Container, Content, Center, Footer, ResponsiveGrid, Button } from '../common/Common';
-import PreloadDatabase from '../database/PreloadDatabase';
 import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
-import DeckDao from '../dao/DeckDao';
 
 const {deviceWidth} = Dimensions.get('window');
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
 
-export default class HomePage extends Component {
+export default class DeckSet extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            deckSets: []
-        };
     }
 
-    componentWillMount(){
-        //this._loadDecks();
-    }
-
-    componentDidMount(){
-        if(this.state.deckSets.length < 1){
-            PreloadDatabase.init();
-            this._loadDeckSets();
-        }
-    }
-    
-    _loadDeckSets(){
-        let deckSets = DeckDao.getAllDeckSet();
-        console.log('deckSets is '+deckSets);
-        this.setState({ deckSets: deckSets });
-    }
-
-    _onSelectDeckSet(deckSet){
-        Actions.deckSetPage({deckSet: deckSet});
+    _onSelectDeck(deck){
+        Actions.deckPage({deck: deck});
     }
 
     render(){
-        let {deckSets} = this.state;
+        let {decks} = this.state;
         return(
             <Container style={styles.container}>
                 <ScrollView>
                     <ResponsiveGrid
                             containerStyle={{ backgroundColor: '#fff',}}
                             columnCount={2}
-                            dataSource={deckSets}
-                            renderCell={(deckSet, index) => this._renderDeckSet(deckSet, index)} />
+                            dataSource={decks}
+                            renderCell={(deck, index) => this._renderDeck(deck, index)} />
                 </ScrollView>
             </Container>
         );
     }
 
-    _renderDeckSet(deckSet, index){
+    _renderDeck(deck, index){
         const bgcolor = colors[index];
         return (
-            <TouchableOpacity onPress={() => this._onSelectDeckSet(deckSet)}
+            <TouchableOpacity onPress={() => this._onSelectDeck(deck)}
                     key={deck.id} style={[styles.tile, {backgroundColor: bgcolor}]}>
                 <Center>
-                    <Text style={styles.nameText}>{deckSet.name}</Text>
+                    <Text style={styles.nameText}>{deck.name}</Text>
                 </Center>
             </TouchableOpacity>
         );

@@ -15,6 +15,7 @@
     "react-native-code-push": "^1.14.6-beta",
     "react-native-keyboard-spacer": "^0.3.0",
     "react-native-router-flux": "^3.35.0",
+    "react-native-uuid": "^1.4.8",
     "react-native-vector-icons": "^2.1.0",
     "react-swipeable-views": "^0.7.3",
     "realm": "^0.14.3",

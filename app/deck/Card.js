@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import { Container, Content, Center, Footer, HorizontalRow, Button } from '../common/Common';
 
-export default class AssignmentItem extends Component {
+export default class Card extends Component {
     componentDidMount(){
 
     }
@@ -16,12 +16,12 @@ export default class AssignmentItem extends Component {
     }
 
     render(){
-        const {assignment} = this.props;
+        const {card} = this.props;
         return(
             <Content>
                 <Center>
                     <View style={{marginBottom: 100}}>
-                        <Text style={styles.vocabText}>{assignment.word}</Text>
+                        <Text style={styles.vocabText}>{card.front}</Text>
                     </View>
                 </Center>
                 <Footer>

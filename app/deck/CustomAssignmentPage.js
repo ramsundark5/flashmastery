@@ -14,6 +14,7 @@ export default class CustomAssignmentPage extends Component {
     }
 
     componentDidMount(){
+        
     }
     
     _addAssignmentToList(newAssignment){
