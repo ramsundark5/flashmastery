@@ -10,9 +10,9 @@ const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
 export default class DeckSet extends Component {
     constructor(props){
         super(props);
-        /*this.state = {
+        this.state = {
             deckSet: props.deckSet
-        };*/
+        };
     }
 
     _onSelectDeck(deck){
@@ -20,7 +20,7 @@ export default class DeckSet extends Component {
     }
 
     render(){
-        let {deckSet} = this.props;
+        let {deckSet} = this.state;
         let decks = deckSet.decks;
         if(deckSet.custom){
             decks = decks.concat({addCustom: true});
