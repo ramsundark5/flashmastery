@@ -1,4 +1,4 @@
-import Realm from 'realm';
+/*import Realm from 'realm';
 
 class Card extends Realm.Object {}
 Card.schema = {
@@ -68,4 +68,4 @@ VersionInfo.schema = {
     },
 };
 
-export default new Realm({schema: [Card, Deck, DeckSet, DeckPractiseResult, VersionInfo]});
+export default new Realm({schema: [Card, Deck, DeckSet, DeckPractiseResult, VersionInfo]});*/

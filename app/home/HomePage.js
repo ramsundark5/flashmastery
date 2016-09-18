@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
 import { Container, Content, Center, Footer, ResponsiveGrid, Button } from '../common/Common';
-import PreloadDatabase from '../database/PreloadDatabase';
+import {LocalDatabase} from '../database/LocalDatabase';
 import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DeckDao from '../dao/DeckDao';
@@ -13,27 +13,16 @@ export default class HomePage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            deckSets: []
+            deckSets: LocalDatabase
         };
     }
 
     componentWillMount(){
-        //this._loadDecks();
     }
 
     componentDidMount(){
-        if(this.state.deckSets.length < 1){
-            PreloadDatabase.init();
-            this._loadDeckSets();
-        }
     }
     
-    _loadDeckSets(){
-        let deckSets = DeckDao.getAllDeckSet();
-        console.log('deckSets is '+deckSets);
-        this.setState({ deckSets: deckSets });
-    }
-
     _onSelectDeckSet(deckSet){
         Actions.deckSetPage({deckSet: deckSet});
     }
@@ -57,7 +46,7 @@ export default class HomePage extends Component {
         const bgcolor = colors[index];
         return (
             <TouchableOpacity onPress={() => this._onSelectDeckSet(deckSet)}
-                    key={deck.id} style={[styles.tile, {backgroundColor: bgcolor}]}>
+                    key={deckSet.id} style={[styles.tile, {backgroundColor: bgcolor}]}>
                 <Center>
                     <Text style={styles.nameText}>{deckSet.name}</Text>
                 </Center>

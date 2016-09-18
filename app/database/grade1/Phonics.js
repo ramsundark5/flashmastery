@@ -11,4 +11,4 @@ const phonics = [
     },
 ];
 
-export const Phonics = {display: 'Phonics', cards: phonics};
+export const Phonics = {name: 'Phonics', cards: phonics};

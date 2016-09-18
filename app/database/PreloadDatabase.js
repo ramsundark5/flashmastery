@@ -1,4 +1,4 @@
-import uuid from 'react-native-uuid';
+/*import uuid from 'react-native-uuid';
 import realm from './Realm';
 import {LocalDatabase} from './LocalDatabase';
 
@@ -22,15 +22,6 @@ class PreloadDatabase{
         }
     }
 
-/*    _createEmptyDeckSet(deckSetName){
-        let realmDeckSet = realm.create('DeckSet', { 
-                                    id: uuid.v1(), 
-                                    name: deckSetName,
-                                    decks: [],
-                                    lastModified: new Date()
-                                  });
-        return realmDeckSet;
-    }*/
     _createDeckSetIfNotFound(deckSetId, deckSetName){
         let realmDeckSet = realm.objects('DeckSet').objectForPrimaryKey('id = $0', deckSetId);
         if(!realmDeckSet){
@@ -53,4 +44,4 @@ class PreloadDatabase{
     }
 }
 
-export default new PreloadDatabase();
+export default new PreloadDatabase();*/

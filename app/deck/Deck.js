@@ -15,7 +15,7 @@ export default class Deck extends Component {
         return(
             <Container style={styles.container}>
                 <SwipeableViews>
-                    {deck.map( (card, index) => 
+                    {deck.cards.map( (card, index) => 
                         <Card key={index} card={card} />
                     )}
                 </SwipeableViews>

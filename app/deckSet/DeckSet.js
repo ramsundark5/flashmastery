@@ -17,14 +17,15 @@ export default class DeckSet extends Component {
     }
 
     render(){
-        let {decks} = this.state;
+        const {deckSet} = this.props;
+        console.log('deckset is '+deckSet.decks.length);
         return(
             <Container style={styles.container}>
                 <ScrollView>
                     <ResponsiveGrid
                             containerStyle={{ backgroundColor: '#fff',}}
                             columnCount={2}
-                            dataSource={decks}
+                            dataSource={deckSet.decks}
                             renderCell={(deck, index) => this._renderDeck(deck, index)} />
                 </ScrollView>
             </Container>
@@ -32,10 +33,11 @@ export default class DeckSet extends Component {
     }
 
     _renderDeck(deck, index){
+        console.log('deck to be rendered is '+JSON.stringify(deck));
         const bgcolor = colors[index];
         return (
             <TouchableOpacity onPress={() => this._onSelectDeck(deck)}
-                    key={deck.id} style={[styles.tile, {backgroundColor: bgcolor}]}>
+                    key={index} style={[styles.tile, {backgroundColor: bgcolor}]}>
                 <Center>
                     <Text style={styles.nameText}>{deck.name}</Text>
                 </Center>

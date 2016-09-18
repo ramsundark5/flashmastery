@@ -21,4 +21,4 @@ const sightWords = [
     },
 ];
 
-export const SightWords = {display: 'Sight Words', cards: sightWords};
+export const SightWords = {name: 'Sight Words', cards: sightWords};

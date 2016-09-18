@@ -21,4 +21,4 @@ const letters = [
     },
 ];
 
-export const Letters = {display: 'Letters', cards: letters};
+export const Letters = {name: 'Letters', cards: letters};
