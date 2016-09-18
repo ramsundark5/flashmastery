@@ -29,6 +29,8 @@ export default class HomePage extends Component {
 
     render(){
         let {deckSets} = this.state;
+        let customDeckSet = {addCustom: true};
+        deckSets.push(customDeckSet);
         return(
             <Container style={styles.container}>
                 <ScrollView>
@@ -44,6 +46,9 @@ export default class HomePage extends Component {
 
     _renderDeckSet(deckSet, index){
         const bgcolor = colors[index];
+        if(deckSet.addCustom){
+            return this._renderAddCustom(bgcolor);
+        }
         return (
             <TouchableOpacity onPress={() => this._onSelectDeckSet(deckSet)}
                     key={deckSet.id} style={[styles.tile, {backgroundColor: bgcolor}]}>
@@ -54,8 +59,7 @@ export default class HomePage extends Component {
         );
     }
 
-/*    _renderAddCustom(bgcolor){
-        //<Text style={styles.nameText}>Add Custom</Text>
+    _renderAddCustom(bgcolor){
         return (
             <TouchableOpacity onPress={() => this._addNewCustomSet()} 
                 style={[styles.tile, {backgroundColor: bgcolor}]}>
@@ -65,7 +69,7 @@ export default class HomePage extends Component {
                 </Center>
             </TouchableOpacity>
         );
-    }*/
+    }
 }
 
 const styles = StyleSheet.create({

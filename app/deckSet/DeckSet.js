@@ -10,6 +10,9 @@ const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
 export default class DeckSet extends Component {
     constructor(props){
         super(props);
+        /*this.state = {
+            deckSet: props.deckSet
+        };*/
     }
 
     _onSelectDeck(deck){
@@ -17,15 +20,18 @@ export default class DeckSet extends Component {
     }
 
     render(){
-        const {deckSet} = this.props;
-        console.log('deckset is '+deckSet.decks.length);
+        let {deckSet} = this.props;
+        let decks = deckSet.decks;
+        if(deckSet.custom){
+            decks = decks.concat({addCustom: true});
+        }
         return(
             <Container style={styles.container}>
                 <ScrollView>
                     <ResponsiveGrid
                             containerStyle={{ backgroundColor: '#fff',}}
                             columnCount={2}
-                            dataSource={deckSet.decks}
+                            dataSource={decks}
                             renderCell={(deck, index) => this._renderDeck(deck, index)} />
                 </ScrollView>
             </Container>
@@ -35,6 +41,9 @@ export default class DeckSet extends Component {
     _renderDeck(deck, index){
         console.log('deck to be rendered is '+JSON.stringify(deck));
         const bgcolor = colors[index];
+        if(deck.addCustom){
+            return this._renderAddCustom(bgcolor);
+        }
         return (
             <TouchableOpacity onPress={() => this._onSelectDeck(deck)}
                     key={index} style={[styles.tile, {backgroundColor: bgcolor}]}>
@@ -45,8 +54,7 @@ export default class DeckSet extends Component {
         );
     }
 
-/*    _renderAddCustom(bgcolor){
-        //<Text style={styles.nameText}>Add Custom</Text>
+    _renderAddCustom(bgcolor){
         return (
             <TouchableOpacity onPress={() => this._addNewCustomSet()} 
                 style={[styles.tile, {backgroundColor: bgcolor}]}>
@@ -56,7 +64,7 @@ export default class DeckSet extends Component {
                 </Center>
             </TouchableOpacity>
         );
-    }*/
+    }
 }
 
 const styles = StyleSheet.create({

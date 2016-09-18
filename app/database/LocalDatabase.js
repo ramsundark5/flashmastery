@@ -2,8 +2,8 @@ import {Kindergarten} from './kindergarten/Kindergarten';
 import {Grade1} from './grade1/Grade1';
 
 export const LocalDatabase = [ 
-    {id: "5023c338-7b87-11e6-8b77-86f30ca893d3",  name: "Kindergarten", decks: Kindergarten}, 
-    {id: "6bea4938-7b88-11e6-8b77-86f30ca893d3", name: "1st Grade", decks: Grade1}, 
-    {id: "73be0b36-7b88-11e6-8b77-86f30ca893d3", name: "2nd Grade", decks: Grade1}, 
-    {id: "7abccf62-7b88-11e6-8b77-86f30ca893d3", name: "3rd Grade", decks: Grade1}
+    {id: "5023c338-7b87-11e6-8b77-86f30ca893d3",  name: "Kindergarten", decks: Kindergarten, custom: false}, 
+    {id: "6bea4938-7b88-11e6-8b77-86f30ca893d3", name: "1st Grade", decks: Grade1, custom: false}, 
+    {id: "73be0b36-7b88-11e6-8b77-86f30ca893d3", name: "2nd Grade", decks: Grade1, custom: false}, 
+    {id: "7abccf62-7b88-11e6-8b77-86f30ca893d3", name: "3rd Grade", decks: Grade1, custom: true}
 ];
