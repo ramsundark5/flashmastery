@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import { Container, Content, Center, Footer, HorizontalRow, Button } from '../common/Common';
 import SwipeableViews from 'react-swipeable-views/lib/index.native.scroll';
-import Card from './Card';
+import Card from '../card/Card';
 import {LocalDatabase} from '../database/LocalDatabase';
 
 export default class Deck extends Component {

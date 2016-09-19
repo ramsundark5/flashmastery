@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import { HorizontalRow, Button } from '../common/Common';
 
-export default class AddCustomAssignmentFooter extends Component {
+export default class AddNewDeckInput extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -10,17 +10,17 @@ export default class AddCustomAssignmentFooter extends Component {
         };
     }
 
-    _onAddAssignment(){
-        let newAssignment = { word: this.state.text };
+    _onAddCard(){
+        let newCard = { front: this.state.text };
         this.setState({
             text: ''
         });
-        this.props.addAssignmentToList(newAssignment);
+        this.props.addCardToDeck(newCard);
     }
 
     render(){
         return(
-            <HorizontalRow style={styles.addAssignmentContainer}>
+            <HorizontalRow style={styles.addCardContainer}>
                 <View style={styles.addTextInputContainer}>
                     <TextInput
                             ref='addTextInput'
@@ -31,7 +31,7 @@ export default class AddCustomAssignmentFooter extends Component {
                 </View>
 
                 <TouchableOpacity style={[styles.addButtonContainer]}>
-                    <Button onPress={() => this._onAddAssignment()} 
+                    <Button onPress={() => this._onAddCard()} 
                         style={styles.addButton} textStyle={styles.addButtonText}>
                         Add
                     </Button>
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 14
     },
-    addAssignmentContainer:{
+    addCardContainer:{
         marginLeft: 15,
         marginRight: 10,
         marginBottom: 5 

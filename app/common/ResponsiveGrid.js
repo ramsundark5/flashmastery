@@ -15,6 +15,7 @@ export default class ResponsiveGrid extends Component {
     return (
       <View style={[this.props.style, styles.container, {width: this.props.rowWidth,}]}>
         {this._renderCells()}
+        {this._renderExtraCellAtEnd()}
       </View>
     );
   }
@@ -27,6 +28,19 @@ export default class ResponsiveGrid extends Component {
             </View>
           );
       });
+  }
+
+  _renderExtraCellAtEnd(){
+      const {extraCellAtEnd} = this.props;
+      let cellsLength = this.props.dataSource.length;
+      if(!extraCellAtEnd){
+        return null;
+      }
+      return (
+            <View style={{width: this._columnWidth, }} key={`cell-${(extraCellAtEnd.key != null) ? extraCellAtEnd.key : cellsLength}`}>
+                {this.props.renderCell(extraCellAtEnd, cellsLength)}
+            </View>
+      );
   }
 
 }

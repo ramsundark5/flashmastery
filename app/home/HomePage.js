@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
     },
     nameText:{
         textAlign: 'center',
-        color: 'white'
+        color: 'white',
+        fontWeight: 'bold',
     },
     showAddIcon: {
         padding: 2,

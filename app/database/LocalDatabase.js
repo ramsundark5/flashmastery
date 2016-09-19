@@ -7,3 +7,9 @@ export const LocalDatabase = [
     {id: "73be0b36-7b88-11e6-8b77-86f30ca893d3", name: "2nd Grade", decks: Grade1, custom: false}, 
     {id: "7abccf62-7b88-11e6-8b77-86f30ca893d3", name: "3rd Grade", decks: Grade1, custom: true}
 ];
+
+//use simple async storage to persist results and exclusion
+//userid-decksetid-deckid-results as key to store results as array
+//userid-decksetid-deckid-exlcusions as key to store exclusions as array
+
+//use asyncstorage or pouchdb
