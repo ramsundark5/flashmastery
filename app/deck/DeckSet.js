@@ -39,7 +39,6 @@ export default class DeckSet extends Component {
             
         );
         this.setState({decks: decksAfterUpdate});
-        //Actions.addNewDeck();
     }
 
     _onNewDeckAdd(addedDeck){
@@ -70,7 +69,8 @@ export default class DeckSet extends Component {
         return(
             <DeckTile deck={deck} bgColor={bgColor} key={deck.id} 
                 onDeckNameUpdate={(updatedDeck) => this._onDeckNameUpdate(updatedDeck)}
-                onNewDeckAdd={(addedDeck) => this._onNewDeckAdd(addedDeck)}/>
+                onNewDeckAdd={(addedDeck) => this._onNewDeckAdd(addedDeck)}
+                onSelect={(deck) => this._onSelectDeck(deck)}/>
         );
     }
 }

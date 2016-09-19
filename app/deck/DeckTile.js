@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
 import { Center, HorizontalRow, Button } from '../common/Common';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {Actions} from 'react-native-router-flux';
 
 const ADD_NEW_DECK = 'add';
 const EDIT_DECK_NAME = 'edit';
@@ -19,6 +20,10 @@ export default class DeckTile extends Component {
     componentDidMount(){
     }
     
+    _onSelectDeck(deck){
+        this.props.onSelect(deck);
+    }
+    
     _showEditDeckName(deck){
         deck.action = EDIT_DECK_NAME;
         this.setState({deck : deck});
@@ -28,13 +33,15 @@ export default class DeckTile extends Component {
         deck.action = null;
         deck.name = this.state.editableDeckText;
         this.setState({deck : deck, editableDeckText: ''});
-        //this.props.onDeckNameUpdate(deck);
-        this.props.onNewDeckAdd(deck);
+        if(this.originalDeckAction === ADD_NEW_DECK){
+            this.props.onNewDeckAdd(deck);
+        }else{
+            this.props.onDeckNameUpdate(deck);
+        }
     }
 
     _cancelEditDeckName(deck){
         deck.action = this.originalDeckAction;
-        deck.name = this.state.editableDeckText;
         this.setState({deck : deck, editableDeckText: ''});
     }
 
@@ -55,7 +62,9 @@ export default class DeckTile extends Component {
 
     _renderViewDeck(deck, bgColor){
         return (
-            <TouchableOpacity onPress={() => this._onSelectDeck(deck)}
+            <TouchableOpacity 
+                    onLongPress={() => this._showEditDeckName(deck)}
+                    onPress={() => this._onSelectDeck(deck)}
                     style={[styles.tile, {backgroundColor: bgColor}]}>
                 <Center>
                     <Text style={styles.nameText}>{deck.name}</Text>

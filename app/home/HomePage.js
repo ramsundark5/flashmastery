@@ -5,19 +5,20 @@ import {LocalDatabase} from '../database/LocalDatabase';
 import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DeckDao from '../dao/DeckDao';
+import uuid from 'react-native-uuid';
+import DeckTile from '../deck/DeckTile';
 
 const {deviceWidth} = Dimensions.get('window');
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
+const ADD_NEW_DECK = 'add';
 
 export default class HomePage extends Component {
     constructor(props){
         super(props);
+        this.addNewDeck = {id: uuid.v1(), action: ADD_NEW_DECK};
         this.state = {
             deckSets: LocalDatabase
         };
-    }
-
-    componentWillMount(){
     }
 
     componentDidMount(){
@@ -27,10 +28,23 @@ export default class HomePage extends Component {
         Actions.deckSetPage({deckSet: deckSet});
     }
 
+    _onDeckSetNameUpdate(updatedDeckSet){
+        let deckSetsAfterUpdate = this.state.deckSets.map( (existingDeckSet, index) => 
+            existingDeckSet.id === updatedDeckSet.id?
+                    Object.assign({}, updatedDeckSet) :
+                    existingDeckSet
+            
+        );
+        this.setState({deckSets: deckSetsAfterUpdate});
+    }
+
+    _onNewDeckSetAdd(addedDeckSet){
+        let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
+        this.setState({deckSets: deckSetsAfterAdd});
+    }
+
     render(){
         let {deckSets} = this.state;
-        let customDeckSet = {addCustom: true};
-        deckSets.push(customDeckSet);
         return(
             <Container style={styles.container}>
                 <ScrollView>
@@ -38,6 +52,7 @@ export default class HomePage extends Component {
                             containerStyle={{ backgroundColor: '#fff',}}
                             columnCount={2}
                             dataSource={deckSets}
+                            extraCellAtEnd = {this.addNewDeck}
                             renderCell={(deckSet, index) => this._renderDeckSet(deckSet, index)} />
                 </ScrollView>
             </Container>
@@ -45,29 +60,13 @@ export default class HomePage extends Component {
     }
 
     _renderDeckSet(deckSet, index){
-        const bgcolor = colors[index];
-        if(deckSet.addCustom){
-            return this._renderAddCustom(bgcolor);
-        }
-        return (
-            <TouchableOpacity onPress={() => this._onSelectDeckSet(deckSet)}
-                    key={deckSet.id} style={[styles.tile, {backgroundColor: bgcolor}]}>
-                <Center>
-                    <Text style={styles.nameText}>{deckSet.name}</Text>
-                </Center>
-            </TouchableOpacity>
-        );
-    }
-
-    _renderAddCustom(bgcolor){
-        return (
-            <TouchableOpacity onPress={() => this._addNewCustomSet()} 
-                style={[styles.tile, {backgroundColor: bgcolor}]}>
-                <Center>
-                    <Icon name='md-add'
-                        style={[styles.showAddIcon]}/>
-                </Center>
-            </TouchableOpacity>
+        console.log('deckSet to be rendered is '+JSON.stringify(deckSet));
+        const bgColor = colors[index];
+        return(
+            <DeckTile deck={deckSet} bgColor={bgColor} key={deckSet.id} 
+                onDeckNameUpdate={(updatedDeckSet) => this._onDeckSetNameUpdate(updatedDeckSet)}
+                onNewDeckAdd={(addedDeckSet) => this._onNewDeckSetAdd(addedDeckSet)}
+                onSelect={(deckSet) => this._onSelectDeckSet(deckSet)}/>
         );
     }
 }
