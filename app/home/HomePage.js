@@ -9,13 +9,13 @@ import uuid from 'react-native-uuid';
 import DeckTile from '../deck/DeckTile';
 
 const {deviceWidth} = Dimensions.get('window');
-const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
+const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336", "#F44336"];
 const ADD_NEW_DECK = 'add';
 
 export default class HomePage extends Component {
     constructor(props){
         super(props);
-        this.addNewDeck = {id: uuid.v1(), action: ADD_NEW_DECK};
+        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK};
         this.state = {
             deckSets: LocalDatabase
         };
@@ -39,8 +39,10 @@ export default class HomePage extends Component {
     }
 
     _onNewDeckSetAdd(addedDeckSet){
+        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK};
         let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
         this.setState({deckSets: deckSetsAfterAdd});
+        console.log('extra cells is '+this.addNewDeck);
     }
 
     render(){
@@ -52,7 +54,7 @@ export default class HomePage extends Component {
                             containerStyle={{ backgroundColor: '#fff',}}
                             columnCount={2}
                             dataSource={deckSets}
-                            extraCellAtEnd = {this.addNewDeck}
+                            extraCellAtEnd = {this.addNewDeckSet}
                             renderCell={(deckSet, index) => this._renderDeckSet(deckSet, index)} />
                 </ScrollView>
             </Container>
