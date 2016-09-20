@@ -4,6 +4,7 @@ import { Container, Content, Center, Footer, ResponsiveGrid, Button } from '../c
 import {Actions} from 'react-native-router-flux';
 import DeckTile from './DeckTile';
 import uuid from 'react-native-uuid';
+import ColorGenerator from '../utils/ColorGenerator';
 
 const {deviceWidth} = Dimensions.get('window');
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
@@ -23,7 +24,7 @@ export default class DeckSet extends Component {
 
     _addNewDeckOptionAtEnd(){
         if(this.props.deckSet.custom){
-            this.addNewDeck = {id: uuid.v1(), action: ADD_NEW_DECK};
+            this.addNewDeck = {id: uuid.v1(), action: ADD_NEW_DECK, name: 'New'};
         }
     }
 
@@ -65,7 +66,10 @@ export default class DeckSet extends Component {
 
     _renderDeck(deck, index){
         console.log('deck to be rendered is '+JSON.stringify(deck));
-        const bgColor = colors[index];
+        let bgColor = colors[index];
+        if(!bgColor){
+            bgColor = ColorGenerator.getColor(deck.name);
+        }
         return(
             <DeckTile deck={deck} bgColor={bgColor} key={deck.id} 
                 onDeckNameUpdate={(updatedDeck) => this._onDeckNameUpdate(updatedDeck)}

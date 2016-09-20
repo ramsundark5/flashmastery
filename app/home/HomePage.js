@@ -7,15 +7,16 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import DeckDao from '../dao/DeckDao';
 import uuid from 'react-native-uuid';
 import DeckTile from '../deck/DeckTile';
+import ColorGenerator from '../utils/ColorGenerator';
 
 const {deviceWidth} = Dimensions.get('window');
-const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336", "#F44336"];
+const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
 const ADD_NEW_DECK = 'add';
 
 export default class HomePage extends Component {
     constructor(props){
         super(props);
-        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK};
+        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: 'New'};
         this.state = {
             deckSets: LocalDatabase
         };
@@ -39,7 +40,7 @@ export default class HomePage extends Component {
     }
 
     _onNewDeckSetAdd(addedDeckSet){
-        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK};
+        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: 'New'};
         let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
         this.setState({deckSets: deckSetsAfterAdd});
         console.log('extra cells is '+this.addNewDeck);
@@ -63,7 +64,10 @@ export default class HomePage extends Component {
 
     _renderDeckSet(deckSet, index){
         console.log('deckSet to be rendered is '+JSON.stringify(deckSet));
-        const bgColor = colors[index];
+        let bgColor = colors[index];
+        if(!bgColor){
+            bgColor = ColorGenerator.getColor(deckSet.name);
+        }
         return(
             <DeckTile deck={deckSet} bgColor={bgColor} key={deckSet.id} 
                 onDeckNameUpdate={(updatedDeckSet) => this._onDeckSetNameUpdate(updatedDeckSet)}
