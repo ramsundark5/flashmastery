@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
-import { Center, HorizontalRow, Button } from '../common/Common';
+import { Center, HorizontalRow, Button, EditableText } from '../common/Common';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
 
@@ -31,20 +31,22 @@ export default class DeckTile extends Component {
         }
     }
 
-    _finishEditDeckName(deck){
-        deck.action = null;
-        deck.name = this.state.editableDeckText;
-        this.setState({deck : deck, editableDeckText: ''});
+    _finishEditDeckName(finishedText){
+        let editedDeck = Object.assign({}, this.state.deck);
+        editedDeck.action = null;
+        editedDeck.name = finishedText;
+        this.setState({deck : editedDeck, editableDeckText: ''});
         if(this.originalDeckAction === ADD_NEW_DECK){
-            this.props.onNewDeckAdd(deck);
+            this.props.onNewDeckAdd(editedDeck);
         }else{
-            this.props.onDeckNameUpdate(deck);
+            this.props.onDeckNameUpdate(editedDeck);
         }
     }
 
-    _cancelEditDeckName(deck){
-        deck.action = this.originalDeckAction;
-        this.setState({deck : deck, editableDeckText: ''});
+    _cancelEditDeckName(){
+        let editedDeck = Object.assign({}, this.state.deck);
+        editedDeck.action = this.originalDeckAction;
+        this.setState({deck : editedDeck});
     }
 
     render(){
@@ -89,24 +91,14 @@ export default class DeckTile extends Component {
 
     _renderEditableDeck(deck, bgColor){
         return(
-            <TouchableOpacity onLongPress={() => this._onSelectDeck(deck)}
-                        style={[styles.tile, {backgroundColor: bgColor}]}>
-                    <HorizontalRow style={styles.editNameInputContainer}>
-                        <TextInput
-                            ref='editDeckNameInput'
-                            style={[styles.editNameInput]}
-                            placeholder={'Type here..'}
-                            value={this.state.editableDeckText}
-                            onChangeText={(changedText) => this.setState({editableDeckText: changedText})}/>
-                    </HorizontalRow>
-                    <HorizontalRow style={styles.editNameButtonContainer}>
-                        <Icon name='ios-close-circle-outline' style={[styles.cancelIcon]}
-                            onPress={() => this._cancelEditDeckName(deck)}/>
-                        <View style={styles.dummySpace}></View>
-                        <Icon name='ios-checkmark-circle-outline' style={[styles.okayIcon]}
-                            onPress={() => this._finishEditDeckName(deck)}/>
-                    </HorizontalRow>
-            </TouchableOpacity>
+            <EditableText 
+                    editable={true}
+                    isEditing={true}
+                    textContent={deck.name}
+                    editInputContainerStyle={[styles.tile, {backgroundColor: bgColor}]}
+                    placeholder={'Type here..'}
+                    finishEditText={(finishedText) => this._finishEditDeckName(finishedText)}
+                    cancelEditText={() => this._cancelEditDeckName()}/>
         );
     }
 }
@@ -124,41 +116,10 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
     },
-    editNameInputContainer:{
-        justifyContent: 'center',
-        marginTop: 50
-    },
-    editNameInput: {
-        height  : 26,
-        fontSize: 14,
-        color: 'white',
-        fontWeight: 'bold',
-        marginLeft: 10,
-        marginRight: 10,
-        textAlign: 'center',
-        flex: 1
-    },
     showAddIcon: {
         padding: 2,
         fontWeight: 'bold',
         fontSize : 40,
         color: 'white'
     },
-    editNameButtonContainer:{
-        marginTop: 10,
-        alignItems: 'center'
-    },
-    cancelIcon:{
-        fontWeight: 'bold',
-        fontSize : 40,
-        color: 'red'
-    },
-    okayIcon:{
-        fontWeight: 'bold',
-        fontSize : 40,
-        color: 'green'
-    },
-    dummySpace:{
-        margin: 10
-    }
 });

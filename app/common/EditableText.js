@@ -7,8 +7,8 @@ export default class EditableText extends Component {
     constructor(props){
         super(props);
         this.state = {
-            editableText: '',
-            isEditing: false
+            editableText: props.textContent,
+            isEditing: props.isEditing || false
         };
     }
 
