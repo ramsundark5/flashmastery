@@ -13,7 +13,8 @@ export default class DeckTile extends Component {
         this.originalDeckAction = props.deck.action;
         this.state = {
             deck: props.deck,
-            editableDeckText: ''
+            isEditing: false,
+            isCustom: props.isCustom
         };
     }
     
@@ -24,8 +25,14 @@ export default class DeckTile extends Component {
         this.props.onSelect(deck);
     }
     
+    _onClickAddDeck(deck){
+        deck.action = EDIT_DECK_NAME;
+        deck.custom = true;
+        this.setState({deck : deck, isCustom: true});
+    }
+
     _showEditDeckName(deck){
-        if(this.props.isCustom){
+        if(this.state.isCustom){
             deck.action = EDIT_DECK_NAME;
             this.setState({deck : deck});
         }
@@ -35,7 +42,7 @@ export default class DeckTile extends Component {
         let editedDeck = Object.assign({}, this.state.deck);
         editedDeck.action = null;
         editedDeck.name = finishedText;
-        this.setState({deck : editedDeck, editableDeckText: ''});
+        this.setState({deck : editedDeck});
         if(this.originalDeckAction === ADD_NEW_DECK){
             this.props.onNewDeckAdd(editedDeck);
         }else{
@@ -79,7 +86,7 @@ export default class DeckTile extends Component {
 
     _renderAddNewDeck(deck, bgColor){
         return (
-            <TouchableOpacity onPress={() => this._showEditDeckName(deck)} 
+            <TouchableOpacity onPress={() => this._onClickAddDeck(deck)} 
                 style={[styles.tile, {backgroundColor: bgColor}]}>
                 <Center>
                     <Icon name='md-add'

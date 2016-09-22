@@ -40,7 +40,9 @@ export default class HomePage extends Component {
     }
 
     _onNewDeckSetAdd(addedDeckSet){
-        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: 'New'};
+        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: ''};
+        addedDeckSet.decks = [];
+        addedDeckSet.custom = true;
         let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
         this.setState({deckSets: deckSetsAfterAdd});
         console.log('extra cells is '+this.addNewDeck);
@@ -63,13 +65,14 @@ export default class HomePage extends Component {
     }
 
     _renderDeckSet(deckSet, index){
+        const isCustom = deckSet.custom;
         console.log('deckSet to be rendered is '+JSON.stringify(deckSet));
         let bgColor = colors[index];
         if(!bgColor){
             bgColor = ColorGenerator.getColor(deckSet.name);
         }
         return(
-            <DeckTile deck={deckSet} bgColor={bgColor} key={deckSet.id} 
+            <DeckTile deck={deckSet} isCustom={isCustom} bgColor={bgColor} key={deckSet.id} 
                 onDeckNameUpdate={(updatedDeckSet) => this._onDeckSetNameUpdate(updatedDeckSet)}
                 onNewDeckAdd={(addedDeckSet) => this._onNewDeckSetAdd(addedDeckSet)}
                 onSelect={(deckSet) => this._onSelectDeckSet(deckSet)}/>

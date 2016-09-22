@@ -24,7 +24,7 @@ export default class DeckSet extends Component {
 
     _addNewDeckOptionAtEnd(){
         if(this.props.deckSet.custom){
-            this.addNewDeck = {id: uuid.v1(), action: ADD_NEW_DECK, name: 'New'};
+            this.addNewDeck = {id: uuid.v1(), action: ADD_NEW_DECK, name: ''};
         }
     }
 
