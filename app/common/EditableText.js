@@ -26,10 +26,7 @@ export default class EditableText extends Component {
     }
 
     _finishEditText(){
-        
-        //if(this.props.finishEditText){
-            this.props.finishEditText(this.state.editableText);
-        //}
+        this.props.finishEditText(this.state.editableText);
         this.setState({editableText: '', isEditing: false});
     }
 
@@ -55,7 +52,7 @@ export default class EditableText extends Component {
 
 	_renderEditMode() {
 		return (
-			<View style={[styles.inputContainer, this.props.editInputContainerStyle]}>
+			<TouchableOpacity style={[styles.inputContainer, this.props.editInputContainerStyle]}>
                 <TextInput
                         ref='editCardInput'
                         style={[styles.editInput, this.props.editInputStyle]}
@@ -68,15 +65,15 @@ export default class EditableText extends Component {
                     <Icon name='ios-checkmark-circle-outline' style={[styles.okayIcon, this.props.okayIconStyle]}
                         onPress={() => this._finishEditText()}/>
                 </HorizontalRow>
-            </View>
+            </TouchableOpacity>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
     viewText: {
-        fontSize: 32,
-        color: '#0277BD'
+        fontSize: 14,
+        color: 'white'
     },
     inputContainer:{
         justifyContent: 'center',

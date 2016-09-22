@@ -53,18 +53,20 @@ export default class Card extends Component {
         const {card} = this.state;
         let  flipButtonText = 'Flip card';
         let cardText = card.front;
-        let finishCallBackFunction = this._finishEditFrontCardText;
+        let finishCallBackFunction = (finishedText) => this._finishEditFrontCardText(finishedText);
         if(isBack){
             cardText = card.back;
-            finishCallBackFunction = this._finishEditBackCardText;
+            finishCallBackFunction = (finishedText) => this._finishEditBackCardText(finishedText);
         }
+        
         return(
             <Center>
                 <EditableText 
                     editable={true}
-                    textContent={cardText} 
-                    editInputStyle={styles.vocabText}
-                    finishEditText={(finishedText) => this._finishEditFrontCardText(finishedText)}/>
+                    textContent={cardText}
+                    editInputStyle={styles.editText}
+                    viewTextStyle={styles.viewText} 
+                    finishEditText={(finishedText) => finishCallBackFunction(finishedText)}/>
             </Center>
         );
     };
@@ -84,4 +86,12 @@ export default class Card extends Component {
 }
 
 const styles = StyleSheet.create({
+    viewText: {
+        fontSize: 32,
+        color: '#0277BD'
+    },
+    editText:{
+        fontSize: 32,
+        color: '#0277BD'
+    }
 });
