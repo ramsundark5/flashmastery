@@ -16,7 +16,7 @@ const ADD_NEW_DECK = 'add';
 export default class HomePage extends Component {
     constructor(props){
         super(props);
-        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: 'New'};
+        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: ''};
         this.state = {
             deckSets: LocalDatabase
         };
@@ -85,23 +85,5 @@ const styles = StyleSheet.create({
         padding: 0,
         marginTop: 5,
         marginBottom: 10
-    },
-    tile:{ 
-        overflow: 'hidden',
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: 150,
-        margin: 1,
-    },
-    nameText:{
-        textAlign: 'center',
-        color: 'white',
-        fontWeight: 'bold',
-    },
-    showAddIcon: {
-        padding: 2,
-        fontWeight: 'bold',
-        fontSize : 40,
-        color: 'white'
     },
 });

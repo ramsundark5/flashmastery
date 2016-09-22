@@ -32,6 +32,9 @@ class ColorGenerator{
      * @return {String}
      */
     getColor(text) {
+        if(!text || text.length < 1){
+            text = 'new';
+        }
         let hash = this.hashCode(text);
         return "#"+this.intToRGB(hash);
     }
