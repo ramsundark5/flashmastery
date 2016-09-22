@@ -29,7 +29,8 @@ export default class DeckSet extends Component {
     }
 
     _onSelectDeck(deck){
-        Actions.deckPage({deck: deck});
+        let isCustom = this.props.deckSet.custom;
+        Actions.deckPage({deck: deck, isCustom: isCustom});
     }
 
     _onDeckNameUpdate(updatedDeck){
@@ -65,13 +66,14 @@ export default class DeckSet extends Component {
     }
 
     _renderDeck(deck, index){
+        const isCustom = this.props.deckSet.custom;
         console.log('deck to be rendered is '+JSON.stringify(deck));
         let bgColor = colors[index];
         if(!bgColor){
             bgColor = ColorGenerator.getColor(deck.name);
         }
         return(
-            <DeckTile deck={deck} bgColor={bgColor} key={deck.id} 
+            <DeckTile deck={deck} isCustom={isCustom} bgColor={bgColor} key={deck.id} 
                 onDeckNameUpdate={(updatedDeck) => this._onDeckNameUpdate(updatedDeck)}
                 onNewDeckAdd={(addedDeck) => this._onNewDeckAdd(addedDeck)}
                 onSelect={(deck) => this._onSelectDeck(deck)}/>

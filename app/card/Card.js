@@ -1,63 +1,87 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import { Container, Content, Center, Footer, HorizontalRow, Button } from '../common/Common';
+import {View, Text, TextInput, TouchableOpacity, Easing, StyleSheet} from 'react-native';
+import { EditableText, Center, Button } from '../common/Common';
+import FlipView from 'react-native-flip-view';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Card extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            card: props.card,
+            isFlipped: false,
+        };
+    }
+
     componentDidMount(){
 
     }
     
-    markAsLearning(){
-
+    _finishEditFrontCardText(finishedText){
+        let cardAfterEdit = Object.assign({}, this.state.card);
+        cardAfterEdit.front = finishedText;
+        this.setState({card: cardAfterEdit});
+        //save card after change
     }
 
-    markAsMastered(){
-
+    _finishEditBackCardText(finishedText){
+        let cardAfterEdit = Object.assign({}, this.state.card);
+        cardAfterEdit.back = finishedText;
+        this.setState({card: cardAfterEdit});
+        //save card after change
     }
+
+    _flip(){
+        this.setState({isFlipped: !this.state.isFlipped});
+    };
 
     render(){
-        const {card} = this.props;
         return(
-            <Content>
-                <Center>
-                    <View style={{marginBottom: 100}}>
-                        <Text style={styles.vocabText}>{card.front}</Text>
-                    </View>
-                </Center>
-                <Footer>
-                    <HorizontalRow style={styles.answerButtonContainer}>
-                        <Button onPress={() => this.markAsLearning()} style={styles.answerButton} textStyle={styles.answerText}>
-                            Learning
-                        </Button>
-                        <View style={styles.dummySpace}></View>
-                        <Button onPress={() => this.markAsMastered()} style={styles.answerButton} textStyle={styles.answerText}>
-                            Mastered
-                        </Button>
-                    </HorizontalRow>
-                </Footer>
-            </Content>
+            <FlipView style={{flex: 1}}
+                    front={this._renderCardContent(false)}
+                    back={this._renderCardContent(true)}
+                    isFlipped={this.state.isFlipped}
+                    onFlipped={(val) => {console.log('Flipped: ' + val);}}
+                    flipAxis="y"
+                    flipEasing={Easing.out(Easing.ease)}
+                    flipDuration={500}
+                    perspective={1000}/>
         );
     }
+
+    _renderCardContent(isBack){
+        const {card} = this.state;
+        let  flipButtonText = 'Flip card';
+        let cardText = card.front;
+        let finishCallBackFunction = this._finishEditFrontCardText;
+        if(isBack){
+            cardText = card.back;
+            finishCallBackFunction = this._finishEditBackCardText;
+        }
+        return(
+            <Center>
+                <EditableText 
+                    editable={true}
+                    textContent={cardText} 
+                    editInputStyle={styles.vocabText}
+                    finishEditText={(finishedText) => this._finishEditFrontCardText(finishedText)}/>
+            </Center>
+        );
+    };
+
+    _renderFlipButton(){
+        const {isFlipEnabled} = this.props;
+        if(!isFlipEnabled){
+            return null;
+        }
+        return(
+            <TouchableOpacity style={{backgroundColor: 'black', padding: 20}} onPress={() => this._flip()}>
+                    <Text style={{fontSize: 32, color: 'white'}}>{flipButtonText}</Text>
+            </TouchableOpacity>
+        );
+    }
+
 }
 
 const styles = StyleSheet.create({
-    answerButtonContainer:{
-        margin: 10,
-    },
-    answerButton:{
-        flex: 1,
-        backgroundColor: '#48BBEC',
-        borderColor: '#48BBEC',
-    },
-    answerText:{
-        color: 'white',
-        textAlign: 'center'
-    },
-    vocabText: {
-        fontSize: 32,
-        color: '#0277BD'
-    },
-    dummySpace:{
-        margin: 10
-    }
 });

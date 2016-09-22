@@ -25,8 +25,10 @@ export default class DeckTile extends Component {
     }
     
     _showEditDeckName(deck){
-        deck.action = EDIT_DECK_NAME;
-        this.setState({deck : deck});
+        if(this.props.isCustom){
+            deck.action = EDIT_DECK_NAME;
+            this.setState({deck : deck});
+        }
     }
 
     _finishEditDeckName(deck){

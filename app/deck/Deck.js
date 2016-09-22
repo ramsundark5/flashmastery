@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import { Container, Content, Center, Footer, HorizontalRow, Button } from '../common/Common';
 import SwipeableViews from 'react-swipeable-views/lib/index.native.scroll';
-import Card from '../card/Card';
-import {LocalDatabase} from '../database/LocalDatabase';
+import PracticeCard from '../card/PracticeCard';
+import EditableCard from '../card/EditableCard';
 
 export default class Deck extends Component {
     componentDidMount(){
@@ -16,11 +16,24 @@ export default class Deck extends Component {
             <Container style={styles.container}>
                 <SwipeableViews>
                     {deck.cards.map( (card, index) => 
-                        <Card key={index} card={card} />
+                        this._renderCard(card, index)
                     )}
                 </SwipeableViews>
             </Container>
         );
+    }
+
+    _renderCard(card, index){
+        const {deck, isCustom} = this.props;
+        if(isCustom){
+            return(
+                <EditableCard key={card.id} card={card} />
+            );
+        }else{
+            return(
+                <PracticeCard key={card.id} card={card} />
+            );
+        }
     }
 }
 

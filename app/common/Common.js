@@ -7,6 +7,7 @@ import HorizontalRow from './HorizontalRow';
 import Button from './Button';
 import Loader from './Loader';
 import ResponsiveGrid from './ResponsiveGrid';
+import EditableText from './EditableText';
 
 module.exports = {
 	Container,
@@ -17,5 +18,6 @@ module.exports = {
 	HorizontalRow,
 	Button,
 	Loader,
-	ResponsiveGrid
+	ResponsiveGrid,
+	EditableText
 };
