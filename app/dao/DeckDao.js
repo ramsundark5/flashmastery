@@ -3,8 +3,12 @@ import uuid from 'react-native-uuid';
 
 class DeckDao{
     getAllDeckSet(){
-        let deckSet = realm.objects('DeckSet').snapshot();
-        return deckSet;
+        let customDeckSets = [];
+        let realmDeckSets = realm.objects('DeckSet');
+        realmDeckSets.map(function(deckSet) {
+            customDeckSets.push(deckSet);
+        });
+        return customDeckSets;
     }
 
     getDeckSetForId(deckSetId){
@@ -12,9 +16,11 @@ class DeckDao{
         return deckSetForId;
     }
 
-    addNewDeckSet(deckSetName){
+    addNewDeckSet(addedDeckSet){
         realm.write(() => {
-            realm.create('DeckSet', {id: uuid.v1() ,name: deckSetName});
+            addedDeckSet.lastModified = new Date();
+            addedDeckSet.custom = true;
+            realm.create('DeckSet', addedDeckSet);
         });
     }
 }

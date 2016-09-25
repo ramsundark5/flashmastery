@@ -3,6 +3,7 @@ import {View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity} from 'r
 import { Center, HorizontalRow, Button, EditableText } from '../common/Common';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
+import RoundCheckbox from 'rn-round-checkbox';
 
 const ADD_NEW_DECK = 'add';
 const EDIT_DECK_NAME = 'edit';
@@ -14,7 +15,8 @@ export default class DeckTile extends Component {
         this.state = {
             deck: props.deck,
             isEditing: false,
-            isCustom: props.isCustom
+            isCustom: props.isCustom,
+            isSelected: false
         };
     }
     
@@ -54,6 +56,10 @@ export default class DeckTile extends Component {
         let editedDeck = Object.assign({}, this.state.deck);
         editedDeck.action = this.originalDeckAction;
         this.setState({deck : editedDeck});
+    }
+
+    _deleteDeck(){
+        this.props.onDeckDelete(this.state.deck);
     }
 
     render(){
@@ -106,6 +112,19 @@ export default class DeckTile extends Component {
                     placeholder={'Type here..'}
                     finishEditText={(finishedText) => this._finishEditDeckName(finishedText)}
                     cancelEditText={() => this._cancelEditDeckName()}/>
+        );
+    }
+
+    _renderSelectCheckBox(){
+        const {selectionModeEnabled} = this.props;
+        if(!selectionModeEnabled){
+            return null;
+        }
+        return(
+            <RoundCheckbox
+                size={24}
+                checked={this.state.isSelected}
+                onValueChange={(newValue) => this.setState({isSelected: !isSelected})}/>
         );
     }
 }

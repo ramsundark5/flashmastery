@@ -8,6 +8,7 @@ import DeckDao from '../dao/DeckDao';
 import uuid from 'react-native-uuid';
 import DeckTile from '../deck/DeckTile';
 import ColorGenerator from '../utils/ColorGenerator';
+import NavigationBar from 'react-native-navbar';
 
 const {deviceWidth} = Dimensions.get('window');
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
@@ -18,11 +19,17 @@ export default class HomePage extends Component {
         super(props);
         this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: ''};
         this.state = {
-            deckSets: LocalDatabase
+            deckSets: LocalDatabase,
+            selectionModeEnabled: false
         };
     }
 
     componentDidMount(){
+        let customDeckSets = DeckDao.getAllDeckSet();
+        if(customDeckSets && customDeckSets.length > 0){
+            let deckSetsAfterCustomAdd = this.state.deckSets.concat(customDeckSets);
+            this.setState({deckSets: deckSetsAfterCustomAdd});
+        }
     }
     
     _onSelectDeckSet(deckSet){
@@ -37,6 +44,7 @@ export default class HomePage extends Component {
             
         );
         this.setState({deckSets: deckSetsAfterUpdate});
+        
         //save to db
     }
 
@@ -48,21 +56,31 @@ export default class HomePage extends Component {
         this.setState({deckSets: deckSetsAfterAdd});
         console.log('extra cells is '+this.addNewDeck);
         //save to db
+        DeckDao.addNewDeckSet(addedDeckSet);
+    }
+
+    _onDeckDelete(decToBeDeleted){
+        DeckDao.deleteDeckSet(decToBeDeleted);
     }
 
     render(){
         let {deckSets} = this.state;
+        let navigationState = this.props.navigationState;
         return(
-            <Container style={styles.container}>
+            <View style={{ flex: 1, }}>
+                {this._renderHeader()}
                 <ScrollView>
-                    <ResponsiveGrid
-                            containerStyle={{ backgroundColor: '#fff',}}
-                            columnCount={2}
-                            dataSource={deckSets}
-                            extraCellAtEnd = {this.addNewDeckSet}
-                            renderCell={(deckSet, index) => this._renderDeckSet(deckSet, index)} />
+                        <ResponsiveGrid
+                                containerStyle={{ backgroundColor: '#fff',}}
+                                columnCount={2}
+                                dataSource={deckSets}
+                                extraCellAtEnd = {this.addNewDeckSet}
+                                renderCell={(deckSet, index) => this._renderDeckSet(deckSet, index)} />
                 </ScrollView>
-            </Container>
+                <Footer>
+                    {this._renderFooter()}
+                </Footer>
+            </View>
         );
     }
 
@@ -77,7 +95,31 @@ export default class HomePage extends Component {
             <DeckTile deck={deckSet} isCustom={isCustom} bgColor={bgColor} key={deckSet.id} 
                 onDeckNameUpdate={(updatedDeckSet) => this._onDeckSetNameUpdate(updatedDeckSet)}
                 onNewDeckAdd={(addedDeckSet) => this._onNewDeckSetAdd(addedDeckSet)}
-                onSelect={(deckSet) => this._onSelectDeckSet(deckSet)}/>
+                onSelect={(deckSet) => this._onSelectDeckSet(deckSet)}
+                onDeckDelete={(decToBeDeleted) => this._onDeckDelete(decToBeDeleted)}
+                selectionModeEnabled={this.state.selectionModeEnabled} />
+        );
+    }
+
+    _renderHeader(){
+        const leftButtonText = this.state.selectionModeEnabled? 'Done': 'Edit';
+        let titleConfig = {title: 'Home', tintColor: '#0076FF'};
+        let leftButtonConfig = {title: leftButtonText, 
+                        handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled})};
+        return(
+           <NavigationBar title={titleConfig} leftButton={leftButtonConfig}/>
+        );
+    }
+
+    _renderFooter(){
+        if(!this.state.selectionModeEnabled){
+            return null;
+        }
+        return(
+            <Center>
+                <Icon name='ios-trash-outline'
+                        style={[styles.deleteIcon]}/>
+            </Center>
         );
     }
 }
@@ -86,6 +128,11 @@ const styles = StyleSheet.create({
     container:{
         padding: 0,
         marginTop: 5,
-        marginBottom: 10
+        marginBottom: 10,
     },
+    deleteIcon:{
+        fontWeight: 'bold',
+        fontSize : 40,
+        color: 'red'
+    }
 });

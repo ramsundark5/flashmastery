@@ -10,10 +10,10 @@ const Routes = ({loading, needRegistration}) => (
     loading ?
         <Loader/> :
         <Router>
-            <Scene key="profilePage" component={ProfilePage} title="Profile" titleStyle={styles.titleStyle}/>
-            <Scene key="homePage" initial={true} component={HomePage} title="Home" titleStyle={styles.titleStyle}/>
-            <Scene key="deckSetPage" component={DeckSet} title="Deck Set" titleStyle={styles.titleStyle}/>
-            <Scene key="deckPage" component={Deck} title="Deck" titleStyle={styles.titleStyle}/>
+            <Scene key="profilePage" component={ProfilePage} title="Profile" titleStyle={styles.titleStyle} hideNavBar={false}/>
+            <Scene key="homePage" initial={true} component={HomePage} title="Home" titleStyle={styles.titleStyle} hideNavBar={true}/>
+            <Scene key="deckSetPage" component={DeckSet} title="Deck Set" titleStyle={styles.titleStyle} hideNavBar={false}/>
+            <Scene key="deckPage" component={Deck} title="Deck" titleStyle={styles.titleStyle} hideNavBar={false}/>
         </Router>
 );
 
