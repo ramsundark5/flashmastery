@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import { Container, Content, Center, Footer, ResponsiveGrid, Button } from '../common/Common';
 import {LocalDatabase} from '../database/LocalDatabase';
 import {Actions} from 'react-native-router-flux';
@@ -37,6 +37,7 @@ export default class HomePage extends Component {
             
         );
         this.setState({deckSets: deckSetsAfterUpdate});
+        //save to db
     }
 
     _onNewDeckSetAdd(addedDeckSet){
@@ -46,6 +47,7 @@ export default class HomePage extends Component {
         let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
         this.setState({deckSets: deckSetsAfterAdd});
         console.log('extra cells is '+this.addNewDeck);
+        //save to db
     }
 
     render(){

@@ -41,12 +41,14 @@ export default class DeckSet extends Component {
             
         );
         this.setState({decks: decksAfterUpdate});
+        //save to db
     }
 
     _onNewDeckAdd(addedDeck){
         let decksAfterAdd = this.state.decks.concat(addedDeck);
         this._addNewDeckOptionAtEnd();
         this.setState({decks: decksAfterAdd});
+        //save to db
     }
 
     render(){
