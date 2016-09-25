@@ -66,18 +66,19 @@ export default class HomePage extends Component {
     render(){
         let {deckSets} = this.state;
         let navigationState = this.props.navigationState;
+        let contentMarginBottom = this.state.selectionModeEnabled? 45 : 0;
         return(
             <View style={{ flex: 1, }}>
                 {this._renderHeader()}
-                <ScrollView>
+                <ScrollView style={{marginBottom: contentMarginBottom}}>
                         <ResponsiveGrid
-                                containerStyle={{ backgroundColor: '#fff',}}
+                                containerStyle={{ backgroundColor: '#fff'}}
                                 columnCount={2}
                                 dataSource={deckSets}
                                 extraCellAtEnd = {this.addNewDeckSet}
                                 renderCell={(deckSet, index) => this._renderDeckSet(deckSet, index)} />
                 </ScrollView>
-                <Footer>
+                <Footer style={styles.footerContainerStyle}>
                     {this._renderFooter()}
                 </Footer>
             </View>
@@ -134,5 +135,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize : 40,
         color: 'red'
+    },
+    footerContainerStyle:{
+        flexDirection: 'row', 
+        flex: 1, 
+        backgroundColor: 'grey'
     }
 });

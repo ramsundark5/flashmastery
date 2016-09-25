@@ -24,17 +24,24 @@ export default class DeckTile extends Component {
     }
     
     _onSelectDeck(deck){
-        this.props.onSelect(deck);
+        if(this.props.selectionModeEnabled){
+            this.setState({isSelected: !this.state.isSelected});
+        }else{
+            this.props.onSelect(deck);
+        }
     }
     
     _onClickAddDeck(deck){
+        if(this.props.selectionModeEnabled){
+            return;
+        }
         deck.action = EDIT_DECK_NAME;
         deck.custom = true;
         this.setState({deck : deck, isCustom: true});
     }
 
     _showEditDeckName(deck){
-        if(this.state.isCustom){
+        if(this.state.isCustom && !this.props.selectionModeEnabled){
             deck.action = EDIT_DECK_NAME;
             this.setState({deck : deck});
         }
@@ -85,6 +92,7 @@ export default class DeckTile extends Component {
                     style={[styles.tile, {backgroundColor: bgColor}]}>
                 <Center>
                     <Text style={styles.nameText}>{deck.name}</Text>
+                    {this._renderSelectCheckBox()}
                 </Center>
             </TouchableOpacity>
         );
@@ -121,10 +129,12 @@ export default class DeckTile extends Component {
             return null;
         }
         return(
-            <RoundCheckbox
-                size={24}
-                checked={this.state.isSelected}
-                onValueChange={(newValue) => this.setState({isSelected: !isSelected})}/>
+            <View style={styles.checkBoxContainer}>
+                <RoundCheckbox
+                    size={24}
+                    checked={this.state.isSelected}
+                    onValueChange={(newValue) => this.setState({isSelected: !this.state.isSelected})}/>
+            </View>
         );
     }
 }
@@ -148,4 +158,7 @@ const styles = StyleSheet.create({
         fontSize : 40,
         color: 'white'
     },
+    checkBoxContainer:{
+        paddingTop: 15,
+    }
 });
