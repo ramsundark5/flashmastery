@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {View, Text, TextInput, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
 import { Container, Content, Center, Footer, ResponsiveGrid, Button } from '../common/Common';
-import {Actions} from 'react-native-router-flux';
+import {Actions, NavBar} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DeckTile from './DeckTile';
 import uuid from 'react-native-uuid';
@@ -60,10 +60,14 @@ export default class DeckSet extends Component {
 
     _onNewDeckAdd(addedDeck){
         console.log('decks length '+this.state.decks);
-        let decksAfterAdd = DeckDao.addNewDeck(addedDeck);
+        addedDeck.lastModified = new Date();
+        addedDeck.custom = true;
+        DeckDao.addNewDeck(this.props.deckSet.id, addedDeck);
+        let decksAfterAdd = Object.assign([], this.state.decks);
+        decksAfterAdd = decksAfterAdd.concat(addedDeck);
+        //this.state.decks.push(addedDeck);
         this._addNewDeckOptionAtEnd();
-        this.setState({decks: decksAfterAdd});
-        //this.forceUpdate();
+        this.forceUpdate();
     }
 
     _onDecksDelete(){
@@ -114,8 +118,10 @@ export default class DeckSet extends Component {
         let titleConfig = {title: 'Decks', tintColor: '#0076FF'};
         let rightButtonConfig = {title: rightButtonText, 
                         handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled})};
+        let leftButtonConfig = {title: 'Back',
+                        handler: () => Actions.pop()};
         return(
-           <NavigationBar title={titleConfig} rightButton={rightButtonConfig}/>
+           <NavigationBar title={titleConfig} rightButton={rightButtonConfig} leftButton={leftButtonConfig}/>
         );
     }
 

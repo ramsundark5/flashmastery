@@ -30,17 +30,16 @@ class DeckDao{
 
     addNewDeckSet(addedDeckSet){
         realm.write(() => {
-            addedDeckSet.lastModified = new Date();
-            addedDeckSet.custom = true;
             realm.create('DeckSet', addedDeckSet);
         });
     }
 
-    addNewDeck(addedDeck){
+    addNewDeck(deckSetId, addedDeck){
         realm.write(() => {
-            addedDeck.lastModified = new Date();
-            addedDeck.custom = true;
-            realm.create('Deck', addedDeck);
+            let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId);
+            if(deckSetForId){
+                deckSetForId.decks.push(addedDeck);
+            }
         });
     }
 

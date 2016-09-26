@@ -60,6 +60,7 @@ export default class HomePage extends Component {
         this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: ''};
         addedDeckSet.decks = [];
         addedDeckSet.custom = true;
+        addedDeckSet.lastModified = new Date();
         let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
         this.setState({deckSets: deckSetsAfterAdd});
         console.log('extra cells is '+this.addNewDeck);
