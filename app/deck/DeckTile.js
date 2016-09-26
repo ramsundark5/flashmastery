@@ -25,10 +25,11 @@ export default class DeckTile extends Component {
     
     _onSelectDeck(deck){
         if(this.props.selectionModeEnabled){
-            this.setState({isSelected: !this.state.isSelected});
-        }else{
-            this.props.onSelect(deck);
+            let newSelectedState = !this.state.isSelected;
+            this.setState({isSelected: newSelectedState});
+            deck.selected = newSelectedState;
         }
+        this.props.onSelect(deck);
     }
     
     _onClickAddDeck(deck){
@@ -65,10 +66,6 @@ export default class DeckTile extends Component {
         this.setState({deck : editedDeck});
     }
 
-    _deleteDeck(){
-        this.props.onDeckDelete(this.state.deck);
-    }
-
     render(){
         const {bgColor} = this.props;
         const {deck} = this.state;
@@ -92,7 +89,7 @@ export default class DeckTile extends Component {
                     style={[styles.tile, {backgroundColor: bgColor}]}>
                 <Center>
                     <Text style={styles.nameText}>{deck.name}</Text>
-                    {this._renderSelectCheckBox()}
+                    {this._renderSelectCheckBox(deck)}
                 </Center>
             </TouchableOpacity>
         );
@@ -123,9 +120,9 @@ export default class DeckTile extends Component {
         );
     }
 
-    _renderSelectCheckBox(){
+    _renderSelectCheckBox(deck){
         const {selectionModeEnabled} = this.props;
-        if(!selectionModeEnabled){
+        if(!(this.state.isCustom && selectionModeEnabled)){
             return null;
         }
         return(
@@ -133,7 +130,7 @@ export default class DeckTile extends Component {
                 <RoundCheckbox
                     size={24}
                     checked={this.state.isSelected}
-                    onValueChange={(newValue) => this.setState({isSelected: !this.state.isSelected})}/>
+                    onValueChange={() => this._onSelectDeck(deck)}/>
             </View>
         );
     }

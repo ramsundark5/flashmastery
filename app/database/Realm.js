@@ -27,6 +27,7 @@ Deck.schema = {
     properties: {
         id: 'string',
         name: 'string',
+        custom: {type: 'bool', default: true}, 
         cards: {type: 'list', objectType: 'Card'},
         lastModified: 'date'
     },
@@ -39,6 +40,7 @@ DeckSet.schema = {
     properties: {
         id: 'string',
         name: 'string',
+        custom: {type: 'bool', default: true}, 
         decks: {type: 'list', objectType: 'Deck'},
         lastModified: 'date'
     },
@@ -68,4 +70,7 @@ VersionInfo.schema = {
     },
 };
 
-export default new Realm({schema: [Card, Deck, DeckSet, DeckPractiseResult, VersionInfo]});
+export default new Realm({
+    schema: [Card, Deck, DeckSet, DeckPractiseResult, VersionInfo],
+    schemaVersion: 2
+});

@@ -18,6 +18,7 @@ export default class HomePage extends Component {
     constructor(props){
         super(props);
         this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: ''};
+        this.selectedDeckSets = new Set();
         this.state = {
             deckSets: LocalDatabase,
             selectionModeEnabled: false
@@ -33,7 +34,15 @@ export default class HomePage extends Component {
     }
     
     _onSelectDeckSet(deckSet){
-        Actions.deckSetPage({deckSet: deckSet});
+        if(this.state.selectionModeEnabled){
+            if(deckSet.selected){
+                this.selectedDeckSets.add(deckSet.id);
+            }else{
+                this.selectedDeckSets.delete(deckSet.id);
+            }
+        }else{
+            Actions.deckSetPage({deckSet: deckSet});
+        }
     }
 
     _onDeckSetNameUpdate(updatedDeckSet){
@@ -44,7 +53,6 @@ export default class HomePage extends Component {
             
         );
         this.setState({deckSets: deckSetsAfterUpdate});
-        
         //save to db
     }
 
@@ -59,8 +67,14 @@ export default class HomePage extends Component {
         DeckDao.addNewDeckSet(addedDeckSet);
     }
 
-    _onDeckDelete(decToBeDeleted){
-        DeckDao.deleteDeckSet(decToBeDeleted);
+    _onDeckDelete(){
+        DeckDao.deleteDeckSets(this.selectedDeckSets);
+        this.selectedDeckSets = new Set();
+        let customDeckSets = DeckDao.getAllDeckSet();
+        if(customDeckSets && customDeckSets.length > 0){
+            customDeckSets = LocalDatabase.concat(customDeckSets);
+        }
+        this.setState({deckSets: customDeckSets, selectionModeEnabled: false});
     }
 
     render(){
@@ -97,7 +111,6 @@ export default class HomePage extends Component {
                 onDeckNameUpdate={(updatedDeckSet) => this._onDeckSetNameUpdate(updatedDeckSet)}
                 onNewDeckAdd={(addedDeckSet) => this._onNewDeckSetAdd(addedDeckSet)}
                 onSelect={(deckSet) => this._onSelectDeckSet(deckSet)}
-                onDeckDelete={(decToBeDeleted) => this._onDeckDelete(decToBeDeleted)}
                 selectionModeEnabled={this.state.selectionModeEnabled} />
         );
     }
@@ -118,8 +131,10 @@ export default class HomePage extends Component {
         }
         return(
             <Center>
-                <Icon name='ios-trash-outline'
-                        style={[styles.deleteIcon]}/>
+                <TouchableOpacity onPress={() => this._onDeckDelete()}>
+                    <Icon name='ios-trash-outline'
+                            style={[styles.deleteIcon]}/>
+                </TouchableOpacity>
             </Center>
         );
     }

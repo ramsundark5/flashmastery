@@ -3,6 +3,9 @@ import uuid from 'react-native-uuid';
 
 class DeckDao{
     getAllDeckSet(){
+        /*realm.write(() => {
+            realm.deleteAll();
+        });*/
         let customDeckSets = [];
         let realmDeckSets = realm.objects('DeckSet');
         realmDeckSets.map(function(deckSet) {
@@ -12,7 +15,7 @@ class DeckDao{
     }
 
     getDeckSetForId(deckSetId){
-        let deckSetForId = realm.objects('DeckSet').objectForPrimaryKey('id = $0', deckSetId);
+        let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId);
         return deckSetForId;
     }
 
@@ -21,6 +24,17 @@ class DeckDao{
             addedDeckSet.lastModified = new Date();
             addedDeckSet.custom = true;
             realm.create('DeckSet', addedDeckSet);
+        });
+    }
+
+    deleteDeckSets(deckSetIds){
+        realm.write(() => {
+            for(let deckSetId of deckSetIds){
+                let deckSetToBeDeleted = realm.objectForPrimaryKey('DeckSet', deckSetId);
+                if(deckSetToBeDeleted){
+                    realm.delete(deckSetToBeDeleted);
+                }
+            }
         });
     }
 }
