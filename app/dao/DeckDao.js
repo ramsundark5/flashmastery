@@ -14,6 +14,15 @@ class DeckDao{
         return customDeckSets;
     }
 
+    getAllDecks(){
+        let customDecks = [];
+        let realmDecks = realm.objects('Deck');
+        realmDecks.map(function(deckSet) {
+            customDecks.push(deckSet);
+        });
+        return customDecks;
+    }
+
     getDeckSetForId(deckSetId){
         let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId);
         return deckSetForId;
@@ -27,12 +36,31 @@ class DeckDao{
         });
     }
 
+    addNewDeck(addedDeck){
+        realm.write(() => {
+            addedDeck.lastModified = new Date();
+            addedDeck.custom = true;
+            realm.create('Deck', addedDeck);
+        });
+    }
+
     deleteDeckSets(deckSetIds){
         realm.write(() => {
             for(let deckSetId of deckSetIds){
                 let deckSetToBeDeleted = realm.objectForPrimaryKey('DeckSet', deckSetId);
                 if(deckSetToBeDeleted){
                     realm.delete(deckSetToBeDeleted);
+                }
+            }
+        });
+    }
+
+    deleteDecks(deckIds){
+        realm.write(() => {
+            for(let deckId of deckIds){
+                let deckToBeDeleted = realm.objectForPrimaryKey('Deck', deckId);
+                if(deckToBeDeleted){
+                    realm.delete(deckToBeDeleted);
                 }
             }
         });

@@ -12,7 +12,7 @@ const Routes = ({loading, needRegistration}) => (
         <Router>
             <Scene key="profilePage" component={ProfilePage} title="Profile" titleStyle={styles.titleStyle} hideNavBar={false}/>
             <Scene key="homePage" initial={true} component={HomePage} title="Home" titleStyle={styles.titleStyle} hideNavBar={true}/>
-            <Scene key="deckSetPage" component={DeckSet} title="Deck Set" titleStyle={styles.titleStyle} hideNavBar={false}/>
+            <Scene key="deckSetPage" component={DeckSet} title="Deck Set" titleStyle={styles.titleStyle} hideNavBar={true}/>
             <Scene key="deckPage" component={Deck} title="Deck" titleStyle={styles.titleStyle} hideNavBar={false}/>
         </Router>
 );

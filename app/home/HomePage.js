@@ -67,7 +67,7 @@ export default class HomePage extends Component {
         DeckDao.addNewDeckSet(addedDeckSet);
     }
 
-    _onDeckDelete(){
+    _onDeckSetDelete(){
         DeckDao.deleteDeckSets(this.selectedDeckSets);
         this.selectedDeckSets = new Set();
         let customDeckSets = DeckDao.getAllDeckSet();
@@ -116,12 +116,12 @@ export default class HomePage extends Component {
     }
 
     _renderHeader(){
-        const leftButtonText = this.state.selectionModeEnabled? 'Done': 'Edit';
+        const rightButtonText = this.state.selectionModeEnabled? 'Done': 'Edit';
         let titleConfig = {title: 'Home', tintColor: '#0076FF'};
-        let leftButtonConfig = {title: leftButtonText, 
+        let rightButtonConfig = {title: rightButtonText, 
                         handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled})};
         return(
-           <NavigationBar title={titleConfig} leftButton={leftButtonConfig}/>
+           <NavigationBar title={titleConfig} rightButton={rightButtonConfig}/>
         );
     }
 
@@ -131,7 +131,7 @@ export default class HomePage extends Component {
         }
         return(
             <Center>
-                <TouchableOpacity onPress={() => this._onDeckDelete()}>
+                <TouchableOpacity onPress={() => this._onDeckSetDelete()}>
                     <Icon name='ios-trash-outline'
                             style={[styles.deleteIcon]}/>
                 </TouchableOpacity>

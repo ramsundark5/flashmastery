@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import {View, Text, TextInput, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
 import { Container, Content, Center, Footer, ResponsiveGrid, Button } from '../common/Common';
 import {Actions} from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/Ionicons';
 import DeckTile from './DeckTile';
 import uuid from 'react-native-uuid';
 import ColorGenerator from '../utils/ColorGenerator';
+import NavigationBar from 'react-native-navbar';
+import DeckDao from '../dao/DeckDao';
+import realm from '../database/Realm';
 
 const {deviceWidth} = Dimensions.get('window');
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
@@ -13,9 +17,11 @@ const ADD_NEW_DECK = 'add';
 export default class DeckSet extends Component {
     constructor(props){
         super(props);
+        this.selectedDecks = new Set();
         this._addNewDeckOptionAtEnd();
         this.state = {
-            decks: props.deckSet.decks
+            decks: props.deckSet.decks || [],
+            selectionModeEnabled: false
         };
     }
 
@@ -30,7 +36,15 @@ export default class DeckSet extends Component {
 
     _onSelectDeck(deck){
         let isCustom = this.props.deckSet.custom;
-        Actions.deckPage({deck: deck, isCustom: isCustom});
+        if(this.state.selectionModeEnabled){
+            if(deck.selected){
+                this.selectedDecks.add(deck.id);
+            }else{
+                this.selectedDecks.delete(deck.id);
+            }
+        }else{
+            Actions.deckPage({deck: deck, isCustom: isCustom});
+        }
     }
 
     _onDeckNameUpdate(updatedDeck){
@@ -45,16 +59,25 @@ export default class DeckSet extends Component {
     }
 
     _onNewDeckAdd(addedDeck){
-        let decksAfterAdd = this.state.decks.concat(addedDeck);
+        console.log('decks length '+this.state.decks);
+        let decksAfterAdd = DeckDao.addNewDeck(addedDeck);
         this._addNewDeckOptionAtEnd();
         this.setState({decks: decksAfterAdd});
-        //save to db
+        //this.forceUpdate();
+    }
+
+    _onDecksDelete(){
+        DeckDao.deleteDecks(this.selectedDecks);
+        this.selectedDecks = new Set();
+        let customDecks = DeckDao.getAllDecks();
+        this.setState({decks: customDecks, selectionModeEnabled: false});
     }
 
     render(){
         let {decks} = this.state;
         return(
-            <Container style={styles.container}>
+            <View style={{ flex: 1, }}>
+                {this._renderHeader()}
                 <ScrollView>
                     <ResponsiveGrid
                             containerStyle={{ backgroundColor: '#fff',}}
@@ -63,7 +86,10 @@ export default class DeckSet extends Component {
                             extraCellAtEnd = {this.addNewDeck}
                             renderCell={(deck, index) => this._renderDeck(deck, index)} />
                 </ScrollView>
-            </Container>
+                <Footer style={styles.footerContainerStyle}>
+                    {this._renderFooter()}
+                </Footer>
+            </View>
         );
     }
 
@@ -78,7 +104,32 @@ export default class DeckSet extends Component {
             <DeckTile deck={deck} isCustom={isCustom} bgColor={bgColor} key={deck.id} 
                 onDeckNameUpdate={(updatedDeck) => this._onDeckNameUpdate(updatedDeck)}
                 onNewDeckAdd={(addedDeck) => this._onNewDeckAdd(addedDeck)}
-                onSelect={(deck) => this._onSelectDeck(deck)}/>
+                onSelect={(deck) => this._onSelectDeck(deck)}
+                selectionModeEnabled={this.state.selectionModeEnabled}/>
+        );
+    }
+
+    _renderHeader(){
+        const rightButtonText = this.state.selectionModeEnabled? 'Done': 'Edit';
+        let titleConfig = {title: 'Decks', tintColor: '#0076FF'};
+        let rightButtonConfig = {title: rightButtonText, 
+                        handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled})};
+        return(
+           <NavigationBar title={titleConfig} rightButton={rightButtonConfig}/>
+        );
+    }
+
+    _renderFooter(){
+        if(!this.state.selectionModeEnabled){
+            return null;
+        }
+        return(
+            <Center>
+                <TouchableOpacity onPress={() => this._onDecksDelete()}>
+                    <Icon name='ios-trash-outline'
+                            style={[styles.deleteIcon]}/>
+                </TouchableOpacity>
+            </Center>
         );
     }
 }
@@ -89,4 +140,14 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 10
     },
+    deleteIcon:{
+        fontWeight: 'bold',
+        fontSize : 40,
+        color: 'red'
+    },
+    footerContainerStyle:{
+        flexDirection: 'row', 
+        flex: 1, 
+        backgroundColor: 'grey'
+    }
 });
