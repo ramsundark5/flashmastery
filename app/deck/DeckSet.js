@@ -65,7 +65,6 @@ export default class DeckSet extends Component {
         DeckDao.addNewDeck(this.props.deckSet.id, addedDeck);
         let decksAfterAdd = Object.assign([], this.state.decks);
         decksAfterAdd = decksAfterAdd.concat(addedDeck);
-        //this.state.decks.push(addedDeck);
         this._addNewDeckOptionAtEnd();
         this.forceUpdate();
     }
@@ -74,6 +73,7 @@ export default class DeckSet extends Component {
         DeckDao.deleteDecks(this.selectedDecks);
         this.selectedDecks = new Set();
         let customDecks = DeckDao.getAllDecks();
+        this._addNewDeckOptionAtEnd();
         this.setState({decks: customDecks, selectionModeEnabled: false});
     }
 
