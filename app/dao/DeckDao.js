@@ -1,5 +1,4 @@
 import realm from '../database/Realm';
-import uuid from 'react-native-uuid';
 
 class DeckDao{
     getAllDeckSet(){
@@ -14,15 +13,6 @@ class DeckDao{
         return customDeckSets;
     }
 
-    getAllDecks(){
-        let customDecks = [];
-        let realmDecks = realm.objects('Deck');
-        realmDecks.map(function(deckSet) {
-            customDecks.push(deckSet);
-        });
-        return customDecks;
-    }
-
     getDeckSetForId(deckSetId){
         let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId);
         return deckSetForId;
@@ -31,15 +21,6 @@ class DeckDao{
     addNewDeckSet(addedDeckSet){
         realm.write(() => {
             realm.create('DeckSet', addedDeckSet);
-        });
-    }
-
-    addNewDeck(deckSetId, addedDeck){
-        realm.write(() => {
-            let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId);
-            if(deckSetForId){
-                deckSetForId.decks.push(addedDeck);
-            }
         });
     }
 
@@ -54,6 +35,24 @@ class DeckDao{
         });
     }
 
+    getAllDecks(){
+        let customDecks = [];
+        let realmDecks = realm.objects('Deck');
+        realmDecks.map(function(deckSet) {
+            customDecks.push(deckSet);
+        });
+        return customDecks;
+    }
+
+    addNewDeck(deckSetId, addedDeck){
+        realm.write(() => {
+            let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId);
+            if(deckSetForId){
+                deckSetForId.decks.push(addedDeck);
+            }
+        });
+    }
+
     deleteDecks(deckIds){
         realm.write(() => {
             for(let deckId of deckIds){
@@ -64,5 +63,6 @@ class DeckDao{
             }
         });
     }
+
 }
 export default new DeckDao();

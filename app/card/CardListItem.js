@@ -12,9 +12,9 @@ export default class CardListItem extends Component {
     render(){
         const {card} = this.state;
         return(
-            <TouchableOpacity style={[styles.cardItem]}>
+            <View style={[styles.cardItem]}>
                 <Text style={styles.vocabText}>{card.front}</Text>
-            </TouchableOpacity>
+            </View>
         );
     }
 }

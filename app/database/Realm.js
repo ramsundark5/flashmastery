@@ -9,13 +9,13 @@ Card.schema = {
         type: 'string',
         front: 'string',
         frontType: 'string',
-        back: 'string',
-        backType: 'string',
-        pronounciation: 'string',
-        sound: 'string',
-        image: 'string',
-        desription: 'string',
-        url: 'string',
+        back: {type: 'string', optional: true}, 
+        backType: {type: 'string', optional: true}, 
+        pronounciation: {type: 'string', optional: true}, 
+        sound: {type: 'string', optional: true}, 
+        image: {type: 'string', optional: true}, 
+        desription: {type: 'string', optional: true}, 
+        url: {type: 'string', optional: true}, 
         lastModified: 'date'
     },
 };
@@ -72,5 +72,5 @@ VersionInfo.schema = {
 
 export default new Realm({
     schema: [Card, Deck, DeckSet, DeckPractiseResult, VersionInfo],
-    schemaVersion: 2
+    schemaVersion: 3
 });

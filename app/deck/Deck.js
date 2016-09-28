@@ -43,7 +43,7 @@ export default class Deck extends Component {
 
     _renderHeader(deck){
         const titleConfig = {title: 'Card', tintColor: '#0076FF'};
-        const rightButtonConfig = {title: 'List Cards', 
+        const rightButtonConfig = {title: 'List', 
                         handler: () => Actions.cardListPage({deck: deck})};
         const leftButtonConfig = {title: 'Back',
                         handler: () => Actions.pop()};

@@ -130,6 +130,7 @@ export default class DeckTile extends Component {
                 <RoundCheckbox
                     size={24}
                     checked={this.state.isSelected}
+                    borderColor='white'
                     onValueChange={() => this._onSelectDeck(deck)}/>
             </View>
         );
