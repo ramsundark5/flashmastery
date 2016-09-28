@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {View, Text, TextInput, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
-import { Container, Content, Center, Footer, ResponsiveGrid, Button } from '../common/Common';
-import {Actions, NavBar} from 'react-native-router-flux';
+import { Container, Content, Center, Footer, ResponsiveGrid, Button, LeftButton } from '../common/Common';
+import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DeckTile from './DeckTile';
 import uuid from 'react-native-uuid';

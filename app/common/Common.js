@@ -8,6 +8,7 @@ import Button from './Button';
 import Loader from './Loader';
 import ResponsiveGrid from './ResponsiveGrid';
 import EditableText from './EditableText';
+import LeftButton from './LeftButton';
 
 module.exports = {
 	Container,
@@ -19,5 +20,6 @@ module.exports = {
 	Button,
 	Loader,
 	ResponsiveGrid,
-	EditableText
+	EditableText,
+	LeftButton
 };

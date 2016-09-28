@@ -4,6 +4,8 @@ import { Container, Content, Center, Footer, HorizontalRow, Button } from '../co
 import SwipeableViews from 'react-swipeable-views/lib/index.native.scroll';
 import PracticeCard from '../card/PracticeCard';
 import EditableCard from '../card/EditableCard';
+import NavigationBar from 'react-native-navbar';
+import {Actions} from 'react-native-router-flux';
 
 export default class Deck extends Component {
     componentDidMount(){
@@ -13,13 +15,16 @@ export default class Deck extends Component {
         const {deck} = this.props;
         console.log('inside render of deck page '+deck.name);
         return(
-            <Container style={styles.container}>
-                <SwipeableViews>
-                    {deck.cards.map( (card, index) => 
-                        this._renderCard(card, index)
-                    )}
-                </SwipeableViews>
-            </Container>
+            <View style={{ flex: 1, }}>
+                {this._renderHeader(deck)}
+                <Container style={styles.container}>
+                    <SwipeableViews>
+                        {deck.cards.map( (card, index) => 
+                            this._renderCard(card, index)
+                        )}
+                    </SwipeableViews>
+                </Container>
+            </View>
         );
     }
 
@@ -34,6 +39,17 @@ export default class Deck extends Component {
                 <PracticeCard key={card.id} card={card} />
             );
         }
+    }
+
+    _renderHeader(deck){
+        const titleConfig = {title: 'Card', tintColor: '#0076FF'};
+        const rightButtonConfig = {title: 'List Cards', 
+                        handler: () => Actions.cardListPage({deck: deck})};
+        const leftButtonConfig = {title: 'Back',
+                        handler: () => Actions.pop()};
+        return(
+           <NavigationBar title={titleConfig} rightButton={rightButtonConfig} leftButton={leftButtonConfig}/>
+        );
     }
 }
 
