@@ -2,8 +2,16 @@ import realm from '../database/Realm';
 
 class CardDao{
 
-    getAllCardsForDeck(){
-
+    getCardsAsPlainObjects(realmCards){
+        let customCards = [];
+        realmCards.map(function(realmCard) {
+            if (typeof realmCard.snapshot == 'function') {
+                realmCard = realmCard.snapshot();
+            } 
+            let card = Object.assign({}, realmCard);
+            customCards.push(card);
+        });
+        return customCards;
     }
 
     addNewCard(deck, card){
@@ -28,6 +36,18 @@ class CardDao{
         realm.write(() => {
             realm.create('Card', card, true);
         });
+    }
+
+    getCardsAsPlainObjects(realmCards){
+        let customCards = [];
+        realmCards.map(function(realmCard) {
+            if (typeof realmCard.snapshot == 'function') {
+                realmCard = realmCard.snapshot();
+            } 
+            let card = Object.assign({}, realmCard);
+            customCards.push(card);
+        });
+        return customCards;
     }
 }
 

@@ -11,27 +11,29 @@ import realm from '../database/Realm';
 export default class CardListPage extends Component {
     constructor(props){
         super(props);
+        let cards = CardDao.getCardsAsPlainObjects(props.deck.cards || []);
         this.state = {
-            cards: props.deck.cards || [],
+            cards: cards,
         };
         this.cardsDatasource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     }
 
     _deleteCard(cardToBeDeleted){
-        realm.write(() => {
-            realm.delete(cardToBeDeleted);
-        });
-        this.forceUpdate();
+        CardDao.deleteCard(cardToBeDeleted.id);
+        let cardsAfterDelete = this.state.cards.filter(card =>
+                card.id !== cardToBeDeleted.id
+            );
+        this.setState({cards: cardsAfterDelete});
     }
 
     _addCardToDeck(newCard){
         newCard.lastModified = new Date();
         newCard.type = 'text';
         newCard.frontType = 'text';
-        realm.write(() => {
-            this.props.deck.cards.push(newCard);
-        });
-        this.forceUpdate();
+        CardDao.addNewCard(this.props.deck, newCard);
+        
+        let cardsAfterAdd = this.state.cards.concat(newCard);
+        this.setState({cards: cardsAfterAdd});
     }
 
     render(){

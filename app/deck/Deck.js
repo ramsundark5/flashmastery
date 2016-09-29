@@ -6,6 +6,7 @@ import PracticeCard from '../card/PracticeCard';
 import EditableCard from '../card/EditableCard';
 import NavigationBar from 'react-native-navbar';
 import {Actions} from 'react-native-router-flux';
+import CardDao from '../dao/CardDao';
 
 export default class Deck extends Component {
     componentDidMount(){
@@ -13,13 +14,14 @@ export default class Deck extends Component {
     
     render(){
         const {deck} = this.props;
+        let cards = CardDao.getCardsAsPlainObjects(deck.cards);
         console.log('inside render of deck page '+deck.name);
         return(
             <View style={{ flex: 1, }}>
                 {this._renderHeader(deck)}
                 <Container style={styles.container}>
                     <SwipeableViews>
-                        {deck.cards.map( (card, index) => 
+                        {cards.map( (card, index) => 
                             this._renderCard(card, index)
                         )}
                     </SwipeableViews>
