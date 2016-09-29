@@ -2,25 +2,32 @@ import realm from '../database/Realm';
 
 class DeckDao{
     getAllDeckSet(){
-        /*realm.write(() => {
-            realm.deleteAll();
-        });*/
         let customDeckSets = [];
-        let realmDeckSets = realm.objects('DeckSet');
-        realmDeckSets.map(function(deckSet) {
+        let realmDeckSets = realm.objects('DeckSet').snapshot();
+        realmDeckSets.map(function(realmDeckSet) {
+            let deckSet = Object.assign({}, realmDeckSet);
             customDeckSets.push(deckSet);
         });
         return customDeckSets;
     }
 
     getDeckSetForId(deckSetId){
-        let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId);
+        let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId).snapshot();
         return deckSetForId;
     }
 
     addNewDeckSet(addedDeckSet){
         realm.write(() => {
             realm.create('DeckSet', addedDeckSet);
+        });
+    }
+
+    updateDeckSet(deckSetToBeUpdated){
+        if(!deckSetToBeUpdated.id){
+            return;
+        }
+        realm.write(() => {
+            realm.create('DeckSet', deckSetToBeUpdated, true);
         });
     }
 
@@ -35,11 +42,14 @@ class DeckDao{
         });
     }
 
-    getAllDecks(){
+    getDecksAsPlainObjects(realmDecks){
         let customDecks = [];
-        let realmDecks = realm.objects('Deck');
-        realmDecks.map(function(deckSet) {
-            customDecks.push(deckSet);
+        realmDecks.map(function(realmDeck) {
+            if (typeof realmDeck.snapshot == 'function') {
+                realmDeck = realmDeck.snapshot();
+            } 
+            let deck = Object.assign({}, realmDeck);
+            customDecks.push(deck);
         });
         return customDecks;
     }
@@ -50,6 +60,15 @@ class DeckDao{
             if(deckSetForId){
                 deckSetForId.decks.push(addedDeck);
             }
+        });
+    }
+
+    updateDeck(deckToBeUpdated){
+        if(!deckToBeUpdated.id){
+            return;
+        }
+        realm.write(() => {
+            realm.create('Deck', deckToBeUpdated, true);
         });
     }
 

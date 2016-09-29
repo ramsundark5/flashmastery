@@ -19,8 +19,9 @@ export default class DeckSet extends Component {
         super(props);
         this.selectedDecks = new Set();
         this._addNewDeckOptionAtEnd();
+        let decks = DeckDao.getDecksAsPlainObjects(props.deckSet.decks || []);
         this.state = {
-            decks: props.deckSet.decks || [],
+            decks: decks || [],
             selectionModeEnabled: false
         };
     }
@@ -56,24 +57,23 @@ export default class DeckSet extends Component {
         );
         this.setState({decks: decksAfterUpdate});
         //save to db
+        DeckDao.updateDeck(updatedDeck);
     }
 
     _onNewDeckAdd(addedDeck){
-        console.log('decks length '+this.state.decks);
         addedDeck.lastModified = new Date();
         addedDeck.custom = true;
         DeckDao.addNewDeck(this.props.deckSet.id, addedDeck);
-        let decksAfterAdd = Object.assign([], this.state.decks);
-        decksAfterAdd = decksAfterAdd.concat(addedDeck);
         this._addNewDeckOptionAtEnd();
-        this.forceUpdate();
+        let decksAfterAdd = this.state.decks.concat(addedDeck);
+        this.setState({decks: decksAfterAdd});
     }
 
     _onDecksDelete(){
         DeckDao.deleteDecks(this.selectedDecks);
+        this._addNewDeckOptionAtEnd();
         this.selectedDecks = new Set();
         let customDecks = DeckDao.getAllDecks();
-        this._addNewDeckOptionAtEnd();
         this.setState({decks: customDecks, selectionModeEnabled: false});
     }
 

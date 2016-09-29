@@ -52,12 +52,12 @@ export default class DeckTile extends Component {
         let editedDeck = Object.assign({}, this.state.deck);
         editedDeck.action = null;
         editedDeck.name = finishedText;
-        this.setState({deck : editedDeck});
         if(this.originalDeckAction === ADD_NEW_DECK){
             this.props.onNewDeckAdd(editedDeck);
         }else{
             this.props.onDeckNameUpdate(editedDeck);
         }
+        this.setState({deck : editedDeck});
     }
 
     _cancelEditDeckName(){

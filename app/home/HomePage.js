@@ -17,7 +17,7 @@ const ADD_NEW_DECK = 'add';
 export default class HomePage extends Component {
     constructor(props){
         super(props);
-        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: ''};
+        this._addNewDeckOptionAtEnd();
         this.selectedDeckSets = new Set();
         this.state = {
             deckSets: LocalDatabase,
@@ -26,13 +26,19 @@ export default class HomePage extends Component {
     }
 
     componentDidMount(){
-        let customDeckSets = DeckDao.getAllDeckSet();
-        if(customDeckSets && customDeckSets.length > 0){
-            let deckSetsAfterCustomAdd = this.state.deckSets.concat(customDeckSets);
-            this.setState({deckSets: deckSetsAfterCustomAdd});
-        }
+        this._addCustomDeckSetsToLocalDatabase();
     }
     
+    _addCustomDeckSetsToLocalDatabase(){
+        let customDeckSets = DeckDao.getAllDeckSet();
+        let deckSetsAfterCustomAdd = LocalDatabase.concat(customDeckSets);
+        this.setState({deckSets: deckSetsAfterCustomAdd, selectionModeEnabled: false});
+    }
+
+    _addNewDeckOptionAtEnd(){
+        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: ''};
+    }
+
     _onSelectDeckSet(deckSet){
         if(this.state.selectionModeEnabled){
             if(deckSet.selected){
@@ -54,28 +60,24 @@ export default class HomePage extends Component {
         );
         this.setState({deckSets: deckSetsAfterUpdate});
         //save to db
+        DeckDao.updateDeckSet(updatedDeckSet);
     }
 
     _onNewDeckSetAdd(addedDeckSet){
-        this.addNewDeckSet = {id: uuid.v1(), action: ADD_NEW_DECK, name: ''};
         addedDeckSet.decks = [];
         addedDeckSet.custom = true;
         addedDeckSet.lastModified = new Date();
         let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
         this.setState({deckSets: deckSetsAfterAdd});
-        console.log('extra cells is '+this.addNewDeck);
         //save to db
         DeckDao.addNewDeckSet(addedDeckSet);
+        this._addNewDeckOptionAtEnd();
     }
 
     _onDeckSetDelete(){
         DeckDao.deleteDeckSets(this.selectedDeckSets);
         this.selectedDeckSets = new Set();
-        let customDeckSets = DeckDao.getAllDeckSet();
-        if(customDeckSets && customDeckSets.length > 0){
-            customDeckSets = LocalDatabase.concat(customDeckSets);
-        }
-        this.setState({deckSets: customDeckSets, selectionModeEnabled: false});
+        this._addCustomDeckSetsToLocalDatabase();
     }
 
     render(){
