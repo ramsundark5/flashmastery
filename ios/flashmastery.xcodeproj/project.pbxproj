@@ -816,6 +816,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODEPUSH_KEY = "kS5uby6VL-pMx5ECixs3vKerz2rM41n_w-6Zl";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -998,7 +999,7 @@
 				A22A85671D9AF78100C5671E /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "flashmastery" */ = {
 			isa = XCConfigurationList;
@@ -1008,7 +1009,7 @@
 				A22A85661D9AF78100C5671E /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "flashmastery" */ = {
 			isa = XCConfigurationList;
@@ -1018,7 +1019,7 @@
 				A22A85651D9AF78100C5671E /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
