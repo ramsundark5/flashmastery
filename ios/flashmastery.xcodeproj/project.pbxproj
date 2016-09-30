@@ -27,6 +27,14 @@
 		5E5119CCA6B24CEB9C2F9B1E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A365A67D292B433ABC574265 /* libc++.tbd */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		953D2B3631FE4782B610B378 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E60995E35B3E4DC8B7E18F96 /* libRNVectorIcons.a */; };
+		A22A17C81D9E127100AAB145 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C21D9E127100AAB145 /* AVFoundation.framework */; };
+		A22A17C91D9E127100AAB145 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C31D9E127100AAB145 /* CoreGraphics.framework */; };
+		A22A17CA1D9E127100AAB145 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C41D9E127100AAB145 /* CoreMotion.framework */; };
+		A22A17CB1D9E127100AAB145 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C51D9E127100AAB145 /* CoreTelephony.framework */; };
+		A22A17CC1D9E127100AAB145 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C61D9E127100AAB145 /* SystemConfiguration.framework */; };
+		A22A17CD1D9E127100AAB145 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C71D9E127100AAB145 /* UIKit.framework */; };
+		A22A17DC1D9E12BA00AAB145 /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17DB1D9E12BA00AAB145 /* Instabug.framework */; };
+		A22A17DE1D9E12F700AAB145 /* Instabug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A22A17DD1D9E12F700AAB145 /* Instabug.bundle */; };
 		D9051D517CA342F499740000 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45267AA5EDA64659913011BF /* libCodePush.a */; };
 		E4EEEBD3573447688FA674B1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7945FB424F4AA4924AFA17 /* libz.tbd */; };
 /* End PBXBuildFile section */
@@ -159,6 +167,14 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		923128A520F34AFC845E78EB /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
+		A22A17C21D9E127100AAB145 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A22A17C31D9E127100AAB145 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A22A17C41D9E127100AAB145 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A22A17C51D9E127100AAB145 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A22A17C61D9E127100AAB145 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A22A17C71D9E127100AAB145 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A22A17DB1D9E12BA00AAB145 /* Instabug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Instabug.framework; path = Instabug/Instabug.framework; sourceTree = "<group>"; };
+		A22A17DD1D9E12F700AAB145 /* Instabug.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Instabug.bundle; path = Instabug/Instabug.bundle; sourceTree = "<group>"; };
 		A2BEBF041D88507500D667BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "flashmastery/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A365A67D292B433ABC574265 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		CC657927A02A4078BF7855E2 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
@@ -179,6 +195,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22A17C81D9E127100AAB145 /* AVFoundation.framework in Frameworks */,
+				A22A17DC1D9E12BA00AAB145 /* Instabug.framework in Frameworks */,
+				A22A17C91D9E127100AAB145 /* CoreGraphics.framework in Frameworks */,
+				A22A17CA1D9E127100AAB145 /* CoreMotion.framework in Frameworks */,
+				A22A17CB1D9E127100AAB145 /* CoreTelephony.framework in Frameworks */,
+				A22A17CC1D9E127100AAB145 /* SystemConfiguration.framework in Frameworks */,
+				A22A17CD1D9E127100AAB145 /* UIKit.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -299,6 +322,13 @@
 		40A8077D959F4DF99CABE317 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A22A17DB1D9E12BA00AAB145 /* Instabug.framework */,
+				A22A17C21D9E127100AAB145 /* AVFoundation.framework */,
+				A22A17C31D9E127100AAB145 /* CoreGraphics.framework */,
+				A22A17C41D9E127100AAB145 /* CoreMotion.framework */,
+				A22A17C51D9E127100AAB145 /* CoreTelephony.framework */,
+				A22A17C61D9E127100AAB145 /* SystemConfiguration.framework */,
+				A22A17C71D9E127100AAB145 /* UIKit.framework */,
 				DC7945FB424F4AA4924AFA17 /* libz.tbd */,
 				A365A67D292B433ABC574265 /* libc++.tbd */,
 			);
@@ -350,6 +380,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				8503F3C1C2D547D9B2CED469 /* Resources */,
 				40A8077D959F4DF99CABE317 /* Frameworks */,
+				A22A17DD1D9E12F700AAB145 /* Instabug.bundle */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -633,6 +664,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22A17DE1D9E12F700AAB145 /* Instabug.bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				514B95E46945489FB05FFCA6 /* Ionicons.ttf in Resources */,
@@ -749,6 +781,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = BEP4LU9648;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Instabug",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -777,6 +813,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BEP4LU9648;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Instabug",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -946,6 +986,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BEP4LU9648;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Instabug",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
