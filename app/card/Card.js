@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {View, Text, TextInput, TouchableOpacity, Easing, StyleSheet} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, Easing, StyleSheet, Dimensions} from 'react-native';
 import { EditableText, Center, Button } from '../common/Common';
 import FlipView from 'react-native-flip-view';
 import Icon from 'react-native-vector-icons/Ionicons';
+const { width } = Dimensions.get('window');
 
 export default class Card extends Component {
     constructor(props) {
@@ -64,6 +65,7 @@ export default class Card extends Component {
                 <EditableText 
                     editable={this.props.editable}
                     textContent={cardText}
+                    editInputContainerStyle={[styles.editInputContainerStyle]}
                     editInputStyle={styles.editText}
                     viewTextStyle={styles.viewText} 
                     finishEditText={(finishedText) => finishCallBackFunction(finishedText)}/>
@@ -89,6 +91,12 @@ const styles = StyleSheet.create({
     viewText: {
         fontSize: 32,
         color: '#0277BD'
+    },
+    editInputContainerStyle:{ 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        margin: 1,
+        width: width - 40
     },
     editText:{
         fontSize: 32,
