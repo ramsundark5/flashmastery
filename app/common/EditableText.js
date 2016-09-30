@@ -52,11 +52,14 @@ export default class EditableText extends Component {
 
 	_renderEditMode() {
 		return (
-			<TouchableOpacity style={[styles.inputContainer, this.props.editInputContainerStyle]}>
+			<View style={[styles.inputContainer, this.props.editInputContainerStyle]}>
                 <TextInput
                         ref='editCardInput'
                         style={[styles.editInput, this.props.editInputStyle]}
                         value={this.state.editableText}
+                        autoFocus={true}
+                        onSubmitEditing={() => this._finishEditText()}
+                        returnKeyType='done'
                         onChangeText={(changedText) => this.setState({editableText: changedText})}/>
                 <HorizontalRow style={[styles.editButtonContainer, this.props.editButtonContainerStyle]}>
                     <Icon name='ios-close-circle-outline' style={[styles.cancelIcon, this.props.cancelIconStyle]}
@@ -65,7 +68,7 @@ export default class EditableText extends Component {
                     <Icon name='ios-checkmark-circle-outline' style={[styles.okayIcon, this.props.okayIconStyle]}
                         onPress={() => this._finishEditText()}/>
                 </HorizontalRow>
-            </TouchableOpacity>
+            </View>
 		);
 	}
 }

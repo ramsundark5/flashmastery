@@ -9,6 +9,7 @@ import uuid from 'react-native-uuid';
 import DeckTile from '../deck/DeckTile';
 import ColorGenerator from '../utils/ColorGenerator';
 import NavigationBar from 'react-native-navbar';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const {deviceWidth} = Dimensions.get('window');
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
@@ -87,14 +88,14 @@ export default class HomePage extends Component {
         return(
             <View style={{ flex: 1, }}>
                 {this._renderHeader()}
-                <ScrollView style={{marginBottom: contentMarginBottom}}>
+                <KeyboardAwareScrollView style={{marginBottom: contentMarginBottom}}>
                         <ResponsiveGrid
                                 containerStyle={{ backgroundColor: '#fff'}}
                                 columnCount={2}
                                 dataSource={deckSets}
                                 extraCellAtEnd = {this.addNewDeckSet}
                                 renderCell={(deckSet, index) => this._renderDeckSet(deckSet, index)} />
-                </ScrollView>
+                </KeyboardAwareScrollView>
                 <Footer style={styles.footerContainerStyle}>
                     {this._renderFooter()}
                 </Footer>

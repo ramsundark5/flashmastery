@@ -40,13 +40,15 @@ class CardDao{
 
     getCardsAsPlainObjects(realmCards){
         let customCards = [];
-        realmCards.map(function(realmCard) {
-            if (typeof realmCard.snapshot == 'function') {
-                realmCard = realmCard.snapshot();
-            } 
-            let card = Object.assign({}, realmCard);
-            customCards.push(card);
-        });
+        if(realmCards){
+            realmCards.map(function(realmCard) {
+                if (typeof realmCard.snapshot == 'function') {
+                    realmCard = realmCard.snapshot();
+                } 
+                let card = Object.assign({}, realmCard);
+                customCards.push(card);
+            });
+        }
         return customCards;
     }
 }

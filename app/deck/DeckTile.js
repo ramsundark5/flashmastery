@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity, TouchableHighlight} from 'react-native';
 import { Center, HorizontalRow, Button, EditableText } from '../common/Common';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';

@@ -62,7 +62,7 @@ export default class Card extends Component {
         return(
             <Center>
                 <EditableText 
-                    editable={true}
+                    editable={this.props.editable}
                     textContent={cardText}
                     editInputStyle={styles.editText}
                     viewTextStyle={styles.viewText} 
@@ -92,6 +92,6 @@ const styles = StyleSheet.create({
     },
     editText:{
         fontSize: 32,
-        color: '#0277BD'
+        color: '#0277BD',
     }
 });

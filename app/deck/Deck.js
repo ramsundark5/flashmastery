@@ -13,12 +13,12 @@ export default class Deck extends Component {
     }
     
     render(){
-        const {deck} = this.props;
+        const {deck, isCustom} = this.props;
         let cards = CardDao.getCardsAsPlainObjects(deck.cards);
         console.log('inside render of deck page '+deck.name);
         return(
             <View style={{ flex: 1, }}>
-                {this._renderHeader(deck)}
+                {this._renderHeader(deck, isCustom)}
                 <Container style={styles.container}>
                     <SwipeableViews>
                         {cards.map( (card, index) => 
@@ -43,15 +43,22 @@ export default class Deck extends Component {
         }
     }
 
-    _renderHeader(deck){
+    _renderHeader(deck, isCustom){
         const titleConfig = {title: 'Card', tintColor: '#0076FF'};
         const rightButtonConfig = {title: 'List', 
                         handler: () => Actions.cardListPage({deck: deck})};
         const leftButtonConfig = {title: 'Back',
                         handler: () => Actions.pop()};
-        return(
-           <NavigationBar title={titleConfig} rightButton={rightButtonConfig} leftButton={leftButtonConfig}/>
-        );
+        if(isCustom){
+            return(
+                <NavigationBar title={titleConfig} rightButton={rightButtonConfig} leftButton={leftButtonConfig}/>
+            );
+        }else{
+            return(
+                <NavigationBar title={titleConfig} leftButton={leftButtonConfig}/>
+            );
+        }
+        
     }
 }
 
