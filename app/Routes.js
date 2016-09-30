@@ -16,7 +16,7 @@ const Routes = ({loading, needRegistration}) => (
             <Scene key="homePage" initial={true} component={HomePage} title="Home" titleStyle={styles.titleStyle} hideNavBar={true}/>
             <Scene key="deckSetPage" component={DeckSet} title="Deck Set" titleStyle={styles.titleStyle} hideNavBar={true}/>
             <Scene key="deckPage" component={Deck} title="Deck" titleStyle={styles.titleStyle} hideNavBar={true}/>
-            <Scene key="cardListPage" component={CardListPage} title="Cards" titleStyle={styles.titleStyle} hideNavBar={false}/>
+            <Scene key="cardListPage" component={CardListPage} title="Cards" titleStyle={styles.titleStyle} hideNavBar={true}/>
         </Router>
 );
 

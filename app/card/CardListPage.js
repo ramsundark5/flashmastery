@@ -6,7 +6,8 @@ import { SwipeListView } from 'react-native-swipe-list-view';
 import CardDao from '../dao/CardDao';
 import AddCardInput from './AddCardInput';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
-import realm from '../database/Realm';
+import NavigationBar from 'react-native-navbar';
+import {Actions} from 'react-native-router-flux';
 
 export default class CardListPage extends Component {
     constructor(props){
@@ -40,18 +41,21 @@ export default class CardListPage extends Component {
         const {cards} = this.state;
         const cardsDS = this.cardsDatasource.cloneWithRows(cards);
         return(
-            <Container style={styles.container}>
-                <SwipeListView
-                    enableEmptySections={true}
-                    dataSource={cardsDS}
-                    renderRow={ (card) => this._renderCardItem(card)}
-                    renderHiddenRow={ (card) => this._renderSwipeOptions(card)}
-                    disableRightSwipe={true}
-                    rightOpenValue={-75}/>
-                <AddCardInput addCardToDeck={(newCard) => 
-                                this._addCardToDeck(newCard)} />
-                <KeyboardSpacer/>
-            </Container>
+            <View style={{ flex: 1, }}>
+                {this._renderHeader()}
+                <Container style={styles.container}>
+                    <SwipeListView
+                        enableEmptySections={true}
+                        dataSource={cardsDS}
+                        renderRow={ (card) => this._renderCardItem(card)}
+                        renderHiddenRow={ (card) => this._renderSwipeOptions(card)}
+                        disableRightSwipe={true}
+                        rightOpenValue={-75}/>
+                    <AddCardInput addCardToDeck={(newCard) => 
+                                    this._addCardToDeck(newCard)} />
+                    <KeyboardSpacer/>
+                </Container>
+            </View>
         );
     }
 
@@ -69,12 +73,32 @@ export default class CardListPage extends Component {
             </TouchableHighlight>
         );
     }
+
+    _renderHeader(){
+        const {deck} = this.props;
+        const {cards} = this.state;
+        const self = this;
+        const titleConfig = {title: 'Card', tintColor: '#0076FF'};
+        let backButtonHandler = function(){
+            Actions.pop();
+            setTimeout(() => {
+                deck.cards = cards;
+                Actions.refresh({deck: deck});
+            }, 100);
+        };
+        const leftButtonConfig = {title: 'Back',
+                        handler: () => backButtonHandler()};
+        return(
+            <NavigationBar title={titleConfig} leftButton={leftButtonConfig}/>
+        );
+        
+    }
 }
 
 const styles = StyleSheet.create({
     container:{
-        paddingTop: 80,
-        marginLeft: 0
+        padding: 0,
+        backgroundColor: "#E0F2F1"
     },
     optionsButton: {
         alignItems: 'center',
