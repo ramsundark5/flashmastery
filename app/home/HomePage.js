@@ -134,12 +134,10 @@ export default class HomePage extends Component {
             return null;
         }
         return(
-            <Center>
-                <TouchableOpacity onPress={() => this._onDeckSetDelete()}>
-                    <Icon name='ios-trash-outline'
-                            style={[styles.deleteIcon]}/>
-                </TouchableOpacity>
-            </Center>
+            <Button onPress={() => this._onDeckSetDelete()}
+                textStyle={styles.buttonText} style={styles.deleteButton}>
+                DELETE
+            </Button>
         );
     }
 }
@@ -156,8 +154,18 @@ const styles = StyleSheet.create({
         color: 'red'
     },
     footerContainerStyle:{
-        flexDirection: 'row', 
         flex: 1, 
-        backgroundColor: 'grey'
+    },
+    deleteButton:{
+        bottom: 0,
+        marginBottom: 0,
+        borderRadius: 0,
+        backgroundColor: '#F44336',
+        borderColor: '#F44336',
+    },
+    buttonText:{
+        color: 'white', 
+        fontSize: 16, 
+        fontWeight: 'bold'
     }
 });
