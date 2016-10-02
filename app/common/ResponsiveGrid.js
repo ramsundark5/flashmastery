@@ -48,7 +48,7 @@ export default class ResponsiveGrid extends Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'flex-start',
     flexWrap: 'wrap',
   },

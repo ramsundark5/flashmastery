@@ -11,7 +11,6 @@ import ColorGenerator from '../utils/ColorGenerator';
 import NavigationBar from 'react-native-navbar';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-const {deviceWidth} = Dimensions.get('window');
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
 const ADD_NEW_DECK = 'add';
 
