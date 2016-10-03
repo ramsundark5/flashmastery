@@ -804,6 +804,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plearning.flashmastery;
 				PRODUCT_NAME = flashmastery;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -836,6 +837,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plearning.flashmastery;
 				PRODUCT_NAME = flashmastery;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1009,6 +1011,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plearning.flashmastery;
 				PRODUCT_NAME = flashmastery;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Staging;
 		};
