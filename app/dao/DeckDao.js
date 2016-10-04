@@ -3,8 +3,11 @@ import realm from '../database/Realm';
 class DeckDao{
     getAllDeckSet(){
         let customDeckSets = [];
-        let realmDeckSets = realm.objects('DeckSet').snapshot();
+        let realmDeckSets = realm.objects('DeckSet');
         realmDeckSets.map(function(realmDeckSet) {
+            if (typeof realmDeckSet.snapshot == 'function') {
+                realmDeckSet = realmDeckSet.snapshot();
+            } 
             let deckSet = Object.assign({}, realmDeckSet);
             customDeckSets.push(deckSet);
         });
@@ -12,7 +15,11 @@ class DeckDao{
     }
 
     getDeckSetForId(deckSetId){
-        let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId).snapshot();
+        let realmDeckSet = realm.objectForPrimaryKey('DeckSet', deckSetId);
+        if (typeof realmDeckSet.snapshot == 'function') {
+            realmDeckSet = realmDeckSet.snapshot();
+        } 
+        let deckSetForId = Object.assign({}, realmDeckSet);
         return deckSetForId;
     }
 

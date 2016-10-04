@@ -73,7 +73,8 @@ export default class DeckSet extends Component {
         DeckDao.deleteDecks(this.selectedDecks);
         this._addNewDeckOptionAtEnd();
         this.selectedDecks = new Set();
-        let customDecks = DeckDao.getAllDecks();
+        let customDeckSet = DeckDao.getDeckSetForId(this.props.deckSet.id);
+        let customDecks = DeckDao.getDecksAsPlainObjects(customDeckSet.decks);
         this.setState({decks: customDecks, selectionModeEnabled: false});
     }
 
@@ -120,9 +121,16 @@ export default class DeckSet extends Component {
                         handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled})};
         let leftButtonConfig = {title: 'Back',
                         handler: () => Actions.pop()};
-        return(
-           <NavigationBar title={titleConfig} rightButton={rightButtonConfig} leftButton={leftButtonConfig}/>
-        );
+        if(this.props.deckSet.custom){
+            return(
+                <NavigationBar title={titleConfig} rightButton={rightButtonConfig} leftButton={leftButtonConfig}/>
+            );
+        }else{
+            return(
+                <NavigationBar title={titleConfig} leftButton={leftButtonConfig}/>
+            );
+        }
+        
     }
 
     _renderFooter(){

@@ -52,6 +52,9 @@ export default class HomePage extends Component {
     }
 
     _onDeckSetNameUpdate(updatedDeckSet){
+        //save to db
+        DeckDao.updateDeckSet(updatedDeckSet);
+
         let deckSetsAfterUpdate = this.state.deckSets.map( (existingDeckSet, index) => 
             existingDeckSet.id === updatedDeckSet.id?
                     Object.assign({}, updatedDeckSet) :
@@ -59,19 +62,18 @@ export default class HomePage extends Component {
             
         );
         this.setState({deckSets: deckSetsAfterUpdate});
-        //save to db
-        DeckDao.updateDeckSet(updatedDeckSet);
     }
 
     _onNewDeckSetAdd(addedDeckSet){
         addedDeckSet.decks = [];
         addedDeckSet.custom = true;
         addedDeckSet.lastModified = new Date();
-        let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
-        this.setState({deckSets: deckSetsAfterAdd});
         //save to db
         DeckDao.addNewDeckSet(addedDeckSet);
+
         this._addNewDeckOptionAtEnd();
+        let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
+        this.setState({deckSets: deckSetsAfterAdd});
     }
 
     _onDeckSetDelete(){
