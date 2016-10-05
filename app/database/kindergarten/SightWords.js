@@ -2,7 +2,9 @@ const sightWords = [
     {
         'id': 'edd56e8e-7b86-11e6-8b77-86f30ca893d3',
         'front': 'the',
-        'frontType': 'text'
+        'frontType': 'text',
+        'back': 'test back',
+        'backType': 'text'
     },
     {
         'id': 'f400e41e-7b86-11e6-8b77-86f30ca893d3',

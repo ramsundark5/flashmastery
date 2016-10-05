@@ -33,26 +33,29 @@ export default class Card extends Component {
     }
 
     _flip(){
-        this.setState({isFlipped: !this.state.isFlipped});
+        if(this.state.card.back){
+            this.setState({isFlipped: !this.state.isFlipped});;
+        }
     };
 
     render(){
         return(
-            <FlipView style={{flex: 1}}
-                    front={this._renderCardContent(false)}
-                    back={this._renderCardContent(true)}
-                    isFlipped={this.state.isFlipped}
-                    onFlipped={(val) => {console.log('Flipped: ' + val);}}
-                    flipAxis="y"
-                    flipEasing={Easing.out(Easing.ease)}
-                    flipDuration={500}
-                    perspective={1000}/>
+            <TouchableOpacity style={{flex: 1}} onPress={() => this._flip()}>
+                <FlipView style={{flex: 1}}
+                        front={this._renderCardContent(false)}
+                        back={this._renderCardContent(true)}
+                        isFlipped={this.state.isFlipped}
+                        onFlipped={(val) => {console.log('Flipped: ' + val);}}
+                        flipAxis="y"
+                        flipEasing={Easing.out(Easing.ease)}
+                        flipDuration={500}
+                        perspective={1000}/>
+            </TouchableOpacity>    
         );
     }
 
     _renderCardContent(isBack){
         const {card} = this.state;
-        let  flipButtonText = 'Flip card';
         let cardText = card.front;
         let finishCallBackFunction = (finishedText) => this._finishEditFrontCardText(finishedText);
         if(isBack){
@@ -69,19 +72,19 @@ export default class Card extends Component {
                     editInputStyle={styles.editText}
                     viewTextStyle={styles.viewText} 
                     finishEditText={(finishedText) => finishCallBackFunction(finishedText)}/>
+                {this._renderFlipButton()}
             </Center>
         );
     };
 
     _renderFlipButton(){
-        const {isFlipEnabled} = this.props;
-        if(!isFlipEnabled){
+        if(!this.state.card.back){
             return null;
         }
         return(
-            <TouchableOpacity style={{backgroundColor: 'black', padding: 20}} onPress={() => this._flip()}>
-                    <Text style={{fontSize: 32, color: 'white'}}>{flipButtonText}</Text>
-            </TouchableOpacity>
+            <View style={{paddingTop: 80}}>
+                <Text style={{fontSize: 12, color: '#0277BD'}}>(tap anywhere to flip)</Text>
+            </View>
         );
     }
 
