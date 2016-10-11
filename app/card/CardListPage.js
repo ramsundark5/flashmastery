@@ -29,8 +29,6 @@ export default class CardListPage extends Component {
 
     _addCardToDeck(newCard){
         newCard.lastModified = new Date();
-        newCard.type = 'text';
-        newCard.frontType = 'text';
         CardDao.addNewCard(this.props.deck, newCard);
         
         let cardsAfterAdd = this.state.cards.concat(newCard);

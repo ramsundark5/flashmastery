@@ -7,37 +7,52 @@ export default class AddCardInput extends Component {
     constructor(props){
         super(props);
         this.state = {
-            text: ''
+            frontText: '',
+            backText: ''
         };
     }
 
     _onAddCard(){
-        let newCard = { id: uuid.v1(), front: this.state.text };
+        let newCard = { id: uuid.v1(), front: this.state.frontText, back: this.state.backText };
+        newCard.type = 'text';
+        newCard.frontType = 'text';
+        newCard.backType = 'text';
         this.setState({
-            text: ''
+            frontText: '',
+            backText: ''
         });
         this.props.addCardToDeck(newCard);
     }
 
     render(){
         return(
-            <HorizontalRow style={styles.addCardContainer}>
-                <View style={styles.addTextInputContainer}>
+            <View>
+                <View style={[styles.addTextInputContainer, styles.backTextInputContainer]}>
                     <TextInput
-                            ref='addTextInput'
+                            ref='backTextInput'
                             style={[styles.addTextInput]}
-                            placeholder={'Type here..'}
-                            value={this.state.text}
-                            onChangeText={(changedText) => this.setState({text: changedText})}/>
+                            placeholder={'Type back card text here(optional)..'}
+                            value={this.state.backText}
+                            onChangeText={(changedText) => this.setState({backText: changedText})}/>
                 </View>
+                <HorizontalRow style={styles.addCardContainer}>
+                    <View style={styles.addTextInputContainer}>
+                        <TextInput
+                                ref='frontTextInput'
+                                style={[styles.addTextInput]}
+                                placeholder={'Type front card text here..'}
+                                value={this.state.frontText}
+                                onChangeText={(changedText) => this.setState({frontText: changedText})}/>
+                    </View>
 
-                <TouchableOpacity style={[styles.addButtonContainer]}>
-                    <Button onPress={() => this._onAddCard()} 
-                        style={styles.addButton} textStyle={styles.addButtonText}>
-                        Add
-                    </Button>
-                </TouchableOpacity>
-            </HorizontalRow>
+                    <TouchableOpacity style={[styles.addButtonContainer]}>
+                        <Button onPress={() => this._onAddCard()} 
+                            style={styles.addButton} textStyle={styles.addButtonText}>
+                            Add
+                        </Button>
+                    </TouchableOpacity>
+                </HorizontalRow>
+            </View>
         );
     }
 }
@@ -74,4 +89,8 @@ const styles = StyleSheet.create({
         fontSize: 14,
         flex    : 1,
     },
+    backTextInputContainer:{
+        marginLeft: 15,
+        marginRight: 70
+    }
 });
