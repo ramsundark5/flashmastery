@@ -31,8 +31,8 @@ export default class Deck extends Component {
     }
 
     _renderCard(card, index){
-        const {deck, isCustom} = this.props;
-        if(isCustom){
+        const {deck, isCustom, practiseMode} = this.props;
+        if(isCustom && !practiseMode){
             return(
                 <EditableCard key={card.id} card={card} />
             );

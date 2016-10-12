@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, TextInput, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, StyleSheet, ScrollView, Dimensions, TouchableOpacity, Alert} from 'react-native';
 import { Container, Content, Center, Footer, ResponsiveGrid, Button, LeftButton } from '../common/Common';
 import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -44,7 +44,14 @@ export default class DeckSet extends Component {
                 this.selectedDecks.delete(deck.id);
             }
         }else{
-            Actions.deckPage({deck: deck, isCustom: isCustom});
+            Alert.alert(
+                'What do you want to do?',
+                null,
+                [
+                    {text: 'Start Practise', onPress: () => Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true})},
+                    {text: 'Edit Cards', onPress: () => Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: false})},
+                ]
+            );
         }
     }
 
@@ -171,5 +178,5 @@ const styles = StyleSheet.create({
         color: 'white', 
         fontSize: 16, 
         fontWeight: 'bold'
-    }
+    },
 });

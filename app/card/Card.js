@@ -3,6 +3,7 @@ import {View, Text, TextInput, TouchableOpacity, Easing, StyleSheet, Dimensions}
 import { EditableText, Center, Button } from '../common/Common';
 import FlipView from 'react-native-flip-view';
 import Icon from 'react-native-vector-icons/Ionicons';
+import CardDao from '../dao/CardDao';
 const { width } = Dimensions.get('window');
 
 export default class Card extends Component {
@@ -23,6 +24,7 @@ export default class Card extends Component {
         cardAfterEdit.front = finishedText;
         this.setState({card: cardAfterEdit});
         //save card after change
+        CardDao.updateCard(cardAfterEdit);
     }
 
     _finishEditBackCardText(finishedText){
@@ -30,6 +32,7 @@ export default class Card extends Component {
         cardAfterEdit.back = finishedText;
         this.setState({card: cardAfterEdit});
         //save card after change
+        CardDao.updateCard(cardAfterEdit);
     }
 
     _flip(){
