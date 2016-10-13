@@ -8,7 +8,7 @@ import uuid from 'react-native-uuid';
 import ColorGenerator from '../utils/ColorGenerator';
 import NavigationBar from 'react-native-navbar';
 import DeckDao from '../dao/DeckDao';
-import realm from '../database/Realm';
+import PracticeDao from '../dao/PracticeDao';
 
 const {deviceWidth} = Dimensions.get('window');
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
@@ -48,11 +48,16 @@ export default class DeckSet extends Component {
                 'What do you want to do?',
                 null,
                 [
-                    {text: 'Start Practise', onPress: () => Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true})},
+                    {text: 'Start Practise', onPress: () => this._onStartPracticeSession(deck)},
                     {text: 'Edit Cards', onPress: () => Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: false})},
                 ]
             );
         }
+    }
+
+    _onStartPracticeSession(deck){
+        let newPracticeSession = PracticeDao.createPracticeSession(deck);
+        Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true, practiceSession: newPracticeSession});
     }
 
     _onDeckNameUpdate(updatedDeck){

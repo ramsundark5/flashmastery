@@ -46,9 +46,9 @@ DeckSet.schema = {
     },
 };
 
-class DeckPractiseResult extends Realm.Object {}
-DeckPractiseResult.schema = {
-    name: 'DeckPractiseResult',
+class PracticeCardResult extends Realm.Object {}
+PracticeCardResult.schema = {
+    name: 'PracticeCardResult',
     primaryKey: 'id',
     properties: {
         id: 'string',
@@ -56,6 +56,20 @@ DeckPractiseResult.schema = {
         verifiedBy: 'string',
         card: {type: 'Card'},
         answeredCorrect: {type: 'bool', default: false},
+        lastModified: 'date'
+    },
+};
+
+class PracticeSession extends Realm.Object {}
+PracticeSession.schema = {
+    name: 'PracticeSession',
+    primaryKey: 'id',
+    properties: {
+        id: 'string',
+        user: 'string',
+        verifiedBy: 'string',
+        deck: {type: 'Deck'},
+        results: {type: 'list', objectType: 'PracticeCardResult'},
         lastModified: 'date'
     },
 };
@@ -71,6 +85,6 @@ VersionInfo.schema = {
 };
 
 export default new Realm({
-    schema: [Card, Deck, DeckSet, DeckPractiseResult, VersionInfo],
-    schemaVersion: 3
+    schema: [Card, Deck, DeckSet, PracticeCardResult, PracticeSession, VersionInfo],
+    schemaVersion: 6
 });

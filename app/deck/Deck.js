@@ -34,11 +34,11 @@ export default class Deck extends Component {
         const {deck, isCustom, practiseMode} = this.props;
         if(isCustom && !practiseMode){
             return(
-                <EditableCard key={card.id} card={card} />
+                <EditableCard key={card.id} card={card} deck={deck}/>
             );
         }else{
             return(
-                <PracticeCard key={card.id} card={card} />
+                <PracticeCard key={card.id} card={card} deck={deck}/>
             );
         }
     }
