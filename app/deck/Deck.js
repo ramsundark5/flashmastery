@@ -9,9 +9,25 @@ import {Actions} from 'react-native-router-flux';
 import CardDao from '../dao/CardDao';
 
 export default class Deck extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            swipeIndex: 0
+        };
+    }
+
     componentDidMount(){
     }
     
+    _onChangeIndex(index){
+        let cards = this.props.deck.cards;
+        if(index >= cards.length - 1){
+            console.log('end of practice session');
+            return;
+        }
+        this.setState({swipeIndex: index + 1});
+    }
+
     render(){
         const {deck, isCustom} = this.props;
         let cards = CardDao.getCardsAsPlainObjects(deck.cards);
@@ -20,7 +36,7 @@ export default class Deck extends Component {
             <View style={{ flex: 1, }}>
                 {this._renderHeader(deck, isCustom)}
                 <Container style={styles.container}>
-                    <SwipeableViews>
+                    <SwipeableViews index={this.state.swipeIndex}>
                         {cards.map( (card, index) => 
                             this._renderCard(card, index)
                         )}
@@ -38,7 +54,12 @@ export default class Deck extends Component {
             );
         }else{
             return(
-                <PracticeCard key={card.id} card={card} deck={deck} practiceSession={practiceSession}/>
+                <PracticeCard 
+                    key={card.id} 
+                    card={card} 
+                    deck={deck} 
+                    practiceSession={practiceSession} 
+                    onChangeIndex={(cardIndex) => this._onChangeIndex(index)}/>
             );
         }
     }

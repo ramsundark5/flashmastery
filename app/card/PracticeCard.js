@@ -11,10 +11,12 @@ export default class PracticeCard extends Component {
 
     markAsLearning(card, practiceSession){
         PracticeDao.addNewPraciseCardResult(card, practiceSession, false);
+        this.props.onChangeIndex();
     }
 
     markAsMastered(card, practiceSession){
         PracticeDao.addNewPraciseCardResult(card, practiceSession, true);
+        this.props.onChangeIndex();
     }
 
     render(){
