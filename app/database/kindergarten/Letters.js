@@ -21,4 +21,4 @@ const letters = [
     },
 ];
 
-export const Letters = {name: 'Letters', cards: letters};
+export const Letters = {id: 'd9738fe0-9259-11e6-ae22-56b6b6499611', name: 'Letters', cards: letters};

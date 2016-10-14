@@ -31,14 +31,14 @@ export default class Deck extends Component {
     }
 
     _renderCard(card, index){
-        const {deck, isCustom, practiseMode} = this.props;
+        const {deck, isCustom, practiseMode, practiceSession} = this.props;
         if(isCustom && !practiseMode){
             return(
                 <EditableCard key={card.id} card={card} deck={deck}/>
             );
         }else{
             return(
-                <PracticeCard key={card.id} card={card} deck={deck}/>
+                <PracticeCard key={card.id} card={card} deck={deck} practiceSession={practiceSession}/>
             );
         }
     }

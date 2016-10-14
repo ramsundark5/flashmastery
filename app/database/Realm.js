@@ -54,7 +54,7 @@ PracticeCardResult.schema = {
         id: 'string',
         user: 'string',
         verifiedBy: 'string',
-        card: {type: 'Card'},
+        cardId: 'string',
         answeredCorrect: {type: 'bool', default: false},
         lastModified: 'date'
     },
@@ -68,7 +68,7 @@ PracticeSession.schema = {
         id: 'string',
         user: 'string',
         verifiedBy: 'string',
-        deck: {type: 'Deck'},
+        deckId: 'string',
         results: {type: 'list', objectType: 'PracticeCardResult'},
         lastModified: 'date'
     },
@@ -86,5 +86,5 @@ VersionInfo.schema = {
 
 export default new Realm({
     schema: [Card, Deck, DeckSet, PracticeCardResult, PracticeSession, VersionInfo],
-    schemaVersion: 6
+    schemaVersion: 1
 });

@@ -23,4 +23,4 @@ const sightWords = [
     },
 ];
 
-export const SightWords = {name: 'Sight Words', cards: sightWords};
+export const SightWords = {id: 'e47433f4-9259-11e6-ae22-56b6b6499611', name: 'Sight Words', cards: sightWords};

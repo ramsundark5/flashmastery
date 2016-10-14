@@ -66,6 +66,8 @@ class DeckDao{
             let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId);
             if(deckSetForId){
                 deckSetForId.decks.push(addedDeck);
+            }else{
+                //Alert('oops! something went wrong! please try again');
             }
         });
     }

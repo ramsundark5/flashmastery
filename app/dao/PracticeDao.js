@@ -19,9 +19,9 @@ class PracticeDao{
     createPracticeSession(deck, user, verifiedBy){
         let newPracticeSession = {
             id: uuid.v1(), 
-            user: user || 'default', 
-            verifiedBy: verifiedBy || 'default', 
-            deck: deck,
+            user: 'guest', 
+            verifiedBy: 'guest', 
+            deckId: deck.id,
             results: [],
             lastModified: new Date()
         };
@@ -36,7 +36,7 @@ class PracticeDao{
             id: uuid.v1(), 
             user: user || 'default', 
             verifiedBy: verifiedBy || 'default', 
-            card: card,
+            cardId: card.id,
             answeredCorrect: answeredCorrect,
             lastModified: new Date()
         };
@@ -44,7 +44,7 @@ class PracticeDao{
         realm.write(() => {
             let practiceSessionForId = realm.objectForPrimaryKey('PracticeSession', practiceSession.id);
             if(practiceSessionForId){
-                PracticeSessionForId.results.push(practiseCardResult);
+                practiceSessionForId.results.push(practiseCardResult);
             }
         });
     }
