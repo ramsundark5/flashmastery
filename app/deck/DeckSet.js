@@ -49,7 +49,7 @@ export default class DeckSet extends Component {
                 null,
                 [
                     {text: 'Start Practise', onPress: () => this._onStartPracticeSession(deck)},
-                    {text: 'Edit Cards', onPress: () => Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: false})},
+                    {text: 'Edit Cards', onPress: () => Actions.cardListPage({deck: deck, isCustom: isCustom, practiseMode: false})},
                 ]
             );
         }

@@ -19,12 +19,16 @@ export default class CardListPage extends Component {
         this.cardsDatasource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     }
 
-    _deleteCard(cardToBeDeleted){
+    _deleteCard(cardToBeDeleted, secId, rowId, rowMap){
         CardDao.deleteCard(cardToBeDeleted.id);
         let cardsAfterDelete = this.state.cards.filter(card =>
                 card.id !== cardToBeDeleted.id
             );
         this.setState({cards: cardsAfterDelete});
+        let currentRow = rowMap[`${secId}${rowId}`];
+        if(currentRow){
+            currentRow.closeRow();
+        }
     }
 
     _addCardToDeck(newCard){
@@ -43,10 +47,9 @@ export default class CardListPage extends Component {
                 {this._renderHeader()}
                 <Container style={styles.container}>
                     <SwipeListView
-                        enableEmptySections={true}
                         dataSource={cardsDS}
                         renderRow={ (card) => this._renderCardItem(card)}
-                        renderHiddenRow={ (card) => this._renderSwipeOptions(card)}
+                        renderHiddenRow={ (card, secdId, rowId, rowMap) => this._renderSwipeOptions(card, secdId, rowId, rowMap)}
                         disableRightSwipe={true}
                         closeOnRowPress={true}
                         rightOpenValue={-75}/>
@@ -64,10 +67,10 @@ export default class CardListPage extends Component {
         );
     }
 
-    _renderSwipeOptions(card){
+    _renderSwipeOptions(card, secdId, rowId, rowMap){
         return(
             <TouchableHighlight style={[styles.optionsButton, styles.deleteButton]}
-                                  onPress={() => this._deleteCard(card)}>
+                                  onPress={() => this._deleteCard(card, secdId, rowId, rowMap)}>
                 <Text style={styles.optionsText}>Delete</Text>
             </TouchableHighlight>
         );
