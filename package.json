@@ -12,6 +12,7 @@
     "react": "15.3.2",
     "react-native": "0.34.1",
     "react-native-code-push": "^1.14.6-beta",
+    "react-native-drawer": "^2.3.0",
     "react-native-flip-view": "^1.0.5",
     "react-native-keyboard-aware-scroll-view": "^0.2.0",
     "react-native-keyboard-spacer": "^0.3.0",

@@ -48,6 +48,7 @@ export default class CardListPage extends Component {
                         renderRow={ (card) => this._renderCardItem(card)}
                         renderHiddenRow={ (card) => this._renderSwipeOptions(card)}
                         disableRightSwipe={true}
+                        closeOnRowPress={true}
                         rightOpenValue={-75}/>
                     <AddCardInput addCardToDeck={(newCard) => 
                                     this._addCardToDeck(newCard)} />

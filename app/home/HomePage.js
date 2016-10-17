@@ -47,6 +47,9 @@ export default class HomePage extends Component {
                 this.selectedDeckSets.delete(deckSet.id);
             }
         }else{
+            if(deckSet.custom){
+                deckSet = DeckDao.getDeckSetForId(deckSet.id);
+            }
             Actions.deckSetPage({deckSet: deckSet});
         }
     }

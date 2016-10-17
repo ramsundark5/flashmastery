@@ -12,7 +12,7 @@ export default class CardListItem extends Component {
     render(){
         const {card} = this.state;
         return(
-            <View style={[styles.cardItem]}>
+            <View key={card.id} style={[styles.cardItem]}>
                 <Text style={styles.vocabText}>{card.front}</Text>
             </View>
         );
