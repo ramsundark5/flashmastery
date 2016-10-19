@@ -61,18 +61,18 @@ export default class CardListItem extends Component {
             cardText = card.back;
             finishCallBackFunction = (finishedText) => this._finishEditBackCardText(finishedText);
         }
-
+        if(!cardText){
+            cardText = '';
+        }
         return(
-            <View key={card.id} style={[styles.cardItem]}>
-                <EditableText
-                    onPress={()=> this._flip()} 
-                    editable={true}
-                    textContent={cardText}
-                    editInputContainerStyle={[styles.editInputContainerStyle]}
-                    editInputStyle={styles.editText}
-                    viewTextStyle={styles.vocabText} 
-                    finishEditText={(finishedText) => finishCallBackFunction(finishedText)}/>
-            </View>
+            <EditableText
+                onPress={()=> this._flip()} 
+                editable={true}
+                textContent={cardText}
+                editInputContainerStyle={[styles.editInputContainerStyle]}
+                editInputStyle={styles.vocabText}
+                viewTextStyle={styles.vocabText} 
+                finishEditText={(finishedText) => finishCallBackFunction(finishedText)}/>
         );
     }
 }
@@ -81,15 +81,12 @@ const styles = StyleSheet.create({
     cardContainer:{
         marginBottom: 10,
         marginLeft: 10,
-        backgroundColor: 'white',
+        backgroundColor: '#EEEE',
         borderColor: 'white',
-        borderTopLeftRadius: 10,
-    },
-    cardItem:{
     },
     vocabText:{
-        padding: 10,
-        fontSize: 20,
+        margin: 10,
+        fontSize: 16,
         color: '#0277BD'
     },
     editInputContainerStyle:{ 
@@ -97,8 +94,4 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
         margin: 1,
     },
-    editText:{
-        fontSize: 20,
-        color: '#0277BD'
-    }
 });

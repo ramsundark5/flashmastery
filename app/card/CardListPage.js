@@ -2,19 +2,23 @@ import React, { Component } from 'react';
 import {View, StyleSheet, ScrollView, ListView, TouchableHighlight, Text} from 'react-native';
 import { Container } from '../common/Common';
 import CardListItem from './CardListItem';
-import { SwipeListView } from 'react-native-swipe-list-view';
 import CardDao from '../dao/CardDao';
 import AddCardInput from './AddCardInput';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import NavigationBar from 'react-native-navbar';
 import {Actions} from 'react-native-router-flux';
+import SwipeitemView from 'react-native-swipe-left';
 
 export default class CardListPage extends Component {
     constructor(props){
         super(props);
+        this._dataRow = {};
+        this.openRowId = '';
         let cards = CardDao.getCardsAsPlainObjects(props.deck.cards || []);
         this.state = {
             cards: cards,
+            scrollEnable: true,
+            hasIdOpen: false
         };
         this.cardsDatasource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     }
@@ -46,24 +50,36 @@ export default class CardListPage extends Component {
             <View style={{ flex: 1, }}>
                 {this._renderHeader()}
                 <Container style={styles.container}>
-                    <SwipeListView
+                    <ListView
                         dataSource={cardsDS}
-                        renderRow={ (card) => this._renderCardItem(card)}
-                        renderHiddenRow={ (card, secdId, rowId, rowMap) => this._renderSwipeOptions(card, secdId, rowId, rowMap)}
-                        disableRightSwipe={true}
-                        closeOnRowPress={true}
-                        rightOpenValue={-75}/>
-                    <AddCardInput addCardToDeck={(newCard) => 
-                                    this._addCardToDeck(newCard)} />
+                        renderRow={ (card, sectionId, rowId) => this._renderCardItem(card, sectionId, rowId)}
+                        ref="listview"
+                        renderScrollComponent={(props)=>{
+                            return <ScrollView scrollEnabled={this.state.scrollEnable} {...props}/>;
+                        }}/>
+                    <AddCardInput addCardToDeck={(newCard) => this._addCardToDeck(newCard)} />
                     <KeyboardSpacer/>
                 </Container>
             </View>
         );
     }
 
-    _renderCardItem(card){
+    _renderCardItem(card, sectionId, rowId){
+        let id = '' +sectionId + rowId;
+        let rightBtn = [{id: 1, text: 'Delete', width: 75, color: 'white', bgColor: 'rgba(231,76,60,1)',
+                            onPress: (card) =>this._deleteCard(card)
+                        }];
+
         return(
-            <CardListItem key={card.id} card={card} />
+            <SwipeitemView 
+                root={this}
+                ref={(row)=>this._dataRow[id] = row}
+                id={id}
+                data={card}
+                rightBtn={rightBtn}>
+              <CardListItem key={card.id} card={card} />
+            </SwipeitemView>
+            
         );
     }
 
@@ -100,24 +116,6 @@ export default class CardListPage extends Component {
 const styles = StyleSheet.create({
     container:{
         padding: 0,
-        backgroundColor: "#E0F2F1"
+        backgroundColor: "#E0F2F1",
     },
-    optionsButton: {
-        alignItems: 'center',
-		bottom: 0,
-		justifyContent: 'center',
-		position: 'absolute',
-		top: 0,
-		width: 75,
-        marginBottom: 10,
-    },
-    deleteButton: {
-        justifyContent: 'center',
-        backgroundColor: 'rgba(231,76,60,1)',
-        right: 0
-    },
-    optionsText:{
-        textAlign: 'center',
-        color: 'white'
-    }
 });
