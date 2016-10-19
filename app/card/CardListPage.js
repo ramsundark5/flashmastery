@@ -46,7 +46,7 @@ export default class CardListPage extends Component {
         return(
             <View style={{ flex: 1, }}>
                 {this._renderHeader()}
-                <Container style={styles.container}>
+                <View style={styles.container}>
                     <ListView
                         dataSource={cardsDS}
                         renderRow={ (card, sectionId, rowId) => this._renderCardItem(card, sectionId, rowId)}
@@ -57,7 +57,7 @@ export default class CardListPage extends Component {
                         renderSeparator={this._renderSeperator}/>
                     <AddCardInput addCardToDeck={(newCard) => this._addCardToDeck(newCard)} />
                     <KeyboardSpacer/>
-                </Container>
+                </View>
             </View>
         );
     }
@@ -112,7 +112,8 @@ export default class CardListPage extends Component {
 
 const styles = StyleSheet.create({
     container:{
-        padding: 0,
+        flex: 1,
+        paddingTop: 20,
         backgroundColor: "#E0F2F1",
     },
     separator:{
