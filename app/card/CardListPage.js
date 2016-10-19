@@ -23,16 +23,12 @@ export default class CardListPage extends Component {
         this.cardsDatasource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     }
 
-    _deleteCard(cardToBeDeleted, secId, rowId, rowMap){
+    _deleteCard(cardToBeDeleted){
         CardDao.deleteCard(cardToBeDeleted.id);
         let cardsAfterDelete = this.state.cards.filter(card =>
                 card.id !== cardToBeDeleted.id
             );
         this.setState({cards: cardsAfterDelete});
-        let currentRow = rowMap[`${secId}${rowId}`];
-        if(currentRow){
-            currentRow.closeRow();
-        }
     }
 
     _addCardToDeck(newCard){
@@ -56,7 +52,8 @@ export default class CardListPage extends Component {
                         ref="listview"
                         renderScrollComponent={(props)=>{
                             return <ScrollView scrollEnabled={this.state.scrollEnable} {...props}/>;
-                        }}/>
+                        }}
+                        renderSeparator={this._renderSeperator}/>
                     <AddCardInput addCardToDeck={(newCard) => this._addCardToDeck(newCard)} />
                     <KeyboardSpacer/>
                 </Container>
@@ -67,7 +64,7 @@ export default class CardListPage extends Component {
     _renderCardItem(card, sectionId, rowId){
         let id = '' +sectionId + rowId;
         let rightBtn = [{id: 1, text: 'Delete', width: 75, color: 'white', bgColor: 'rgba(231,76,60,1)',
-                            onPress: (card) =>this._deleteCard(card)
+                            onPress: () =>{this._deleteCard(card);}
                         }];
 
         return(
@@ -76,6 +73,8 @@ export default class CardListPage extends Component {
                 ref={(row)=>this._dataRow[id] = row}
                 id={id}
                 data={card}
+                boxbgColor='#E0F2F1'
+                rowbgColor='#E0F2F1'
                 rightBtn={rightBtn}>
               <CardListItem key={card.id} card={card} />
             </SwipeitemView>
@@ -83,12 +82,9 @@ export default class CardListPage extends Component {
         );
     }
 
-    _renderSwipeOptions(card, secdId, rowId, rowMap){
+    _renderSeperator(sectionID, rowID){
         return(
-            <TouchableHighlight style={[styles.optionsButton, styles.deleteButton]}
-                                  onPress={() => this._deleteCard(card, secdId, rowId, rowMap)}>
-                <Text style={styles.optionsText}>Delete</Text>
-            </TouchableHighlight>
+            <View key={`${sectionID}-${rowID}`} style={styles.separator}></View>
         );
     }
 
@@ -118,4 +114,7 @@ const styles = StyleSheet.create({
         padding: 0,
         backgroundColor: "#E0F2F1",
     },
+    separator:{
+        margin: 10
+    }
 });

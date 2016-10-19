@@ -79,9 +79,8 @@ export default class CardListItem extends Component {
 
 const styles = StyleSheet.create({
     cardContainer:{
-        marginBottom: 10,
         marginLeft: 10,
-        backgroundColor: '#EEEE',
+        backgroundColor: 'white',
         borderColor: 'white',
     },
     vocabText:{
