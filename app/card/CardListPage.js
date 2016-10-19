@@ -29,6 +29,7 @@ export default class CardListPage extends Component {
                 card.id !== cardToBeDeleted.id
             );
         this.setState({cards: cardsAfterDelete});
+        this._dataRow[this.openRowId]._closeRow();
     }
 
     _addCardToDeck(newCard){
