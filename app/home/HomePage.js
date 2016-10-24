@@ -88,22 +88,19 @@ export default class HomePage extends Component {
         this._addCustomDeckSetsToLocalDatabase();
     }
 
-    closeControlPanel(){
-        this._drawer.close();
-    }
-
-    openControlPanel(){
-        this._drawer.open();
+    _toggleSideMenu(){
+        let newOpenDrawerState = !this._drawer.isOpen;
+        this.setState({openDrawer: newOpenDrawerState});
     }
 
     render(){
         let {deckSets, openDrawer} = this.state;
-        const menu = <SideMenu isOpen={openDrawer}/>;
         let navigationState = this.props.navigationState;
         let contentMarginBottom = this.state.selectionModeEnabled? 45 : 0;
         return(
-            <Drawer menu={menu}>
-            <View style={{ flex: 1, backgroundColor: 'white',}}>
+            <Drawer menu={<SideMenu/>} isOpen={openDrawer}
+                ref={(ref) => this._drawer = ref}>
+            <View style={styles.container}>
                 {this._renderHeader()}
                 <KeyboardAwareScrollView style={{marginBottom: contentMarginBottom}}>
                         <ResponsiveGrid
@@ -143,7 +140,18 @@ export default class HomePage extends Component {
         let rightButtonConfig = {title: rightButtonText, 
                         handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled})};
         return(
-           <NavigationBar title={titleConfig} rightButton={rightButtonConfig}/>
+           <NavigationBar title={titleConfig} leftButton={this._renderSideMenuIcon()} rightButton={rightButtonConfig}/>
+        );
+    }
+
+    _renderSideMenuIcon(){
+        return(
+            <TouchableOpacity onPress={() => this._toggleSideMenu()}>
+                <Center>
+                <Icon name='ios-menu'
+                        style={[styles.sideMenuIcon]}/>
+                        </Center>
+            </TouchableOpacity>
         );
     }
 
@@ -162,15 +170,14 @@ export default class HomePage extends Component {
 
 const styles = StyleSheet.create({
     container:{
-        padding: 0,
-        marginTop: 5,
-        marginBottom: 10,
+        flex: 1,
         backgroundColor: 'white',
     },
-    deleteIcon:{
+    sideMenuIcon:{
         fontWeight: 'bold',
-        fontSize : 40,
-        color: 'red'
+        color: '#0076FF',
+        fontSize : 30,
+        paddingLeft: 10,
     },
     footerContainerStyle:{
         flex: 1, 
