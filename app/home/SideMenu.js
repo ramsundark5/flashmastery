@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import {View, ScrollView, StyleSheet, Text, TouchableOpacity,} from 'react-native';
 
 export default class SideMenu extends Component{
+   closeDrawer(){
+     this.props.closeDrawer();
+   }
     render() {
-        let {closeDrawer} = this.props;
         return (
         <ScrollView style={styles.container}>
             <Text style={styles.controlText}>Control Panel</Text>
-            <TouchableOpacity style={styles.button} onPress={closeDrawer}>
+            <TouchableOpacity style={styles.button} onPress={() => this.closeDrawer()}>
                 <Text>Close Drawer</Text>
             </TouchableOpacity>
         </ScrollView>

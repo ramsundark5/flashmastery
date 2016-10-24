@@ -10,6 +10,8 @@ import DeckTile from '../deck/DeckTile';
 import ColorGenerator from '../utils/ColorGenerator';
 import NavigationBar from 'react-native-navbar';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import SideMenu from './SideMenu';
+import Drawer from 'react-native-side-menu';
 
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
 const ADD_NEW_DECK = 'add';
@@ -21,7 +23,8 @@ export default class HomePage extends Component {
         this.selectedDeckSets = new Set();
         this.state = {
             deckSets: LocalDatabase,
-            selectionModeEnabled: false
+            selectionModeEnabled: false,
+            openDrawer: false
         };
     }
 
@@ -85,12 +88,22 @@ export default class HomePage extends Component {
         this._addCustomDeckSetsToLocalDatabase();
     }
 
+    closeControlPanel(){
+        this._drawer.close();
+    }
+
+    openControlPanel(){
+        this._drawer.open();
+    }
+
     render(){
-        let {deckSets} = this.state;
+        let {deckSets, openDrawer} = this.state;
+        const menu = <SideMenu isOpen={openDrawer}/>;
         let navigationState = this.props.navigationState;
         let contentMarginBottom = this.state.selectionModeEnabled? 45 : 0;
         return(
-            <View style={{ flex: 1, }}>
+            <Drawer menu={menu}>
+            <View style={{ flex: 1, backgroundColor: 'white',}}>
                 {this._renderHeader()}
                 <KeyboardAwareScrollView style={{marginBottom: contentMarginBottom}}>
                         <ResponsiveGrid
@@ -104,6 +117,7 @@ export default class HomePage extends Component {
                     {this._renderFooter()}
                 </Footer>
             </View>
+            </Drawer>
         );
     }
 
@@ -151,6 +165,7 @@ const styles = StyleSheet.create({
         padding: 0,
         marginTop: 5,
         marginBottom: 10,
+        backgroundColor: 'white',
     },
     deleteIcon:{
         fontWeight: 'bold',

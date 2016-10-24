@@ -9,6 +9,7 @@ import ColorGenerator from '../utils/ColorGenerator';
 import NavigationBar from 'react-native-navbar';
 import DeckDao from '../dao/DeckDao';
 import PracticeDao from '../dao/PracticeDao';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const {deviceWidth} = Dimensions.get('window');
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
@@ -93,17 +94,18 @@ export default class DeckSet extends Component {
 
     render(){
         let {decks} = this.state;
+        let contentMarginBottom = this.state.selectionModeEnabled? 45 : 0;
         return(
             <View style={{ flex: 1, }}>
                 {this._renderHeader()}
-                <ScrollView>
+                <KeyboardAwareScrollView style={{marginBottom: contentMarginBottom}}>
                     <ResponsiveGrid
                             containerStyle={{ backgroundColor: '#fff',}}
                             columnCount={2}
                             dataSource={decks}
                             extraCellAtEnd = {this.addNewDeck}
                             renderCell={(deck, index) => this._renderDeck(deck, index)} />
-                </ScrollView>
+                </KeyboardAwareScrollView>
                 <Footer style={styles.footerContainerStyle}>
                     {this._renderFooter()}
                 </Footer>

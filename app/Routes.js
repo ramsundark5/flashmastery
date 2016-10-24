@@ -7,7 +7,6 @@ import DeckSet from './deck/DeckSet';
 import HomePage from './home/HomePage';
 import NavigationBar from 'react-native-navbar';
 import CardListPage from './card/CardListPage';
-import SideDrawer from './home/SideDrawer';
 
 const Routes = ({loading, needRegistration}) => (
     loading ?
