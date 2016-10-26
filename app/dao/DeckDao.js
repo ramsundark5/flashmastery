@@ -61,6 +61,15 @@ class DeckDao{
         return customDecks;
     }
 
+    getDeckById(deckId){
+        let realmDeck = realm.objectForPrimaryKey('Deck', deckId);
+        if (realmDeck && typeof realmDeck.snapshot == 'function') {
+            realmDeck = realmDeck.snapshot();
+        } 
+        let deckForId = Object.assign({}, realmDeck);
+        return deckForId;
+    }
+
     addNewDeck(deckSetId, addedDeck){
         realm.write(() => {
             let deckSetForId = realm.objectForPrimaryKey('DeckSet', deckSetId);

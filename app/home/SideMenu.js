@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import {View, ScrollView, StyleSheet, Text, TouchableOpacity,} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 export default class SideMenu extends Component{
-   closeDrawer(){
-     this.props.closeDrawer();
+
+   _gotoReports(){
+     Actions.reportsPage();
    }
+   
     render() {
         return (
         <ScrollView style={styles.container}>
             <Text style={styles.controlText}>Control Panel</Text>
-            <TouchableOpacity style={styles.button} onPress={() => this.closeDrawer()}>
-                <Text>Close Drawer</Text>
+            <TouchableOpacity style={styles.button} onPress={() => this._gotoReports()}>
+                <Text>View Reports</Text>
             </TouchableOpacity>
         </ScrollView>
         );

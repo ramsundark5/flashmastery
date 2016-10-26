@@ -16,6 +16,19 @@ class PracticeDao{
         return practiceSessions;
     }
 
+    getPracticeSessionsForDeck(deckId){
+        let practiceSessions = [];
+        let realmPracticeSessions = realm.objects('PracticeSession').filtered('deckId = $0', deckId);
+        realmPracticeSessions.map(function(realmPracticeSession) {
+            if (typeof realmPracticeSession.snapshot == 'function') {
+                realmPracticeSession = realmPracticeSession.snapshot();
+            } 
+            let practiceSession = Object.assign({}, realmPracticeSession);
+            practiceSessions.push(practiceSession);
+        });
+        return practiceSessions;
+    }
+
     createPracticeSession(deck, user, verifiedBy){
         let newPracticeSession = {
             id: uuid.v1(), 

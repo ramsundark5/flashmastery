@@ -7,6 +7,7 @@ import DeckSet from './deck/DeckSet';
 import HomePage from './home/HomePage';
 import NavigationBar from 'react-native-navbar';
 import CardListPage from './card/CardListPage';
+import ReportsPage from './report/ReportsPage';
 
 const Routes = ({loading, needRegistration}) => (
     loading ?
@@ -17,6 +18,7 @@ const Routes = ({loading, needRegistration}) => (
             <Scene key="deckSetPage" component={DeckSet} title="Deck Set" titleStyle={styles.titleStyle} hideNavBar={true}/>
             <Scene key="deckPage" component={Deck} title="Deck" titleStyle={styles.titleStyle} hideNavBar={true}/>
             <Scene key="cardListPage" component={CardListPage} title="Cards" titleStyle={styles.titleStyle} hideNavBar={true}/>
+            <Scene key="reportsPage" component={ReportsPage} title="Report" titleStyle={styles.titleStyle} hideNavBar={false}/>
         </Router>
 );
 
