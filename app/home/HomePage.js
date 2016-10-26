@@ -98,7 +98,7 @@ export default class HomePage extends Component {
         let navigationState = this.props.navigationState;
         let contentMarginBottom = this.state.selectionModeEnabled? 45 : 0;
         return(
-            <Drawer menu={<SideMenu/>} isOpen={openDrawer}
+            <Drawer menu={<SideMenu deckSets={deckSets}/>} isOpen={openDrawer}
                 ref={(ref) => this._drawer = ref}>
             <View style={styles.container}>
                 {this._renderHeader()}

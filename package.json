@@ -12,6 +12,7 @@
     "react": "15.3.2",
     "react-native": "0.35.0",
     "react-native-code-push": "^1.15.0-beta",
+    "react-native-collapsible": "^0.7.0",
     "react-native-flip-card": "^3.3.1",
     "react-native-flip-view": "^1.0.5",
     "react-native-keyboard-aware-scroll-view": "^0.2.0",

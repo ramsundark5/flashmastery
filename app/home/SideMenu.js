@@ -4,15 +4,16 @@ import {Actions} from 'react-native-router-flux';
 
 export default class SideMenu extends Component{
 
-   _gotoReports(){
-     Actions.reportsPage();
+   _gotoReports(deckSets){
+     Actions.reportsPage({deckSets: deckSets});
    }
    
     render() {
+        const {deckSets} = this.props;
         return (
         <ScrollView style={styles.container}>
             <Text style={styles.controlText}>Control Panel</Text>
-            <TouchableOpacity style={styles.button} onPress={() => this._gotoReports()}>
+            <TouchableOpacity style={styles.button} onPress={() => this._gotoReports(deckSets)}>
                 <Text>View Reports</Text>
             </TouchableOpacity>
         </ScrollView>

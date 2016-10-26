@@ -17,6 +17,7 @@ class PracticeDao{
     }
 
     getPracticeSessionsForDeck(deckId){
+        console.log('realm path '+realm.path);
         let practiceSessions = [];
         let realmPracticeSessions = realm.objects('PracticeSession').filtered('deckId = $0', deckId);
         realmPracticeSessions.map(function(realmPracticeSession) {

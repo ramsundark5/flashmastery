@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import { Container, Content, HorizontalRow } from '../common/Common';
 import {View, ScrollView, StyleSheet, Text, TouchableOpacity,} from 'react-native';
-import PracticeDao from '../dao/PracticeDao';
-import DeckDao from '../dao/DeckDao';
+import ReportDetails from './ReportDetails';
 
 export default class ReportsPage extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            deckSets: []
+            deckSets: props.deckSets,
         };
     }
 
     componentDidMount(){
-        let deckSets = DeckDao.getAllDeckSet();
-        this.setState({deckSets: deckSets});
     }
 
     render(){
@@ -33,36 +30,14 @@ export default class ReportsPage extends Component{
 
     _renderDeckSet(deckSet){
         return(
-            <ScrollView style={styles.container} key={deckSet.id}>
+            <View style={styles.deckSetContainer} key={deckSet.id}>
+                <View style={{backgroundColor: '#0277BD'}}>
+                    <Text style={styles.controlText}>{deckSet.name}</Text>
+                </View>
                 {deckSet.decks.map( (deck, index) => 
-                    this._renderDeck(deck, index)
+                    <ReportDetails deck={deck} key={deck.id}/>
                 )}
-            </ScrollView>
-        );
-    }
-
-    _renderDeck(deck){
-        let practiseCardResults = PracticeDao.getPracticeSessionsForDeck(deck.id);
-        practiseCardResults.map( (practiseCardResult, index) => {
-            let totalAnsweredCorrect = practiseCardResult.results.filtered('answeredCorrect = true');
-            practiseCardResult.totalAnsweredCorrect = totalAnsweredCorrect;
-        });
-        return(
-            <ScrollView style={styles.container} key={deck.id}>
-                {practiseCardResults.map( (practiseCardResult, index) => 
-                    this._renderResult(deck, practiseCardResult, index)
-                )}
-            </ScrollView>
-        );
-    }
-
-    _renderResult(deck, practiseCardResult, index){
-        return(
-            <HorizontalRow key={practiseCardResult.id}>
-                <Text style={styles.controlText}>{deck.name}</Text>
-                <Text style={styles.controlText}>{practiseCardResult.results.length}</Text>
-                <Text style={styles.controlText}>{practiseCardResult.totalAnsweredCorrect.length}</Text>
-            </HorizontalRow>
+            </View>
         );
     }
 }
@@ -70,11 +45,13 @@ export default class ReportsPage extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 15,
     backgroundColor: 'white',
+  },
+  deckSetContainer:{
+      padding: 10,
   },
   controlText: {
     paddingLeft: 10,
-    color: 'black',
   },
 });
