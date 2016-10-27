@@ -2,17 +2,26 @@ import React, { Component } from 'react';
 import { Container, Content, HorizontalRow } from '../common/Common';
 import {View, ScrollView, StyleSheet, Text, TouchableOpacity,} from 'react-native';
 import ReportDetails from './ReportDetails';
+import {LocalDatabase} from '../database/LocalDatabase';
+import DeckDao from '../dao/DeckDao';
 
 export default class ReportsPage extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            deckSets: props.deckSets,
+            deckSets: LocalDatabase,
         };
     }
 
     componentDidMount(){
+        this._addCustomDeckSetsToLocalDatabase();
+    }
+    
+    _addCustomDeckSetsToLocalDatabase(){
+        let customDeckSets = DeckDao.getAllDeckSet();
+        let deckSetsAfterCustomAdd = LocalDatabase.concat(customDeckSets);
+        this.setState({deckSets: deckSetsAfterCustomAdd,});
     }
 
     render(){
@@ -45,13 +54,15 @@ export default class ReportsPage extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
+    paddingTop: 10,
     backgroundColor: 'white',
   },
   deckSetContainer:{
       padding: 10,
   },
   controlText: {
-    paddingLeft: 10,
+    padding: 10,
+    color: 'white',
+    fontWeight: 'bold'
   },
 });

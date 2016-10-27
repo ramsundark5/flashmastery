@@ -18,6 +18,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.2.0",
     "react-native-keyboard-spacer": "^0.3.0",
     "react-native-navbar": "^1.5.4",
+    "react-native-pixfactory-accordion": "^0.2.2",
     "react-native-router-flux": "^3.35.0",
     "react-native-side-menu": "^0.20.1",
     "react-native-swipe-left": "^0.1.2",

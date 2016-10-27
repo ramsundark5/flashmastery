@@ -93,12 +93,16 @@ export default class HomePage extends Component {
         this.setState({openDrawer: newOpenDrawerState});
     }
 
+    _closeSideMenu(){
+        this.setState({openDrawer: false});
+    }
+
     render(){
         let {deckSets, openDrawer} = this.state;
         let navigationState = this.props.navigationState;
         let contentMarginBottom = this.state.selectionModeEnabled? 45 : 0;
         return(
-            <Drawer menu={<SideMenu deckSets={deckSets}/>} isOpen={openDrawer}
+            <Drawer menu={<SideMenu deckSets={deckSets} closeSideMenu={() => this._closeSideMenu()}/>} isOpen={openDrawer}
                 ref={(ref) => this._drawer = ref}>
             <View style={styles.container}>
                 {this._renderHeader()}

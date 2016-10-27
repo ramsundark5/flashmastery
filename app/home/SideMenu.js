@@ -6,6 +6,7 @@ export default class SideMenu extends Component{
 
    _gotoReports(deckSets){
      Actions.reportsPage({deckSets: deckSets});
+     this.props.closeSideMenu();
    }
    
     render() {
