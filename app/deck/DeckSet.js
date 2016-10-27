@@ -45,14 +45,26 @@ export default class DeckSet extends Component {
                 this.selectedDecks.delete(deck.id);
             }
         }else{
-            Alert.alert(
-                'What do you want to do?',
-                null,
-                [
-                    {text: 'Start Practise', onPress: () => this._onStartPracticeSession(deck)},
-                    {text: 'Edit Cards', onPress: () => Actions.cardListPage({deck: deck, isCustom: isCustom, practiseMode: false})},
-                ]
-            );
+            if(isCustom){
+                Alert.alert(
+                    'What do you want to do?',
+                    null,
+                    [
+                        {text: 'Start Practise', onPress: () => this._onStartPracticeSession(deck)},
+                        {text: 'Edit Cards', onPress: () => Actions.cardListPage({deck: deck, isCustom: isCustom, practiseMode: false})},
+                        {text: 'Cancel'}
+                    ]
+                );
+            }else{
+                Alert.alert(
+                    'What do you want to do?',
+                    null,
+                    [
+                        {text: 'Start Practise', onPress: () => this._onStartPracticeSession(deck)},
+                        {text: 'Cancel'},
+                    ]
+                );
+            }
         }
     }
 
