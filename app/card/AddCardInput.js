@@ -29,20 +29,20 @@ export default class AddCardInput extends Component {
             <View>
                 <View style={[styles.addTextInputContainer, styles.backTextInputContainer]}>
                     <TextInput
+                        ref='frontTextInput'
+                        style={[styles.addTextInput]}
+                        placeholder={'Type front card text here..'}
+                        value={this.state.frontText}
+                        onChangeText={(changedText) => this.setState({frontText: changedText})}/>
+                </View>
+                <HorizontalRow style={styles.addCardContainer}>
+                    <View style={styles.addTextInputContainer}>
+                        <TextInput
                             ref='backTextInput'
                             style={[styles.addTextInput]}
                             placeholder={'Type back card text here(optional)..'}
                             value={this.state.backText}
                             onChangeText={(changedText) => this.setState({backText: changedText})}/>
-                </View>
-                <HorizontalRow style={styles.addCardContainer}>
-                    <View style={styles.addTextInputContainer}>
-                        <TextInput
-                                ref='frontTextInput'
-                                style={[styles.addTextInput]}
-                                placeholder={'Type front card text here..'}
-                                value={this.state.frontText}
-                                onChangeText={(changedText) => this.setState({frontText: changedText})}/>
                     </View>
 
                     <TouchableOpacity style={[styles.addButtonContainer]}>

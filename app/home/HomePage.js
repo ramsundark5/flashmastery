@@ -67,7 +67,7 @@ export default class HomePage extends Component {
                     existingDeckSet
             
         );
-        this.setState({deckSets: deckSetsAfterUpdate});
+        this.setState({deckSets: deckSetsAfterUpdate, openDrawer: false});
     }
 
     _onNewDeckSetAdd(addedDeckSet){
@@ -79,7 +79,7 @@ export default class HomePage extends Component {
 
         this._addNewDeckOptionAtEnd();
         let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
-        this.setState({deckSets: deckSetsAfterAdd});
+        this.setState({deckSets: deckSetsAfterAdd, openDrawer: false});
     }
 
     _onDeckSetDelete(){
@@ -142,7 +142,7 @@ export default class HomePage extends Component {
         const rightButtonText = this.state.selectionModeEnabled? 'Done': 'Edit';
         let titleConfig = {title: 'Home', tintColor: '#0076FF'};
         let rightButtonConfig = {title: rightButtonText, 
-                        handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled})};
+                        handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled, openDrawer: false})};
         return(
            <NavigationBar title={titleConfig} leftButton={this._renderSideMenuIcon()} rightButton={rightButtonConfig}/>
         );
