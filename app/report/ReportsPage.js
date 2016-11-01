@@ -40,7 +40,7 @@ export default class ReportsPage extends Component{
     _renderDeckSet(deckSet){
         return(
             <View style={styles.deckSetContainer} key={deckSet.id}>
-                <View style={{backgroundColor: '#0277BD'}}>
+                <View style={styles.deckSetHeader}>
                     <Text style={styles.controlText}>{deckSet.name}</Text>
                 </View>
                 {deckSet.decks.map( (deck, index) => 
@@ -60,9 +60,12 @@ const styles = StyleSheet.create({
   deckSetContainer:{
       padding: 10,
   },
+  deckSetHeader:{
+      backgroundColor: '#CFD8DC',
+  },
   controlText: {
     padding: 10,
-    color: 'white',
-    fontWeight: 'bold'
+    color: 'black',
+    //fontWeight: 'bold'
   },
 });

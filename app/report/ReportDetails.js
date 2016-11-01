@@ -58,8 +58,8 @@ render(){
     return(
       <HorizontalRow>
           <Text style={styles.deckName}>{deck.name}:</Text>
-          <Text style={styles.headerText}>Total: {totalQuestions}</Text>
-          <Text style={styles.headerText}>Correct: {totalAnswered}</Text>
+          <Text style={styles.headerText}><Text style={styles.totalText}>{totalQuestions}</Text></Text>
+          <Text style={styles.headerText}>Correct: <Text style={styles.correctText}>{totalAnswered}</Text></Text>
           <Icon name={collapseIcon} style={[styles.collapsedIcon]}/>
       </HorizontalRow>
     );
@@ -69,8 +69,8 @@ render(){
         return(
             <HorizontalRow style={styles.resultsContainer} key={practiseCardResult.id}>
                 <Text style={styles.controlText}>Session {index}: </Text>
-                <Text style={styles.controlText}>Total: {practiseCardResult.results.length}</Text>
-                <Text style={styles.controlText}>Answered: {practiseCardResult.totalAnsweredCorrect.length}</Text>
+                <Text style={styles.controlText}>Total: <Text style={styles.totalText}>{practiseCardResult.results.length}</Text></Text>
+                <Text style={styles.controlText}>Answered: <Text style={styles.correctText}>{practiseCardResult.totalAnsweredCorrect.length}</Text></Text>
             </HorizontalRow>
         );
     }
@@ -82,20 +82,32 @@ const styles = StyleSheet.create({
   },
   deckName:{
     paddingLeft: 10,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#0277BD'
   },
   headerText:{
     paddingLeft: 10,
+    color: '#0277BD'
   },
   resultsContainer:{
       padding: 10,
   },
   controlText: {
     paddingLeft: 10,
-    color: 'black',
+    //color: 'black',
+    color: '#0277BD'
   },
   collapsedIcon:{
-    paddingLeft: 5,
+    paddingLeft: 10,
     fontSize : 18,
+    color: '#29B6F6'
+  },
+  totalText:{
+    color: 'black', 
+    fontWeight: 'bold'
+  },
+  correctText:{
+    color: 'green', 
+    fontWeight: 'bold'
   }
 });
