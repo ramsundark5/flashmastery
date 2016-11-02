@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity, KeyboardAvoidingView, AsyncStorage} from 'react-native';
 import { Container, Content, Center, Footer, ResponsiveGrid, Button } from '../common/Common';
 import {LocalDatabase} from '../database/LocalDatabase';
 import {Actions} from 'react-native-router-flux';
@@ -12,7 +12,8 @@ import NavigationBar from 'react-native-navbar';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import SideMenu from './SideMenu';
 import Drawer from 'react-native-side-menu';
-
+import prompt from 'react-native-prompt-android';
+import UserDao from '../dao/UserDao';
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
 const ADD_NEW_DECK = 'add';
 
@@ -24,14 +25,47 @@ export default class HomePage extends Component {
         this.state = {
             deckSets: LocalDatabase,
             selectionModeEnabled: false,
-            openDrawer: false
+            openDrawer: false,
+            user: null
         };
     }
 
     componentDidMount(){
         this._addCustomDeckSetsToLocalDatabase();
+        this._initializeUser();
     }
     
+    async _initializeUser(){
+       let currentUser = await AsyncStorage.getItem('currentUser');
+       if(!currentUser){
+           let firstUser = UserDao.getFirstUser();
+           if(firstUser){
+               currentUser = firstUser;
+               this.setState({user: currentUser, openDrawer: false});
+           }else{
+               prompt(
+                    'Add User',
+                    'Who is going to use this?',
+                    [
+                        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                        {text: 'OK', onPress: name => this._addUser(name)},
+                    ],
+                    {
+                        placeholder: 'Type your name here..'
+                    }
+                );
+           }
+       }else{
+           this.setState({user: currentUser, openDrawer: false});
+       }
+    }
+
+     _addUser(name){
+        let currentUser = UserDao.addUser(name, true);
+        AsyncStorage.setItem('currentUser', currentUser);
+        this.setState({user: currentUser, openDrawer: false});
+    }
+
     _addCustomDeckSetsToLocalDatabase(){
         let customDeckSets = DeckDao.getAllDeckSet();
         let deckSetsAfterCustomAdd = LocalDatabase.concat(customDeckSets);

@@ -16,6 +16,15 @@ class UserDao{
         return user;
     }
 
+    getFirstUser(){
+        let firstUser = null;
+        let users = this.getAllUsers();
+        if(users && users.length > 0){
+            firstUser = users[0];
+        }
+        return firstUser;
+    }
+
     addUser(name, admin = true){
         let newUser = {
             id: uuid.v1(), 
@@ -27,6 +36,7 @@ class UserDao{
         realm.write(() => {
             realm.create('User', newUser);
         });
+        return newUser;
     }
 
     updateUser(updatedUser){

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "postinstall": "react-native link react-native-vector-icons && react-native link react-native-code-push && react-native link realm",
+    "postinstall": "react-native link react-native-vector-icons && react-native link react-native-code-push && react-native link realm && react-native link react-native-prompt-android",
     "build": "react-native bundle --platform ios --dev false --entry-file index.ios.js --bundle-output iOS/flashmastery/main.jsbundle —-sourcemap-output flashmastery.map",
     "codepush": "code-push release-react flashmastery ios --sourcemapOutput flashmastery.map"
   },
@@ -19,6 +19,7 @@
     "react-native-keyboard-spacer": "^0.3.0",
     "react-native-navbar": "^1.5.4",
     "react-native-pixfactory-accordion": "^0.2.2",
+    "react-native-prompt-android": "0.0.4",
     "react-native-router-flux": "^3.35.0",
     "react-native-side-menu": "^0.20.1",
     "react-native-swipe-left": "^0.1.2",
