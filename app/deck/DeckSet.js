@@ -143,7 +143,7 @@ export default class DeckSet extends Component {
 
     _renderHeader(){
         const rightButtonText = this.state.selectionModeEnabled? 'Done': 'Edit';
-        let titleConfig = {title: 'Decks', tintColor: '#0076FF'};
+        let titleConfig = {title: this.props.deckSet.name, tintColor: '#0076FF'};
         let rightButtonConfig = {title: rightButtonText, 
                         handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled})};
         let leftButtonConfig = {title: 'Back',

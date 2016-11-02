@@ -74,6 +74,19 @@ PracticeSession.schema = {
     },
 };
 
+class User extends Realm.Object {}
+User.schema = {
+    name: 'User',
+    primaryKey: 'id',
+    properties: {
+        id: 'string',
+        name: 'string',
+        type: {type: 'string', optional: true}, 
+        admin: {type: 'bool', default: true},
+        lastModified: 'date'
+    },
+};
+
 class VersionInfo extends Realm.Object {}
 VersionInfo.schema = {
     name: 'VersionInfo',
@@ -86,5 +99,5 @@ VersionInfo.schema = {
 
 export default new Realm({
     schema: [Card, Deck, DeckSet, PracticeCardResult, PracticeSession, VersionInfo],
-    schemaVersion: 1
+    schemaVersion: 2
 });

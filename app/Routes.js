@@ -1,5 +1,5 @@
 import React from 'react';
-import {Scene, Router, Actions} from 'react-native-router-flux';
+import {Scene, Router, Actions, ActionConst} from 'react-native-router-flux';
 import { StyleSheet } from 'react-native';
 import ProfilePage from './profile/ProfilePage';
 import Deck from './deck/Deck';
@@ -18,7 +18,7 @@ const Routes = ({loading, needRegistration}) => (
             <Scene key="deckSetPage" component={DeckSet} title="Deck Set" titleStyle={styles.titleStyle} hideNavBar={true}/>
             <Scene key="deckPage" component={Deck} title="Deck" titleStyle={styles.titleStyle} hideNavBar={true}/>
             <Scene key="cardListPage" component={CardListPage} title="Cards" titleStyle={styles.titleStyle} hideNavBar={true}/>
-            <Scene key="reportsPage" component={ReportsPage} title="Report" titleStyle={styles.titleStyle} hideNavBar={false}/>
+            <Scene key="reportsPage" component={ReportsPage} title="Report" titleStyle={styles.titleStyle} hideNavBar={false} onBack={() => Actions.homePage({type: ActionConst.RESET})} />
         </Router>
 );
 

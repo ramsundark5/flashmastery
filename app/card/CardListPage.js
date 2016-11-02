@@ -93,7 +93,7 @@ export default class CardListPage extends Component {
         const {deck} = this.props;
         const {cards} = this.state;
         const self = this;
-        const titleConfig = {title: 'Card', tintColor: '#0076FF'};
+        const titleConfig = {title: deck.name, tintColor: '#0076FF'};
         let backButtonHandler = function(){
             Actions.pop();
             setTimeout(() => {

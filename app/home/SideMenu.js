@@ -14,9 +14,10 @@ export default class SideMenu extends Component{
         return (
         <ScrollView style={styles.container}>
             <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets)}>
+                <Text style={styles.optionText}>Switch User</Text>
+                <Text style={styles.optionText}>Manage Users</Text>
                 <Text style={styles.optionText}>View Reports</Text>
                 <Text style={styles.optionText}>Settings</Text>
-                <Text style={styles.optionText}>Manage Users</Text>
             </TouchableOpacity>
         </ScrollView>
         );
