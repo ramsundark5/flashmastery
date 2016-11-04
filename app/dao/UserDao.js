@@ -28,7 +28,7 @@ class UserDao{
     addUser(name, admin = true){
         let newUser = {
             id: uuid.v1(), 
-            name: name || 'Default', 
+            name: name || 'User!', 
             admin: admin,
             lastModified: new Date()
         };
@@ -43,6 +43,15 @@ class UserDao{
         updatedUser.lastModified = new Date();
         realm.write(() => {
             realm.create('User', updatedUser, true);
+        });
+    }
+
+    deleteUser(userId){
+        realm.write(() => {
+            let userToBeDeleted = realm.objectForPrimaryKey('User', userId);
+            if(userToBeDeleted){
+                realm.delete(userToBeDeleted);
+            }
         });
     }
 }

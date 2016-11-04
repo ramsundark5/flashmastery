@@ -40,11 +40,16 @@ export default class EditableText extends Component {
         } 
     }
 
+    _onPress(){
+        if(this.props.onPress){
+            this.props.onPress();
+        }
+    }
     _renderViewMode(){
         const {textContent} = this.props;
         return(
             <TouchableOpacity style={[styles.inputContainer, this.props.viewInputContainerStyle]} 
-                    onPress={() => this.props.onPress()}
+                    onPress={() => this._onPress()}
                     onLongPress={() => this._showEditMode(textContent)}>
                 <Text style={[styles.viewText, this.props.viewTextStyle]}>{textContent}</Text>
             </TouchableOpacity>

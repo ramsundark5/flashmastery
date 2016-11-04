@@ -15,7 +15,7 @@ export default class UserListItem extends Component {
     _finishEdit(finishedText){
         let userAfterEdit = Object.assign({}, this.state.user);
         userAfterEdit.name = finishedText;
-        this.setState({card: userAfterEdit});
+        this.setState({user: userAfterEdit});
         //save user after change
         UserDao.updateUser(userAfterEdit);
     }

@@ -6,6 +6,7 @@ import {Actions} from 'react-native-router-flux';
 import UserDao from '../dao/UserDao';
 import SwipeitemView from 'react-native-swipe-left';
 import UserListItem from './UserListItem';
+import AddUserInput from './AddUserInput';
 
 export default class ManageUserPage extends Component {
     constructor(props){
@@ -27,13 +28,11 @@ export default class ManageUserPage extends Component {
                 user.id !== userToBeDeleted.id
             );
         this.setState({users: usersAfterDelete});
+        this._dataRow[this.openRowId]._closeRow();
     }
 
-    _addNewUser(newUserName){
-        newUser.lastModified = new Date();
-        UserDao.addUser(newUserName);
-        
-        let usersAfterAdd = this.state.users.concat(newUserName);
+    _addNewUser(newUser){
+        let usersAfterAdd = this.state.users.concat(newUser);
         this.setState({users: usersAfterAdd});
     }
 
@@ -50,6 +49,7 @@ export default class ManageUserPage extends Component {
                     renderRow={ (user, sectionId, rowId) => this._renderUser(user, sectionId, rowId)}
                     ref="listview"
                     renderSeparator={this._renderSeperator}/>
+                <AddUserInput addUser={(newUser) => this._addNewUser(newUser)} />
                 <KeyboardSpacer/>
             </View>
         );
@@ -58,7 +58,7 @@ export default class ManageUserPage extends Component {
     _renderUser(user, sectionId, rowId){
         let id = '' +sectionId + rowId;
         let rightBtn = [{id: 1, text: 'Delete', width: 75, color: 'white', bgColor: 'rgba(231,76,60,1)',
-                            onPress: () =>{this._deleteCard(card);}
+                            onPress: () =>{this._deleteUser(user);}
                         }];
 
         return(
