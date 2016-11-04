@@ -8,6 +8,11 @@ export default class SideMenu extends Component{
      Actions.reportsPage({deckSets: deckSets});
      this.props.closeSideMenu();
    }
+
+   _gotoManageUsers(){
+     Actions.manageUsersPage();
+     this.props.closeSideMenu();
+   }
    
     render() {
         const {deckSets} = this.props;
@@ -15,8 +20,14 @@ export default class SideMenu extends Component{
         <ScrollView style={styles.container}>
             <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets)}>
                 <Text style={styles.optionText}>Switch User</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoManageUsers()}>
                 <Text style={styles.optionText}>Manage Users</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets)}>
                 <Text style={styles.optionText}>View Reports</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets)}>
                 <Text style={styles.optionText}>Settings</Text>
             </TouchableOpacity>
         </ScrollView>

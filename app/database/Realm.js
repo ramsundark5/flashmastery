@@ -98,6 +98,6 @@ VersionInfo.schema = {
 };
 
 export default new Realm({
-    schema: [Card, Deck, DeckSet, PracticeCardResult, PracticeSession, VersionInfo],
+    schema: [Card, Deck, DeckSet, PracticeCardResult, PracticeSession, User, VersionInfo],
     schemaVersion: 2
 });

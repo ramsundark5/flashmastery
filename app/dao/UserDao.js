@@ -13,7 +13,7 @@ class UserDao{
             let user = Object.assign({}, realmUser);
             users.push(user);
         });
-        return user;
+        return users;
     }
 
     getFirstUser(){

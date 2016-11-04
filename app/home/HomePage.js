@@ -36,7 +36,8 @@ export default class HomePage extends Component {
     }
     
     async _initializeUser(){
-       let currentUser = await AsyncStorage.getItem('currentUser');
+       let currentUserJSON = await AsyncStorage.getItem('currentUser');
+       let currentUser = JSON.parse(currentUserJSON);
        if(!currentUser){
            let firstUser = UserDao.getFirstUser();
            if(firstUser){
@@ -61,8 +62,9 @@ export default class HomePage extends Component {
     }
 
      _addUser(name){
+        console.log('name is '+name);
         let currentUser = UserDao.addUser(name, true);
-        AsyncStorage.setItem('currentUser', currentUser);
+        AsyncStorage.setItem('currentUser', JSON.stringify(currentUser));
         this.setState({user: currentUser, openDrawer: false});
     }
 
@@ -174,7 +176,8 @@ export default class HomePage extends Component {
 
     _renderHeader(){
         const rightButtonText = this.state.selectionModeEnabled? 'Done': 'Edit';
-        let titleConfig = {title: 'Home', tintColor: '#0076FF'};
+        let userName = this.state.user && this.state.user.name ? this.state.user.name : ''; 
+        let titleConfig = {title: 'Hello '+userName, tintColor: '#0076FF'};
         let rightButtonConfig = {title: rightButtonText, 
                         handler: () => this.setState({selectionModeEnabled: !this.state.selectionModeEnabled, openDrawer: false})};
         return(
