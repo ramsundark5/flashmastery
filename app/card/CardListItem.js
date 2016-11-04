@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, ScrollView, Easing, Text, TouchableOpacity, Dimensions} from 'react-native';
+import {View, StyleSheet, Easing, Text, TouchableOpacity, Dimensions} from 'react-native';
 import { EditableText, Center, Button } from '../common/Common';
 import CardDao from '../dao/CardDao';
 const { width } = Dimensions.get('window');

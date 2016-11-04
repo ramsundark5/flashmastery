@@ -14,11 +14,15 @@ export default class SideMenu extends Component{
      this.props.closeSideMenu();
    }
    
+   _gotoSwitchUsersPage(){
+     Actions.switchUsersPage();
+     this.props.closeSideMenu();
+   }
     render() {
         const {deckSets} = this.props;
         return (
         <ScrollView style={styles.container}>
-            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets)}>
+            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoSwitchUsersPage()}>
                 <Text style={styles.optionText}>Switch User</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoManageUsers()}>
