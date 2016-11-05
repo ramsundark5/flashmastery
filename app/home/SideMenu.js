@@ -4,8 +4,8 @@ import {Actions} from 'react-native-router-flux';
 
 export default class SideMenu extends Component{
 
-   _gotoReports(deckSets){
-     Actions.reportsPage({deckSets: deckSets});
+   _gotoReports(deckSets, user){
+     Actions.reportsPage({deckSets: deckSets, user: user});
      this.props.closeSideMenu();
    }
 
@@ -19,7 +19,7 @@ export default class SideMenu extends Component{
      this.props.closeSideMenu();
    }
     render() {
-        const {deckSets} = this.props;
+        const {deckSets, user} = this.props;
         return (
         <ScrollView style={styles.container}>
             <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoSwitchUsersPage()}>
@@ -28,7 +28,7 @@ export default class SideMenu extends Component{
             <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoManageUsers()}>
                 <Text style={styles.optionText}>Manage Users</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets)}>
+            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets, user)}>
                 <Text style={styles.optionText}>View Reports</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets)}>

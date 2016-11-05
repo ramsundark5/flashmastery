@@ -94,7 +94,7 @@ export default class HomePage extends Component {
             if(deckSet.custom){
                 deckSet = DeckDao.getDeckSetForId(deckSet.id);
             }
-            Actions.deckSetPage({deckSet: deckSet});
+            Actions.deckSetPage({deckSet: deckSet, user: this.state.user});
         }
     }
 
@@ -139,11 +139,12 @@ export default class HomePage extends Component {
     }
 
     render(){
-        let {deckSets, openDrawer} = this.state;
+        let {deckSets, openDrawer, user} = this.state;
         let navigationState = this.props.navigationState;
         let contentMarginBottom = this.state.selectionModeEnabled? 45 : 0;
         return(
-            <Drawer menu={<SideMenu deckSets={deckSets} closeSideMenu={() => this._closeSideMenu()}/>} isOpen={openDrawer}
+            <Drawer menu={<SideMenu deckSets={deckSets} user={user} closeSideMenu={() => this._closeSideMenu()}/>} 
+                isOpen={openDrawer}
                 ref={(ref) => this._drawer = ref}>
             <View style={styles.container}>
                 {this._renderHeader()}

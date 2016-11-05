@@ -19,8 +19,8 @@ _toggleCollapseIcon(){
   this.setState({isCollapsed: !this.state.isCollapsed}) ;
 }
 render(){
-    const {deck} = this.props;
-    let practiseCardResults = PracticeDao.getPracticeSessionsForDeck(deck.id);
+    const {deck, user} = this.props;
+    let practiseCardResults = PracticeDao.getPracticeSessionsForDeck(deck.id, user.id);
     let totalQuestions = 0;
     let totalAnswered = 0;
     practiseCardResults.map( (practiseCardResult, index) => {

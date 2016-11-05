@@ -70,8 +70,9 @@ export default class DeckSet extends Component {
 
     _onStartPracticeSession(deck){
         let isCustom = this.props.deckSet.custom;
-        let newPracticeSession = PracticeDao.createPracticeSession(deck);
-        Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true, practiceSession: newPracticeSession});
+        let newPracticeSession = PracticeDao.createPracticeSession(deck, this.props.user);
+        Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true, 
+            practiceSession: newPracticeSession, user: this.props.user});
     }
 
     _onDeckNameUpdate(updatedDeck){

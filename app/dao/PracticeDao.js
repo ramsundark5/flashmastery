@@ -3,9 +3,9 @@ import uuid from 'react-native-uuid';
 
 class PracticeDao{
 
-    getAllPracticeSession(){
+    getAllPracticeSession(userId){
         let practiceSessions = [];
-        let realmPracticeSessions = realm.objects('PracticeSession');
+        let realmPracticeSessions = realm.objects('PracticeSession').filtered('user = $0', userId);
         realmPracticeSessions.map(function(realmPracticeSession) {
             if (typeof realmPracticeSession.snapshot == 'function') {
                 realmPracticeSession = realmPracticeSession.snapshot();
@@ -16,10 +16,10 @@ class PracticeDao{
         return practiceSessions;
     }
 
-    getPracticeSessionsForDeck(deckId){
+    getPracticeSessionsForDeck(deckId, userId){
         console.log('realm path '+realm.path);
         let practiceSessions = [];
-        let realmPracticeSessions = realm.objects('PracticeSession').filtered('deckId = $0', deckId);
+        let realmPracticeSessions = realm.objects('PracticeSession').filtered('deckId = $0 AND user = $1', deckId, userId);
         realmPracticeSessions.map(function(realmPracticeSession) {
             if (typeof realmPracticeSession.snapshot == 'function') {
                 realmPracticeSession = realmPracticeSession.snapshot();
@@ -33,8 +33,8 @@ class PracticeDao{
     createPracticeSession(deck, user, verifiedBy){
         let newPracticeSession = {
             id: uuid.v1(), 
-            user: 'guest', 
-            verifiedBy: 'guest', 
+            user: user.id, 
+            verifiedBy: verifiedBy ? verifiedBy.id : 'guest', 
             deckId: deck.id,
             results: [],
             lastModified: new Date()
@@ -48,8 +48,8 @@ class PracticeDao{
     addNewPraciseCardResult(card, practiceSession, answeredCorrect, user, verifiedBy){
         let practiseCardResult = {
             id: uuid.v1(), 
-            user: user || 'default', 
-            verifiedBy: verifiedBy || 'default', 
+            user: user.id, 
+            verifiedBy: verifiedBy ? verifiedBy.id : 'guest', 
             cardId: card.id,
             answeredCorrect: answeredCorrect,
             lastModified: new Date()

@@ -47,7 +47,7 @@ export default class Deck extends Component {
     }
 
     _renderCard(card, index){
-        const {deck, isCustom, practiseMode, practiceSession} = this.props;
+        const {deck, isCustom, practiseMode, practiceSession, user} = this.props;
         if(isCustom && !practiseMode){
             return(
                 <EditableCard key={card.id} card={card} deck={deck}/>
@@ -58,6 +58,7 @@ export default class Deck extends Component {
                     key={card.id} 
                     card={card} 
                     deck={deck} 
+                    user={user}
                     practiceSession={practiceSession} 
                     onChangeIndex={(cardIndex) => this._onChangeIndex(index)}/>
             );

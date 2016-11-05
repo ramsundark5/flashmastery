@@ -9,28 +9,28 @@ export default class PracticeCard extends Component {
         super(props);
     }
 
-    markAsLearning(card, practiceSession){
-        PracticeDao.addNewPraciseCardResult(card, practiceSession, false);
+    markAsLearning(card, practiceSession, user){
+        PracticeDao.addNewPraciseCardResult(card, practiceSession, false, user);
         this.props.onChangeIndex();
     }
 
-    markAsMastered(card, practiceSession){
-        PracticeDao.addNewPraciseCardResult(card, practiceSession, true);
+    markAsMastered(card, practiceSession, user){
+        PracticeDao.addNewPraciseCardResult(card, practiceSession, true, user);
         this.props.onChangeIndex();
     }
 
     render(){
-        const {card, practiceSession} = this.props;
+        const {card, practiceSession, user} = this.props;
         return(
             <Content>
                 <Card card={card}/>
                 <Footer>
                     <HorizontalRow style={styles.answerButtonContainer}>
-                        <Button onPress={() => this.markAsLearning(card, practiceSession)} style={styles.answerButton} textStyle={styles.answerText}>
+                        <Button onPress={() => this.markAsLearning(card, practiceSession, user)} style={styles.answerButton} textStyle={styles.answerText}>
                             Learning
                         </Button>
                         <View style={styles.dummySpace}></View>
-                        <Button onPress={() => this.markAsMastered(card, practiceSession)} style={styles.answerButton} textStyle={styles.answerText}>
+                        <Button onPress={() => this.markAsMastered(card, practiceSession, user)} style={styles.answerButton} textStyle={styles.answerText}>
                             Mastered
                         </Button>
                     </HorizontalRow>
