@@ -32,12 +32,7 @@ export default class HomePage extends Component {
 
     componentDidMount(){
         this._addCustomDeckSetsToLocalDatabase();
-        if(this.props.switchedUser){
-            AsyncStorage.setItem('currentUser', JSON.stringify(this.props.switchedUser));
-            this.setState({user: this.props.switchedUser, openDrawer: false});
-        }else{
-            this._initializeUser();
-        }
+        this._initializeUser();
     }
     
     async _initializeUser(){

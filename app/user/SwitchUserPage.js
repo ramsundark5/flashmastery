@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, ScrollView, ListView, TouchableHighlight, TouchableOpacity, Text} from 'react-native';
+import {View, StyleSheet, ScrollView, ListView, TouchableHighlight, TouchableOpacity, Text, AsyncStorage} from 'react-native';
 import { Container } from '../common/Common';
 import {Actions} from 'react-native-router-flux';
 import UserDao from '../dao/UserDao';
@@ -16,8 +16,9 @@ export default class SwitchUserPage extends Component {
         this.usersDatasource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     }
 
-    _switchUser(user){
-        Actions.homePage({switchedUser: user});
+    async _switchUser(user){
+        await AsyncStorage.setItem('currentUser', JSON.stringify(user));
+        Actions.homePage();
     }
 
     render(){

@@ -44,7 +44,7 @@ export default class ReportsPage extends Component{
                     <Text style={styles.controlText}>{deckSet.name}</Text>
                 </View>
                 {deckSet.decks.map( (deck, index) => 
-                    <ReportDetails deck={deck} key={deck.id}/>
+                    <ReportDetails deck={deck} key={deck.id} user={this.props.user}/>
                 )}
             </View>
         );

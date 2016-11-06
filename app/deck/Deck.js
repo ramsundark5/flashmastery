@@ -23,7 +23,7 @@ export default class Deck extends Component {
         let cards = this.props.deck.cards;
         if(index >= cards.length - 1){
             console.log('end of practice session');
-            Actions.reportsPage();
+            Actions.reportsPage({user: this.props.user});
         }
         this.setState({swipeIndex: index + 1});
     }
