@@ -80,11 +80,11 @@ render(){
   }
 
   _renderCardAccuracy(card, index){
-      let accuracy = ReportDao.getPracticeCardAccuracy(card.id, this.props.user.id);
+      let cardAccuracy = ReportDao.getPracticeCardAccuracy(card.id, this.props.user.id);
       return(
           <HorizontalRow key={card.id} style={styles.cardContainer}>
             <Text style={styles.deckName}>{card.front}:</Text>
-            <Text style={styles.headerText}>Accuracy: <Text style={styles.correctText}>{accuracy} %</Text></Text>
+            <Text style={styles.headerText}>Accuracy: <Text style={styles.correctText}>{cardAccuracy} %</Text></Text>
         </HorizontalRow>
       );
   }

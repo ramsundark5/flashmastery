@@ -67,7 +67,10 @@ render(){
           <Text style={styles.headerText}><Text style={styles.totalText}>{totalQuestions}</Text></Text>
           <Text style={styles.headerText}>Correct: <Text style={styles.correctText}>{totalAnswered}</Text></Text>
           <Icon name={collapseIcon} style={[styles.collapsedIcon]}/>
-          <Button onPress={() => this._gotoDeckReport()}>View Details</Button>
+          <Button style={styles.detailsButton} textStyle={styles.detailsButtonText} 
+                  onPress={() => this._gotoDeckReport()}>
+            Card Report
+          </Button>
       </HorizontalRow>
     );
   }
@@ -116,5 +119,16 @@ const styles = StyleSheet.create({
   correctText:{
     color: 'green', 
     fontWeight: 'bold'
-  }
+  },
+  detailsButton:{
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
+      width: 100,
+      height: 20,
+      marginLeft: 10,
+  },
+  detailsButtonText:{
+      color: 'white',
+      fontSize: 14
+  },
 });
