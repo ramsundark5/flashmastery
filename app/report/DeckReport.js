@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Accordion from 'react-native-collapsible/Accordion';
 import {View, ScrollView, StyleSheet, Text, TouchableOpacity,} from 'react-native';
-import { Container, Content, HorizontalRow, Button } from '../common/Common';
+import { Container, Content, HorizontalRow } from '../common/Common';
 import PracticeDao from '../dao/PracticeDao';
+import ReportDao from '../dao/ReportDao';
 import PixAccordion from 'react-native-pixfactory-accordion';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Actions, ActionConst} from 'react-native-router-flux';
 
-export default class ReportDetails extends Component {
+export default class DeckReport extends Component {
 
 constructor(props){
     super(props);
@@ -18,10 +18,6 @@ constructor(props){
 
 _toggleCollapseIcon(){
   this.setState({isCollapsed: !this.state.isCollapsed}) ;
-}
-
-_gotoDeckReport(){
-    Actions.deckReportsPage({deck: this.props.deck, user: this.props.user});
 }
 
 render(){
@@ -35,44 +31,65 @@ render(){
         totalQuestions = totalQuestions + practiseCardResult.results.length;
         totalAnswered  = totalAnswered + totalAnsweredCorrect.length;
     });
+
     if(totalQuestions < 1){
       return(
-        <View>
-          <HorizontalRow>
-            <Text style={styles.deckName}>{deck.name}:</Text>
-            <Text style={styles.headerText}>No results</Text>
-          </HorizontalRow>
-        </View>
+        <Container>
+            <View style={styles.deckContainer}>
+                <HorizontalRow>
+                    <Text style={styles.deckName}>{deck.name}:</Text>
+                    <Text style={styles.headerText}>No results</Text>
+                </HorizontalRow>
+          </View>
+        </Container>
       );
     }
     return(
-        <View style={styles.deckContainer}>
-            <PixAccordion
-              onChange={() => this._toggleCollapseIcon()}
-              renderHeader={() => this._renderHeader(deck, totalQuestions, totalAnswered)}>
-              {practiseCardResults.map( (practiseCardResult, index) => 
-                    this._renderResult(practiseCardResult, index)
-                )}
-            </PixAccordion>
-        </View>
+        <Container>
+            <View style={styles.deckContainer}>
+                <PixAccordion
+                onChange={() => this._toggleCollapseIcon()}
+                renderHeader={() => this._renderHeader(deck, totalQuestions, totalAnswered)}>
+                {practiseCardResults.map( (practiseCardResult, index) => 
+                        this._renderSessionResult(practiseCardResult, index)
+                    )}
+                </PixAccordion>
+            </View>
+        </Container>
     );
   }
 
   _renderHeader(deck, totalQuestions, totalAnswered){
     const {isCollapsed} = this.state;
     let collapseIcon = isCollapsed ? 'ios-add-circle' : 'ios-remove-circle';
+    let accuracy = Math.round( totalAnswered/totalQuestions ) * 100; 
     return(
-      <HorizontalRow>
-          <Text style={styles.deckName}>{deck.name}:</Text>
-          <Text style={styles.headerText}><Text style={styles.totalText}>{totalQuestions}</Text></Text>
-          <Text style={styles.headerText}>Correct: <Text style={styles.correctText}>{totalAnswered}</Text></Text>
-          <Icon name={collapseIcon} style={[styles.collapsedIcon]}/>
-          <Button onPress={() => this._gotoDeckReport()}>View Details</Button>
-      </HorizontalRow>
+     <View>
+        <HorizontalRow key={deck.id}>
+            <Text style={styles.deckName}>{deck.name}:</Text>
+            <Text style={styles.headerText}>Accuracy: <Text style={styles.correctText}>{accuracy} %</Text></Text>
+            <Icon name={collapseIcon} style={[styles.collapsedIcon]}/>
+        </HorizontalRow>
+        <ScrollView>
+            {deck.cards.map( (card, index) => 
+                    this._renderCardAccuracy(card, index)
+                )}
+        </ScrollView>
+     </View>
     );
   }
 
-  _renderResult(practiseCardResult, index){
+  _renderCardAccuracy(card, index){
+      let accuracy = ReportDao.getPracticeCardAccuracy(card.id, this.props.user.id);
+      return(
+          <HorizontalRow key={card.id} style={styles.cardContainer}>
+            <Text style={styles.deckName}>{card.front}:</Text>
+            <Text style={styles.headerText}>Accuracy: <Text style={styles.correctText}>{accuracy} %</Text></Text>
+        </HorizontalRow>
+      );
+  }
+
+  _renderSessionResult(practiseCardResult, index){
         return(
             <HorizontalRow style={styles.resultsContainer} key={practiseCardResult.id}>
                 <Text style={styles.controlText}>Session {index}: </Text>
@@ -85,7 +102,10 @@ render(){
 
 const styles = StyleSheet.create({
   deckContainer:{
-    paddingTop: 10,
+    paddingTop: 20,
+  },
+  cardContainer:{
+    paddingLeft: 20,
   },
   deckName:{
     paddingLeft: 10,

@@ -8,6 +8,7 @@ import HomePage from './home/HomePage';
 import NavigationBar from 'react-native-navbar';
 import CardListPage from './card/CardListPage';
 import ReportsPage from './report/ReportsPage';
+import DeckReport from './report/DeckReport';
 import ManageUserPage from './user/ManageUserPage';
 import SwitchUserPage from './user/SwitchUserPage';
 
@@ -21,6 +22,7 @@ const Routes = ({loading, needRegistration}) => (
             <Scene key="deckPage" component={Deck} title="Deck" titleStyle={styles.titleStyle} hideNavBar={true}/>
             <Scene key="cardListPage" component={CardListPage} title="Cards" titleStyle={styles.titleStyle} hideNavBar={true}/>
             <Scene key="reportsPage" component={ReportsPage} title="Report" titleStyle={styles.titleStyle} hideNavBar={false} onBack={() => Actions.homePage({type: ActionConst.RESET})} />
+            <Scene key="deckReportsPage" component={DeckReport} title="Deck Report" titleStyle={styles.titleStyle} hideNavBar={false} onBack={() => Actions.homePage({type: ActionConst.RESET})} />
             <Scene key="manageUsersPage" component={ManageUserPage} title="Manage Users" titleStyle={styles.titleStyle} hideNavBar={false} />
             <Scene key="switchUsersPage" component={SwitchUserPage} title="Switch Users" titleStyle={styles.titleStyle} hideNavBar={false} />
         </Router>
