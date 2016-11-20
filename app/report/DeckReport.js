@@ -83,8 +83,8 @@ render(){
       let cardAccuracy = ReportDao.getPracticeCardAccuracy(card.id, this.props.user.id);
       return(
           <HorizontalRow key={card.id} style={styles.cardContainer}>
-            <Text style={styles.deckName}>{card.front}:</Text>
-            <Text style={styles.headerText}>Accuracy: <Text style={styles.correctText}>{cardAccuracy} %</Text></Text>
+            <Text style={[styles.deckName, {flex: 1}]}>{card.front}:</Text>
+            <Text style={[styles.headerText, {flex: 1}]}>Accuracy: <Text style={styles.correctText}>{cardAccuracy} %</Text></Text>
         </HorizontalRow>
       );
   }
@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
   },
   controlText: {
     paddingLeft: 10,
-    //color: 'black',
     color: '#0277BD'
   },
   collapsedIcon:{

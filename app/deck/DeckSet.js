@@ -8,6 +8,7 @@ import uuid from 'react-native-uuid';
 import ColorGenerator from '../utils/ColorGenerator';
 import NavigationBar from 'react-native-navbar';
 import DeckDao from '../dao/DeckDao';
+import PracticeService from '../service/PracticeService';
 import PracticeDao from '../dao/PracticeDao';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -50,7 +51,8 @@ export default class DeckSet extends Component {
                     'What do you want to do?',
                     null,
                     [
-                        {text: 'Start Practice', onPress: () => this._onStartPracticeSession(deck)},
+                        {text: 'Practice all', onPress: () => this._onStartPracticeSession(deck, false)},
+                        {text: 'Practice only learning cards', onPress: () => this._onStartPracticeSession(deck, true)},
                         {text: 'Edit Cards', onPress: () => Actions.cardListPage({deck: deck, isCustom: isCustom, practiseMode: false})},
                         {text: 'Cancel'}
                     ]
@@ -60,7 +62,8 @@ export default class DeckSet extends Component {
                     'What do you want to do?',
                     null,
                     [
-                        {text: 'Start Practice', onPress: () => this._onStartPracticeSession(deck)},
+                        {text: 'Practice all', onPress: () => this._onStartPracticeSession(deck, false)},
+                        {text: 'Practice only learning cards', onPress: () => this._onStartPracticeSession(deck, true)},
                         {text: 'Cancel'},
                     ]
                 );
@@ -68,9 +71,13 @@ export default class DeckSet extends Component {
         }
     }
 
-    _onStartPracticeSession(deck){
+    _onStartPracticeSession(deck, onlyShowLearningCards){
         let isCustom = this.props.deckSet.custom;
         let newPracticeSession = PracticeDao.createPracticeSession(deck, this.props.user);
+        if(onlyShowLearningCards){
+            let cardsForPractice = PracticeService.getCardsForPractice(deck, this.props.user);
+            deck.cards = cardsForPractice.practiceCards;
+        }
         Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true, 
             practiceSession: newPracticeSession, user: this.props.user});
     }
