@@ -3,7 +3,7 @@ import ReportDao from '../dao/ReportDao';
 
 class PracticeService{
 
-    getCardsForPractice(deck, user){
+    getOnlyLearningCards(deck, user){
         let masteredAccuracy = 80;
         let masteredCards = [];
         let practiceCards = [];
