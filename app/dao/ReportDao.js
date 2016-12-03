@@ -1,4 +1,5 @@
 import realm from '../database/Realm';
+import SettingsDao from './SettingsDao';
 
 class ReportDao{
 
@@ -12,8 +13,9 @@ class ReportDao{
     }
 
     isCardMastered(cardId, userId){
-       let minimumAttempts = 2;
-       let minimumAccuracy = 80;
+       let settings = SettingsDao.getSettings();
+       let minimumAttempts = settings.minimumAttempts;
+       let minimumAccuracy = settings.minimumAccuracy;
 
        let realmPracticeCardResults = realm.objects('PracticeCardResult').filtered('cardId = $0 AND user = $1', cardId, userId);
        let totalAttempts = realmPracticeCardResults.length;

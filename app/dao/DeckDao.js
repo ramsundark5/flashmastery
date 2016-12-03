@@ -90,6 +90,15 @@ class DeckDao{
         });
     }
 
+    addOrUpdateDeck(deck){
+        let existingDeck = this.getDeckById(deck.id);
+        if(existingDeck){
+            this.updateDeck(deck);
+        }else{
+            this.addNewDeck(deck);
+        }
+    }
+
     deleteDecks(deckIds){
         realm.write(() => {
             for(let deckId of deckIds){

@@ -97,7 +97,21 @@ VersionInfo.schema = {
     },
 };
 
+class Settings extends Realm.Object {}
+Settings.schema = {
+    name: 'Settings',
+    primaryKey: 'id',
+    properties: {
+        id: {type: 'int', default: 1},
+        minimumAccuracy: {type: 'int', default: 80}, 
+        minimumAttempts: {type: 'int', default: 2}, 
+        email: {type: 'string', optional: true}, 
+        lastSyncDate: {type: 'date', optional: true}, 
+        lastModified: 'date'
+    },
+};
+
 export default new Realm({
-    schema: [Card, Deck, DeckSet, PracticeCardResult, PracticeSession, User, VersionInfo],
-    schemaVersion: 2
+    schema: [Card, Deck, DeckSet, PracticeCardResult, PracticeSession, User, VersionInfo, Settings],
+    schemaVersion: 4
 });

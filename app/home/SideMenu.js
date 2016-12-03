@@ -18,6 +18,12 @@ export default class SideMenu extends Component{
      Actions.switchUsersPage();
      this.props.closeSideMenu();
    }
+
+   _gotoSettings(){
+     Actions.settingsPage();
+     this.props.closeSideMenu();
+   }
+
     render() {
         const {deckSets, user} = this.props;
         return (
@@ -31,7 +37,7 @@ export default class SideMenu extends Component{
             <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets, user)}>
                 <Text style={styles.optionText}>View Reports</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoReports(deckSets)}>
+            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoSettings()}>
                 <Text style={styles.optionText}>Settings</Text>
             </TouchableOpacity>
         </ScrollView>
