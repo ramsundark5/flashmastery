@@ -107,7 +107,7 @@ const Button = React.createClass({
               {this._renderChildren()}
             </Text>
           </TouchableNativeFeedback>
-        )
+        );
       } else {
         return (
           <TouchableOpacity {...touchableProps}

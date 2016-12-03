@@ -76,7 +76,7 @@ export default class DeckSet extends Component {
         let newPracticeSession = PracticeDao.createPracticeSession(deck, this.props.user);
         if(onlyShowLearningCards){
             let cardsForPractice = PracticeService.getOnlyLearningCards(deck, this.props.user);
-            deck.cards = cardsForPractice.practiceCards;
+            deck.cards = cardsForPractice.learningCards;
         }
         Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true, 
             practiceSession: newPracticeSession, user: this.props.user});

@@ -39,7 +39,7 @@ export default class Deck extends Component {
             null,
             [
                 {text: 'Practice again', onPress: () => this._onStartPracticeSession(this.props.deck)},
-                {text: 'View Report', onPress: () => Actions.deckReportsPage({deck: this.props.deck, user: this.props.user})},
+                {text: 'View Report', onPress: () => Actions.deckReportsPageFromDeck({deck: this.props.deck, user: this.props.user})},
                 {text: 'Back to Dashboard', onPress: () => Actions.homePage({type: ActionConst.RESET})}
             ]
         );
