@@ -45,7 +45,7 @@ export default class SettingsPage extends Component {
                 </View>
 
                 <View style={styles.settingsContainer}>
-                    <Text style={styles.fieldLabel}>Minimum Attempts</Text>
+                    <Text style={styles.fieldLabel}>Number of Consecutive Correct Responses for Mastery Status</Text>
                     <InputNumber value={settings.minimumAttempts}
                         styles={inputNumberStyles} 
                         min={2} max={10}

@@ -22,13 +22,19 @@ class ReportDao{
        if(totalAttempts < minimumAttempts){
            return false;
        }
-       let totalCorrect = realmPracticeCardResults.filtered('answeredCorrect = true').length;
-       let roundedAccuracy = Math.round ((totalCorrect/totalAttempts) * 10) / 10;
-       let accuracy = roundedAccuracy * 100; 
-       if(accuracy < minimumAccuracy){
+       let latestRealmPracticeCardResults = realmPracticeCardResults.slice(minimumAttempts * -1);
+       let totalCorrect = latestRealmPracticeCardResults.filtered('answeredCorrect = true').length;
+       let accuracy = totalCorrect/totalAttempts * 100;
+       let roundedAccuracy = this.roundToPlaces(accuracy, 2); 
+       if(roundedAccuracy < minimumAccuracy){
            return false;
        }
        return true;
+    }
+
+    roundToPlaces(num, places) { 
+        let multiplier = Math.pow(10, places); 
+        return (Math.round(num * multiplier) / multiplier);
     }
 }
 

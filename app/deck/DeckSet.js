@@ -54,6 +54,7 @@ export default class DeckSet extends Component {
                         {text: 'Practice all', onPress: () => this._onStartPracticeSession(deck, false)},
                         {text: 'Practice only learning cards', onPress: () => this._onStartPracticeSession(deck, true)},
                         {text: 'Edit Cards', onPress: () => Actions.cardListPage({deck: deck, isCustom: isCustom, practiseMode: false})},
+                        {text: 'View Report', onPress: () => Actions.deckReportsPage({deck: deck, user: this.props.user})},
                         {text: 'Cancel'}
                     ]
                 );
@@ -64,6 +65,7 @@ export default class DeckSet extends Component {
                     [
                         {text: 'Practice all', onPress: () => this._onStartPracticeSession(deck, false)},
                         {text: 'Practice only learning cards', onPress: () => this._onStartPracticeSession(deck, true)},
+                        {text: 'View Report', onPress: () => Actions.deckReportsPage({deck: deck, user: this.props.user})},
                         {text: 'Cancel'},
                     ]
                 );

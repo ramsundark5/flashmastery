@@ -46,15 +46,14 @@ render(){
       );
     }
     return(
-        <View style={styles.deckContainer}>
-            <PixAccordion
-              onChange={() => this._toggleCollapseIcon()}
-              renderHeader={() => this._renderHeader(deck, totalQuestions, totalAnswered)}>
-              {practiseCardResults.map( (practiseCardResult, index) => 
-                    this._renderResult(practiseCardResult, index)
-                )}
-            </PixAccordion>
-        </View>
+        <TouchableOpacity style={styles.deckContainer} onPress={() => this._gotoDeckReport()}>
+            <HorizontalRow>
+                <Text style={styles.deckName}>{deck.name}:</Text>
+                <Text style={styles.headerText}><Text style={styles.totalText}>{totalQuestions}</Text></Text>
+                <Text style={styles.headerText}>Correct: <Text style={styles.correctText}>{totalAnswered}</Text></Text>
+                <Icon name='ios-arrow-forward' style={[styles.collapsedIcon]}/>
+            </HorizontalRow>
+        </TouchableOpacity>
     );
   }
 
@@ -69,7 +68,7 @@ render(){
           <Icon name={collapseIcon} style={[styles.collapsedIcon]}/>
           <Button style={styles.detailsButton} textStyle={styles.detailsButtonText} 
                   onPress={() => this._gotoDeckReport()}>
-            Card Report
+             Report
           </Button>
       </HorizontalRow>
     );
@@ -89,6 +88,8 @@ render(){
 const styles = StyleSheet.create({
   deckContainer:{
     paddingTop: 10,
+    marginBottom: 10,
+     //backgroundColor: 'grey'
   },
   deckName:{
     paddingLeft: 10,
@@ -109,8 +110,11 @@ const styles = StyleSheet.create({
   },
   collapsedIcon:{
     paddingLeft: 10,
+    paddingRight: 20,
     fontSize : 18,
-    color: '#29B6F6'
+    color: '#29B6F6',
+    position: 'absolute',
+    right: 0
   },
   totalText:{
     color: 'black', 
