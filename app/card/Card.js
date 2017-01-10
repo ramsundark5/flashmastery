@@ -71,7 +71,7 @@ export default class Card extends Component {
                 <EditableText 
                     editable={this.props.editable}
                     textContent={cardText}
-                    editInputContainerStyle={[styles.editInputContainerStyle]}
+                    editInputContainerStyle={styles.editInputContainerStyle}
                     editInputStyle={styles.editText}
                     viewTextStyle={styles.viewText} 
                     finishEditText={(finishedText) => finishCallBackFunction(finishedText)}/>
@@ -99,10 +99,8 @@ const styles = StyleSheet.create({
         color: '#0277BD'
     },
     editInputContainerStyle:{ 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        margin: 1,
-        width: width - 40
+        marginLeft: 200,
+        //width: width - 40
     },
     editText:{
         fontSize: 32,
