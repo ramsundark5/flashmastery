@@ -4,28 +4,31 @@ import SettingsDao from './SettingsDao';
 class ReportDao{
 
     getPracticeCardAccuracy(cardId, userId){
-       let realmPracticeCardResults = realm.objects('PracticeCardResult').filtered('cardId = $0 AND user = $1', cardId, userId);
-       let totalQuestions = realmPracticeCardResults.length;
-       let totalAnswered = realmPracticeCardResults.filtered('answeredCorrect = true').length;
-       let roundedAccuracy = Math.round ((totalAnswered/totalQuestions) * 10) / 10;
-       let accuracy = roundedAccuracy * 100; 
-       return accuracy;
-    }
-
-    isCardMastered(cardId, userId){
        let settings = SettingsDao.getSettings();
-       let minimumAttempts = settings.minimumAttempts;
+       let recentAttemptsToBeConsidered = settings.minimumAttempts;
        let minimumAccuracy = settings.minimumAccuracy;
 
        let realmPracticeCardResults = realm.objects('PracticeCardResult').filtered('cardId = $0 AND user = $1', cardId, userId);
        let totalAttempts = realmPracticeCardResults.length;
-       if(totalAttempts < minimumAttempts){
-           return false;
+       if(totalAttempts < recentAttemptsToBeConsidered){
+           return -1;
        }
-       let latestRealmPracticeCardResults = realmPracticeCardResults.slice(minimumAttempts * -1);
-       let totalCorrect = latestRealmPracticeCardResults.filtered('answeredCorrect = true').length;
-       let accuracy = totalCorrect/totalAttempts * 100;
+       let latestRealmPracticeCardResults = realmPracticeCardResults.slice(recentAttemptsToBeConsidered * -1);
+
+       let totalCorrect = latestRealmPracticeCardResults.filter(function(latestRealmPracticeCardResult){
+                return latestRealmPracticeCardResult.answeredCorrect == true;
+       }).length;
+       
+       let accuracy = totalCorrect/recentAttemptsToBeConsidered * 100;
        let roundedAccuracy = this.roundToPlaces(accuracy, 2); 
+       return roundedAccuracy;
+    }
+
+    isCardMastered(cardId, userId){
+       let settings = SettingsDao.getSettings();
+       let minimumAccuracy = settings.minimumAccuracy;
+
+       let roundedAccuracy = this.getPracticeCardAccuracy(cardId, userId); 
        if(roundedAccuracy < minimumAccuracy){
            return false;
        }

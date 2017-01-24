@@ -4,6 +4,7 @@ import {View, ScrollView, StyleSheet, Text, TouchableOpacity,} from 'react-nativ
 import { Container, Content, HorizontalRow } from '../common/Common';
 import PracticeDao from '../dao/PracticeDao';
 import ReportDao from '../dao/ReportDao';
+import SettingsDao from '../dao/SettingsDao';
 import PixAccordion from 'react-native-pixfactory-accordion';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -23,16 +24,23 @@ _toggleCollapseIcon(){
 render(){
     const {deck, user} = this.props;
     let practiseCardResults = PracticeDao.getPracticeSessionsForDeck(deck.id, user.id);
-    let totalQuestions = 0;
-    let totalAnswered = 0;
-    practiseCardResults.map( (practiseCardResult, index) => {
-        let totalAnsweredCorrect = practiseCardResult.results.filtered('answeredCorrect = true');
-        practiseCardResult.totalAnsweredCorrect = totalAnsweredCorrect;
-        totalQuestions = totalQuestions + practiseCardResult.results.length;
-        totalAnswered  = totalAnswered + totalAnsweredCorrect.length;
+    let settings = SettingsDao.getSettings();
+    let minimumAccuracy = settings.minimumAccuracy;
+
+    let cardAccuracyMap = new Map();
+    let masteredCardsCount = 0;
+    deck.cards.map( (card, index) => {
+        let cardAccuracy = ReportDao.getPracticeCardAccuracy(card.id, this.props.user.id);
+        cardAccuracyMap.set(card.id, cardAccuracy);
+        if(cardAccuracy > minimumAccuracy){
+            masteredCardsCount++;
+        }
     });
 
-    if(totalQuestions < 1){
+    let masteredCardsPercent = (masteredCardsCount/deck.cards.length) * 100;
+    masteredCardsPercent = this._roundToPlaces(masteredCardsPercent, 2);
+
+    if(practiseCardResults.length < 1){
       return(
         <Container>
             <View style={styles.deckContainer}>
@@ -49,7 +57,7 @@ render(){
             <ScrollView style={styles.deckContainer}>
                 <PixAccordion
                 onChange={() => this._toggleCollapseIcon()}
-                renderHeader={() => this._renderHeader(deck, totalQuestions, totalAnswered)}>
+                renderHeader={() => this._renderHeader(deck, cardAccuracyMap, masteredCardsPercent)}>
                 {practiseCardResults.map( (practiseCardResult, index) => 
                         this._renderSessionResult(practiseCardResult, index)
                     )}
@@ -59,29 +67,26 @@ render(){
     );
   }
 
-  _renderHeader(deck, totalQuestions, totalAnswered){
+  _renderHeader(deck, cardAccuracyMap, masteredCardsPercent){
     const {isCollapsed} = this.state;
     let collapseIcon = isCollapsed ? 'ios-add-circle' : 'ios-remove-circle';
-    let multiplier = Math.pow(10, 2); 
-    let accuracy = (Math.round(( totalAnswered/totalQuestions ) * multiplier) / multiplier) * 100; 
     return(
      <View>
         <HorizontalRow key={deck.id}>
             <Text style={styles.deckName}>{deck.name}:</Text>
-            <Text style={styles.headerText}>Mastered: <Text style={styles.correctText}>{accuracy} %</Text></Text>
+            <Text style={styles.headerText}>Mastered: <Text style={styles.correctText}>{masteredCardsPercent} %</Text></Text>
             <Icon name={collapseIcon} style={[styles.collapsedIcon]}/>
         </HorizontalRow>
         <ScrollView>
             {deck.cards.map( (card, index) => 
-                    this._renderCardAccuracy(card, index)
+                    this._renderCardAccuracy(card, index, cardAccuracyMap.get(card.id))
                 )}
         </ScrollView>
      </View>
     );
   }
 
-  _renderCardAccuracy(card, index){
-      let cardAccuracy = ReportDao.getPracticeCardAccuracy(card.id, this.props.user.id);
+  _renderCardAccuracy(card, index, cardAccuracy){
       return(
           <HorizontalRow key={card.id} style={styles.cardContainer}>
             <Text style={[styles.deckName, {flex: 1}]}>{card.front}:</Text>
@@ -91,13 +96,19 @@ render(){
   }
 
   _renderSessionResult(practiseCardResult, index){
+       let totalAnsweredCorrect = practiseCardResult.results.filtered('answeredCorrect = true');
         return(
             <HorizontalRow style={styles.resultsContainer} key={practiseCardResult.id}>
                 <Text style={styles.controlText}>Session {index}: </Text>
                 <Text style={styles.controlText}>Total: <Text style={styles.totalText}>{practiseCardResult.results.length}</Text></Text>
-                <Text style={styles.controlText}>Correct: <Text style={styles.correctText}>{practiseCardResult.totalAnsweredCorrect.length}</Text></Text>
+                <Text style={styles.controlText}>Correct: <Text style={styles.correctText}>{totalAnsweredCorrect.length}</Text></Text>
             </HorizontalRow>
         );
+    }
+
+    _roundToPlaces(num, places) { 
+        let multiplier = Math.pow(10, places); 
+        return (Math.round(num * multiplier) / multiplier);
     }
 }
 
