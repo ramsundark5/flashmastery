@@ -87,10 +87,11 @@ render(){
   }
 
   _renderCardAccuracy(card, index, cardAccuracy){
+      let cardAccuracyText = cardAccuracy >= 0 ? cardAccuracy + ' %' : 'N/A';
       return(
           <HorizontalRow key={card.id} style={styles.cardContainer}>
             <Text style={[styles.deckName, {flex: 1}]}>{card.front}:</Text>
-            <Text style={[styles.headerText, {flex: 1}]}>Accuracy: <Text style={styles.correctText}>{cardAccuracy} %</Text></Text>
+            <Text style={[styles.headerText, {flex: 1}]}>Accuracy: <Text style={styles.correctText}>{cardAccuracyText}</Text></Text>
         </HorizontalRow>
       );
   }

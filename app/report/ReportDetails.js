@@ -3,6 +3,8 @@ import Accordion from 'react-native-collapsible/Accordion';
 import {View, ScrollView, StyleSheet, Text, TouchableOpacity,} from 'react-native';
 import { Container, Content, HorizontalRow, Button } from '../common/Common';
 import PracticeDao from '../dao/PracticeDao';
+import ReportDao from '../dao/ReportDao';
+import SettingsDao from '../dao/SettingsDao';
 import PixAccordion from 'react-native-pixfactory-accordion';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions, ActionConst} from 'react-native-router-flux';
@@ -27,15 +29,8 @@ _gotoDeckReport(){
 render(){
     const {deck, user} = this.props;
     let practiseCardResults = PracticeDao.getPracticeSessionsForDeck(deck.id, user.id);
-    let totalQuestions = 0;
-    let totalAnswered = 0;
-    practiseCardResults.map( (practiseCardResult, index) => {
-        let totalAnsweredCorrect = practiseCardResult.results.filtered('answeredCorrect = true');
-        practiseCardResult.totalAnsweredCorrect = totalAnsweredCorrect;
-        totalQuestions = totalQuestions + practiseCardResult.results.length;
-        totalAnswered  = totalAnswered + totalAnsweredCorrect.length;
-    });
-    if(totalQuestions < 1){
+    let masteredPercent = this._getMasteredPercent(deck);
+    if(practiseCardResults.length < 1){
       return(
         <View>
           <HorizontalRow>
@@ -49,39 +44,32 @@ render(){
         <TouchableOpacity style={styles.deckContainer} onPress={() => this._gotoDeckReport()}>
             <HorizontalRow>
                 <Text style={styles.deckName}>{deck.name}:</Text>
-                <Text style={styles.headerText}><Text style={styles.totalText}>{totalQuestions}</Text></Text>
-                <Text style={styles.headerText}>Correct: <Text style={styles.correctText}>{totalAnswered}</Text></Text>
+                <Text style={styles.headerText}>Mastered: <Text style={styles.correctText}>{masteredPercent} %</Text></Text>
                 <Icon name='ios-arrow-forward' style={[styles.collapsedIcon]}/>
             </HorizontalRow>
         </TouchableOpacity>
     );
   }
 
-  _renderHeader(deck, totalQuestions, totalAnswered){
-    const {isCollapsed} = this.state;
-    let collapseIcon = isCollapsed ? 'ios-add-circle' : 'ios-remove-circle';
-    return(
-      <HorizontalRow>
-          <Text style={styles.deckName}>{deck.name}:</Text>
-          <Text style={styles.headerText}><Text style={styles.totalText}>{totalQuestions}</Text></Text>
-          <Text style={styles.headerText}>Correct: <Text style={styles.correctText}>{totalAnswered}</Text></Text>
-          <Icon name={collapseIcon} style={[styles.collapsedIcon]}/>
-          <Button style={styles.detailsButton} textStyle={styles.detailsButtonText} 
-                  onPress={() => this._gotoDeckReport()}>
-             Report
-          </Button>
-      </HorizontalRow>
-    );
-  }
+    _getMasteredPercent(deck){
+        let masteredCardsCount = 0;
+        let settings = SettingsDao.getSettings();
+        let minimumAccuracy = settings.minimumAccuracy;
+        deck.cards.map( (card, index) => {
+            let cardAccuracy = ReportDao.getPracticeCardAccuracy(card.id, this.props.user.id);
+            if(cardAccuracy > minimumAccuracy){
+                masteredCardsCount++;
+            }
+        });
 
-  _renderResult(practiseCardResult, index){
-        return(
-            <HorizontalRow style={styles.resultsContainer} key={practiseCardResult.id}>
-                <Text style={styles.controlText}>Session {index}: </Text>
-                <Text style={styles.controlText}>Total: <Text style={styles.totalText}>{practiseCardResult.results.length}</Text></Text>
-                <Text style={styles.controlText}>Answered: <Text style={styles.correctText}>{practiseCardResult.totalAnsweredCorrect.length}</Text></Text>
-            </HorizontalRow>
-        );
+        let masteredCardsPercent = (masteredCardsCount/deck.cards.length) * 100;
+        masteredCardsPercent = this._roundToPlaces(masteredCardsPercent, 2);
+        return masteredCardsPercent;
+    }
+
+    _roundToPlaces(num, places) { 
+      let multiplier = Math.pow(10, places); 
+      return (Math.round(num * multiplier) / multiplier);
     }
 }
 
