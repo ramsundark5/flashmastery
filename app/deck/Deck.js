@@ -52,13 +52,13 @@ export default class Deck extends Component {
         return(
             <View style={{ flex: 1, }}>
                 {this._renderHeader(deck, isCustom)}
-                <Container style={styles.container}>
+                <View style={styles.container}>
                     <SwipeableViews index={this.state.swipeIndex}>
                         {cards.map( (card, index) => 
                             this._renderCard(card, index)
                         )}
                     </SwipeableViews>
-                </Container>
+                </View>
             </View>
         );
     }
@@ -105,6 +105,7 @@ export default class Deck extends Component {
 const styles = StyleSheet.create({
     container:{
         padding: 0,
-        backgroundColor: "#E0F2F1"
+        backgroundColor: "#E0F2F1",
+        flex: 1,
     },
 });

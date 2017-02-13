@@ -82,14 +82,15 @@ export default class Card extends Component {
     };
 
     _renderFlipButton(){
-        if(!this.state.card.back){
+        return null;
+        /*if(!this.state.card.back){
             return null;
         }
         return(
             <View style={{paddingTop: 80}}>
                 <Text style={{fontSize: 12, color: '#0277BD'}}>(tap anywhere to flip)</Text>
             </View>
-        );
+        );*/
     }
 
 }

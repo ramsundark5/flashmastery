@@ -79,6 +79,16 @@ export default class DeckSet extends Component {
         if(onlyShowLearningCards){
             let cardsForPractice = PracticeService.getOnlyLearningCards(deck, this.props.user);
             deck.cards = cardsForPractice.learningCards;
+            if(deck.cards.length < 1){
+                Alert.alert(
+                    'All cards are mastered!',
+                    null,
+                    [
+                        {text: 'OK'}
+                    ]
+                );
+                return;
+            }
         }
         Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true, 
             practiceSession: newPracticeSession, user: this.props.user});
