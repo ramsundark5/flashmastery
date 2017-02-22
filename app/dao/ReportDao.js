@@ -1,5 +1,6 @@
 import realm from '../database/Realm';
 import SettingsDao from './SettingsDao';
+import UtilityService from '../utils/UtilityService';
 
 class ReportDao{
 
@@ -12,7 +13,7 @@ class ReportDao{
 
        let totalCorrect = realmPracticeCardResults.filtered('answeredCorrect = true').length;
        let accuracy = totalCorrect/totalAttempts * 100;
-       let roundedAccuracy = this.roundToPlaces(accuracy, 2); 
+       let roundedAccuracy = UtilityService.roundToPlaces(accuracy, 0); 
        return roundedAccuracy;
     }
 
@@ -25,11 +26,6 @@ class ReportDao{
            return false;
        }
        return true;
-    }
-
-    roundToPlaces(num, places) { 
-        let multiplier = Math.pow(10, places); 
-        return (Math.round(num * multiplier) / multiplier);
     }
 }
 

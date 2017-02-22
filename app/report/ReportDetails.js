@@ -8,6 +8,7 @@ import SettingsDao from '../dao/SettingsDao';
 import PixAccordion from 'react-native-pixfactory-accordion';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions, ActionConst} from 'react-native-router-flux';
+import UtilityService from '../utils/UtilityService';
 
 export default class ReportDetails extends Component {
 
@@ -44,7 +45,7 @@ render(){
         <TouchableOpacity style={styles.deckContainer} onPress={() => this._gotoDeckReport()}>
             <HorizontalRow>
                 <Text style={styles.deckName}>{deck.name}:</Text>
-                <Text style={styles.headerText}>Mastered: <Text style={styles.correctText}>{masteredPercent} %</Text></Text>
+                <Text style={styles.headerText}><Text style={styles.correctText}>{masteredPercent} %</Text></Text>
                 <Icon name='ios-arrow-forward' style={[styles.collapsedIcon]}/>
             </HorizontalRow>
         </TouchableOpacity>
@@ -63,13 +64,8 @@ render(){
         });
 
         let masteredCardsPercent = (masteredCardsCount/deck.cards.length) * 100;
-        masteredCardsPercent = this._roundToPlaces(masteredCardsPercent, 2);
+        masteredCardsPercent = UtilityService.roundToPlaces(masteredCardsPercent, 2);
         return masteredCardsPercent;
-    }
-
-    _roundToPlaces(num, places) { 
-      let multiplier = Math.pow(10, places); 
-      return (Math.round(num * multiplier) / multiplier);
     }
 }
 

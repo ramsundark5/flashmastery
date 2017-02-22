@@ -44,15 +44,6 @@ export default class SettingsPage extends Component {
                         min={25} max={100}
                         onChange={(newValue) => this._updateNumericSettingsValue('minimumAccuracy', newValue)}/>
                 </View>
-
-                <View style={styles.settingsContainer}>
-                    <Text style={styles.fieldLabel}>Number of Consecutive Correct Responses for Mastery Status</Text>
-                    <InputNumber value={settings.minimumAttempts}
-                        styles={inputNumberStyles} 
-                        step={1}
-                        min={2} max={10}
-                        onChange={(newValue) => this._updateNumericSettingsValue('minimumAttempts', newValue)}/>
-                </View>
             </View>
         );
     }

@@ -7,6 +7,7 @@ import ReportDao from '../dao/ReportDao';
 import SettingsDao from '../dao/SettingsDao';
 import PixAccordion from 'react-native-pixfactory-accordion';
 import Icon from 'react-native-vector-icons/Ionicons';
+import UtilityService from '../utils/UtilityService';
 
 export default class DeckReport extends Component {
 
@@ -38,7 +39,7 @@ render(){
     });
 
     let masteredCardsPercent = (masteredCardsCount/deck.cards.length) * 100;
-    masteredCardsPercent = this._roundToPlaces(masteredCardsPercent, 2);
+    masteredCardsPercent = UtilityService.roundToPlaces(masteredCardsPercent, 0);
 
     if(practiseCardResults.length < 1){
       return(
@@ -91,7 +92,7 @@ render(){
       return(
           <HorizontalRow key={card.id} style={styles.cardContainer}>
             <Text style={[styles.deckName, {flex: 1}]}>{card.front}:</Text>
-            <Text style={[styles.headerText, {flex: 1}]}>Accuracy: <Text style={styles.correctText}>{cardAccuracyText}</Text></Text>
+            <Text style={[styles.headerText, {flex: 1}]}><Text style={styles.correctText}>{cardAccuracyText}</Text></Text>
         </HorizontalRow>
       );
   }
@@ -105,11 +106,6 @@ render(){
                 <Text style={styles.controlText}>Correct: <Text style={styles.correctText}>{totalAnsweredCorrect.length}</Text></Text>
             </HorizontalRow>
         );
-    }
-
-    _roundToPlaces(num, places) { 
-        let multiplier = Math.pow(10, places); 
-        return (Math.round(num * multiplier) / multiplier);
     }
 }
 
