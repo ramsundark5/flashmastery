@@ -28,16 +28,21 @@ render(){
     let settings = SettingsDao.getSettings();
     let minimumAccuracy = settings.minimumAccuracy;
 
-    let cardAccuracyMap = new Map();
+    //let cardAccuracyMap = new Map();
+    let cardAccuracyArray = [];
     let masteredCardsCount = 0;
     deck.cards.map( (card, index) => {
         let cardAccuracy = ReportDao.getPracticeCardAccuracy(card.id, this.props.user.id);
-        cardAccuracyMap.set(card.id, cardAccuracy);
+        cardAccuracyArray.push({'card': card, 'cardAccuracy': cardAccuracy});
+        //cardAccuracyMap.set(card.id, cardAccuracy);
         if(cardAccuracy > minimumAccuracy){
             masteredCardsCount++;
         }
     });
 
+    cardAccuracyArray.sort(function(card1, card2) {
+        return card1.cardAccuracy - card2.cardAccuracy;
+    });
     let masteredCardsPercent = (masteredCardsCount/deck.cards.length) * 100;
     masteredCardsPercent = UtilityService.roundToPlaces(masteredCardsPercent, 0);
 
@@ -58,7 +63,7 @@ render(){
             <ScrollView style={styles.deckContainer}>
                 <PixAccordion
                 onChange={() => this._toggleCollapseIcon()}
-                renderHeader={() => this._renderHeader(deck, cardAccuracyMap, masteredCardsPercent)}>
+                renderHeader={() => this._renderHeader(deck, cardAccuracyArray, masteredCardsPercent)}>
                 {practiseCardResults.map( (practiseCardResult, index) => 
                         this._renderSessionResult(practiseCardResult, index)
                     )}
@@ -68,19 +73,19 @@ render(){
     );
   }
 
-  _renderHeader(deck, cardAccuracyMap, masteredCardsPercent){
+  _renderHeader(deck, cardAccuracyArray, masteredCardsPercent){
     const {isCollapsed} = this.state;
     let collapseIcon = isCollapsed ? 'ios-add-circle' : 'ios-remove-circle';
     return(
      <View>
         <HorizontalRow key={deck.id}>
             <Text style={styles.deckName}>{deck.name}:</Text>
-            <Text style={styles.headerText}>Mastered: <Text style={styles.correctText}>{masteredCardsPercent} %</Text></Text>
+            <Text style={styles.headerText}><Text style={styles.correctText}>{masteredCardsPercent} %</Text></Text>
             <Icon name={collapseIcon} style={[styles.collapsedIcon]}/>
         </HorizontalRow>
         <ScrollView>
-            {deck.cards.map( (card, index) => 
-                    this._renderCardAccuracy(card, index, cardAccuracyMap.get(card.id))
+            {cardAccuracyArray.map( (cardAccuracyItem, index) => 
+                    this._renderCardAccuracy(cardAccuracyItem.card, index, cardAccuracyItem.cardAccuracy)
                 )}
         </ScrollView>
      </View>

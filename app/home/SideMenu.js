@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   optionContainer: {
     //justifyContent: 'center',
     alignItems: 'center',
+    padding: 14
   },
   optionText:{
     color: 'white',

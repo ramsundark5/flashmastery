@@ -22,7 +22,7 @@ class ReportDao{
        let minimumAccuracy = settings.minimumAccuracy;
 
        let roundedAccuracy = this.getPracticeCardAccuracy(cardId, userId); 
-       if(roundedAccuracy < minimumAccuracy){
+       if(isNaN(roundedAccuracy) || roundedAccuracy < minimumAccuracy){
            return false;
        }
        return true;

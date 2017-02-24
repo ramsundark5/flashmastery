@@ -18,6 +18,7 @@
     "react-native-flip-card": "^3.3.1",
     "react-native-flip-view": "^1.0.5",
     "react-native-floating-label-text-input": "^0.1.1",
+    "react-native-global-props": "^1.1.1",
     "react-native-keyboard-aware-scroll-view": "^0.2.0",
     "react-native-keyboard-spacer": "^0.3.0",
     "react-native-navbar": "^1.5.4",
