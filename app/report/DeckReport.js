@@ -35,7 +35,7 @@ render(){
         let cardAccuracy = ReportDao.getPracticeCardAccuracy(card.id, this.props.user.id);
         cardAccuracyArray.push({'card': card, 'cardAccuracy': cardAccuracy});
         //cardAccuracyMap.set(card.id, cardAccuracy);
-        if(cardAccuracy > minimumAccuracy){
+        if(cardAccuracy >= minimumAccuracy){
             masteredCardsCount++;
         }
     });
@@ -96,7 +96,7 @@ render(){
       let cardAccuracyText = cardAccuracy >= 0 ? cardAccuracy + ' %' : 'N/A';
       return(
           <HorizontalRow key={card.id} style={styles.cardContainer}>
-            <Text style={[styles.deckName, {flex: 1}]}>{card.front}:</Text>
+            <Text style={[styles.deckName, {flex: 1}]}>{card.front}</Text>
             <Text style={[styles.headerText, {flex: 1}]}><Text style={styles.correctText}>{cardAccuracyText}</Text></Text>
         </HorizontalRow>
       );
