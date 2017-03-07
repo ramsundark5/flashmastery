@@ -1,0 +1,1556 @@
+[
+  {"id": "558a5867-35dc-4917-b558-ab4adacd77e0", "name": "Subtraction 1s and 2s", "cards" : [
+    {
+      "id" : "1afbf09d-abb5-420d-94ea-3cc18086486c",
+      "front" : "2 - 1",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "dbe889e5-788e-4c98-95ea-9d512dad167d",
+      "front" : "8 - 1",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "41220057-293b-4826-bcc5-f716dc5ba3b5",
+      "front" : "1 - 1",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "3155c729-1157-4211-b300-f99e201cb1e1",
+      "front" : "4 - 1",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "8bd3d4c7-4452-49b4-86c0-612f769dd34d",
+      "front" : "10 - 1",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "dec7de09-40f7-464a-96be-b1c0ba44a914",
+      "front" : "11 - 1",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "df789d53-3086-42bf-a95b-e95cda4d8636",
+      "front" : "3 - 1",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "c99e4028-935a-4dde-92b9-af8b247c3322",
+      "front" : "5 - 1",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "21c88ae3-0f27-4cf9-8be7-6f8d615aa2c7",
+      "front" : "7 - 1",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "c6cc44a0-0abb-4ea4-a71f-3f07fc0ab9c7",
+      "front" : "6 - 1",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "1454fbf8-6a5c-48dd-8f12-9e6991a997d6",
+      "front" : "9 - 1",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "1568383c-6bb0-4a60-8846-67ccec3af9ef",
+      "front" : "4 - 2",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "0e1babe1-6733-45f8-9a7e-7c32262d928f",
+      "front" : "2 - 2",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "ae3bef89-a641-4be2-a43c-0528e9688eb9",
+      "front" : "5 - 2",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "7918e796-88af-427a-8e4a-5076e6f09041",
+      "front" : "7 - 2",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "2f56d976-34f3-4ce6-8258-aa384213d768",
+      "front" : "12 - 2",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "ddd2c410-e8da-4c7c-b1a8-bbf50a2a619e",
+      "front" : "6 - 2",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "1b9b9c5c-dfd7-4a3a-8fc9-3e814feb42e6",
+      "front" : "10  - 2",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "dced5d16-1bd5-49c5-8067-2252b3497d2f",
+      "front" : "9 - 2",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "dd5132a7-32a1-4e0d-9426-68a97ae403aa",
+      "front" : "3 - 2",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "62b90fd4-cee4-4bdf-968b-525e5a09d000",
+      "front" : "11  - 2",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "b7b6887d-14ae-4463-8dfe-b364ac432336",
+      "front" : "8 - 2",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    }
+  ]},
+  {"id": "2f81f9c0-b34f-4a9c-9232-2641e9094667", "name": "Subtraction 3s and 4s", "cards" : [
+    {
+      "id" : "ee679284-8ac3-40a9-b9f5-aa0e9e7cce63",
+      "front" : "8 - 3",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "8056d9f3-c098-4753-942e-a2f5982bd2d6",
+      "front" : "11 - 3",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "96665923-73a1-431c-8769-8fff8e1e3376",
+      "front" : "5 - 3",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "49353247-461e-46fd-93e0-bafbc30364b4",
+      "front" : "13 - 3",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "746635b6-7c93-44fb-82c9-79777e8798d0",
+      "front" : "3 - 3",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "66e7ca2f-19b2-4a2f-8888-80b635664b56",
+      "front" : "6 - 3",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "2989a756-5913-4faf-a12b-dcf8535084ff",
+      "front" : "7 - 3",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "73e34f2a-dcc2-44ed-a839-2d3e999b0784",
+      "front" : "4 - 3",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "098ea1ce-5699-435f-b5d5-fd4e6ec6d93a",
+      "front" : "12 - 3",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "59a5dcdd-d166-41f0-8123-4d5668c9c0f6",
+      "front" : "9 - 3",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "e5a1e7d6-9fed-4555-930f-aabe3e3aad31",
+      "front" : "10 - 3",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "087ec7f6-cbab-435c-995a-7757633e356e",
+      "front" : "10 - 4",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "332e86f1-2e77-4f36-b8f5-3200494e8bb1",
+      "front" : "8 - 4",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "bf64018c-7fe6-4011-bab1-da387bc69a1b",
+      "front" : "11 - 4",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "58aa5b0d-628c-4575-bd3f-c8ff104a34ee",
+      "front" : "14 - 4",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "56c409dc-1702-41af-837f-9e5635f773c7",
+      "front" : "4 - 4",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "796ab65f-6dc2-43bf-b21c-22a11a67cb6e",
+      "front" : "7 - 4",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "c14d766e-ebd2-42a8-b179-17d24b825957",
+      "front" : "12 - 4",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "2d700621-843e-4a53-86f7-7f038e227ae5",
+      "front" : "13 - 4",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "ffc70ee7-6762-44ee-807a-d0a8fb84b798",
+      "front" : "5 - 4",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "d939a319-e204-4079-984f-fb02ec8c8776",
+      "front" : "9 - 4",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "9edd7c17-e142-4f0a-be57-67dfe3d67e75",
+      "front" : "6 - 4",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    }
+  ]},
+  {"id": "b34a38db-8133-4ec7-87f8-4b40198028ed", "name": "Subtraction 5s and 6s", "cards" : [
+    {
+      "id" : "dae76c9b-8380-4f56-8e44-a85c8991bc5a",
+      "front" : "14 - 5",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "8ed39d07-79ea-43f0-a82f-86b83ae79dd2",
+      "front" : "8 - 5",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "7405dd59-0eef-4758-b427-96ad48ce4e72",
+      "front" : "12 - 5",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "495a1dbb-e976-48e8-a803-00d5385c94e4",
+      "front" : "15 - 5",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "c9027dcf-51df-4880-9e4c-2868997da7b3",
+      "front" : "5 - 5",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "b519953b-d7b5-48bd-8bbf-d201d8da4b49",
+      "front" : "9 - 5",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "ca88b582-ac42-46ea-841a-a6b84f8af064",
+      "front" : "11 - 5",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "874247b1-3ee2-4728-8f3c-ebbf739244f1",
+      "front" : "13 - 5",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "7cc5ceb3-fd30-46a4-8091-a1bc773be925",
+      "front" : "6 - 5",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "d4f34810-6005-41b2-95d3-42e60e342c0d",
+      "front" : "10 - 5",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "0b3bdcf4-e739-492e-a719-d0db5682f3d8",
+      "front" : "7 - 5",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "5a091834-5c48-49dd-ae31-02cf094645ed",
+      "front" : "12 - 6",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "14933cd4-37b4-466e-bd55-b748474c152a",
+      "front" : "6 - 6",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "deeb444c-eb43-4658-8423-f852d77042c9",
+      "front" : "15 - 6",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "fb6aad66-9b0d-4d11-b4f0-2d4671d1ed18",
+      "front" : "8 - 6",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "12623007-4c4f-48f2-8866-64d009d09575",
+      "front" : "10 - 6",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "2f25f3bd-431b-46cb-9070-b00e6ee59e2a",
+      "front" : "9 - 6",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "565fdd27-afd1-483d-947a-16ba0b43344b",
+      "front" : "7 - 6",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "4aba1499-036a-4fef-ac01-8a7a8146aa28",
+      "front" : "16 - 6",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "95d4d673-8790-4c1e-b86f-e06b2fbcccc6",
+      "front" : "11 - 6",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "94872bdb-a38d-464e-9b4c-d1c18fefc291",
+      "front" : "14 - 6",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "957f2926-f501-4ab4-88b8-5d41d09073a4",
+      "front" : "13 - 6",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    }
+  ]},
+  {"id": "746abfd1-eb76-4e4b-8b95-8b062e11bd87", "name": "Subtraction 7s and 8s", "cards" : [
+    {
+      "id" : "1f8487cf-0df5-4baf-b7c7-002ccf38faca",
+      "front" : "15 - 7",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "bd34ddac-badb-4dbd-87be-1484a81581f7",
+      "front" : "11 - 7",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "bd8f6b1e-9ec8-4504-937e-dc5417710fff",
+      "front" : "9 - 7",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "f6f220a1-249d-4290-b5fb-d47e2c5520e9",
+      "front" : "13 - 7",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "919e5e75-f414-46a9-a8a7-ab33a73c8118",
+      "front" : "16 - 7",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "1672498e-e918-4fcb-8579-8eb667ed50fc",
+      "front" : "14 - 7",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "75b6c54e-cb9d-4db5-b0fe-c7ff13e0d0f3",
+      "front" : "17 - 7",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "4dfd6f58-4b16-42b5-b77e-193be538cb56",
+      "front" : "10 - 7",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "330c2529-1672-4a41-b432-85d4864f8f4a",
+      "front" : "8 - 7",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "64d8ea83-07af-4eca-a187-7acb46c8c649",
+      "front" : "12 - 7",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "f3944caa-2ffa-4e8e-8d76-9650443ca50b",
+      "front" : "7 - 7",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "46ce7b3b-fe5e-4513-8ee3-6946407234c5",
+      "front" : "14 - 8",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "e696c826-b308-4d00-8a14-f8199c26bf95",
+      "front" : "17 - 8",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "6fc3427f-5613-41e2-8838-df8b16649c4d",
+      "front" : "9 - 8",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "dd379626-36eb-4491-81f8-5c6f7c6cdda4",
+      "front" : "16 - 8",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "a3437435-0c3d-48cc-9a1d-a118bd30a065",
+      "front" : "10 - 8",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "3f0e1cc0-8b78-48dc-9143-20303a5a0804",
+      "front" : "18 - 8",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "7613d415-aade-410c-90a1-d8e4dce1209c",
+      "front" : "12 - 8",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "3db066e2-ea22-42ee-b2da-ba03bb3a2854",
+      "front" : "11 - 8",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "f5bef3a8-8e9c-4ea3-aee2-a84ea70709b0",
+      "front" : "13 - 8",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "7444a9e7-d605-405f-8cf5-bc8996660179",
+      "front" : "15 - 8",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "512b35d4-cacd-45dd-8699-ca1984c7ba7a",
+      "front" : "8 - 8",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    }
+  ]},
+  {"id": "bb9efb29-cdd9-440a-81eb-1135d2c68271", "name": "Subtraction 9s and 10s", "cards" : [
+    {
+      "id" : "",
+      "front" : "14 - 9",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "4cc27bce-8d15-4f25-b324-5a9e31cecfe4",
+      "front" : "12 - 9",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "c4642131-ee53-464e-b550-8dad2ac431ee",
+      "front" : "10 - 9",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "958e7fd1-217b-4d9b-93e3-b503228df206",
+      "front" : "16 - 9",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "0a1ba8d4-6f7a-4c83-9453-7fe0aa81c232",
+      "front" : "13 - 9",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "c9abf08a-e635-4993-b0a9-e1415a37e6c9",
+      "front" : "15 - 9",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "b6c35ce5-d739-4a6f-9ae6-c07691b88386",
+      "front" : "9 - 9",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "47f27e1e-54fa-4e8a-9f72-640ba84e2edc",
+      "front" : "18 - 9",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "ce13a348-dea2-4fd4-80a5-b8cc3ad8f28c",
+      "front" : "11 - 9",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "319a531b-1d78-46e5-855b-8c8b3eb366d5",
+      "front" : "19 - 9",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "70ea8bca-56c7-44ea-8196-3c7d3c357b77",
+      "front" : "17 - 9",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "d7ca29ea-0268-4510-8537-8093abb31762",
+      "front" : "12 - 10",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "50dd6f60-b9cb-4ebf-8dbd-45e9ef1bbcb1",
+      "front" : "10 - 10",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "7b2dab32-579e-46b3-aa1d-d56e751cae4c",
+      "front" : "20 - 10",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "75cb4d87-d1f6-4898-a8a8-a75356dd726b",
+      "front" : "18 - 10",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "6c7a1091-4a18-4572-98f9-a7488c4897f4",
+      "front" : "16 - 10",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "496bed36-bac1-4109-a402-cc995ee208b1",
+      "front" : "15 - 10",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "ee0a0635-980e-4b07-9e1a-3b4a7b318104",
+      "front" : "17 - 10",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "40dcc522-a5e7-4b92-bf25-72d2b7b8c503",
+      "front" : "13 - 10",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "e567d442-2903-45b3-a7c4-17dc457ebe78",
+      "front" : "14 - 10",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "c235a841-df75-43f0-b4a2-725b1f25a5a2",
+      "front" : "11 - 10",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "13dbcc0f-2ed3-4842-a8bf-b3b2f894ce46",
+      "front" : "19 - 10",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    }
+  ]},
+  {"id": "55a03832-5836-4675-a58c-52ee2168a9df", "name": "Subtraction 1s-5s", "cards" : [
+    {
+      "id" : "a1febb23-bddd-4d02-89a3-4030b2f6ef88",
+      "front" : "15 - 5",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "b0fba092-1c53-4aab-9faa-409865a1085a",
+      "front" : "11 - 3",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "603dd714-8dae-46f7-9fdf-0c36d22badb2",
+      "front" : "2 - 2",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "5a06f65e-8fda-4de7-befe-d3678cb400cd",
+      "front" : "9 - 2",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "bdf3361f-a4ce-4a5a-b487-adcd96a004d6",
+      "front" : "4 - 1",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "aa346a95-1891-4bd1-a8fc-067fe6eda46a",
+      "front" : "12 - 2",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "123114d0-3bb0-465a-aa4f-a7df66b45cc8",
+      "front" : "14 - 5",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "353deb3c-1549-4769-805f-0364e635ba50",
+      "front" : "9 - 1",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "285da7f2-4ca2-41f1-8c83-f5d7c57e2466",
+      "front" : "13 - 5",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "271b5626-1853-4273-aa29-2a4b24978452",
+      "front" : "8 - 5",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "556aa492-4bfb-49f6-837f-d31eca41b49a",
+      "front" : "14 - 4",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "6b9dd033-d88d-473a-9235-76d0a54ed4db",
+      "front" : "12 - 3",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "8c68369f-0527-43cd-b641-e105b079ec11",
+      "front" : "6 - 5",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "27f8a669-f576-4b23-84c6-a20ec0db76f1",
+      "front" : "12 - 5",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "7913ff83-3bb8-471f-9bf6-8b8717ecb8cf",
+      "front" : "11  - 2",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "8552ad31-bf39-401e-b917-160dd80f0c70",
+      "front" : "10 - 1",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "8e621a41-ba76-4fdb-928b-baf19dba77ee",
+      "front" : "5 - 2",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "3b59257a-babf-4d4d-beec-8fbdc11e3fea",
+      "front" : "7 - 3",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "5c1a26cb-ec71-49e2-8b3d-bed4526f4405",
+      "front" : "3 - 2",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "e7cb2799-b6c0-4d66-9122-9c02bfae63c7",
+      "front" : "6 - 3",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "385b4dbc-450e-4a1c-852c-87cfc40f27f7",
+      "front" : "10  - 2",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "960f921d-58d3-4bb0-a03b-c97780e77683",
+      "front" : "6 - 4",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "6631589f-e817-4dd7-b2e5-1c124a2b272c",
+      "front" : "10 - 4",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "adbc77f6-fa7b-499d-b6f4-a2f4e0838431",
+      "front" : "4 - 3",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "6326bf5d-85cf-4bb7-b4f6-5aafbaeb4275",
+      "front" : "11 - 5",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "6130189a-f43c-465e-93d3-700389e06fa1",
+      "front" : "11 - 1",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "facec299-eafd-4692-af7e-f116ba244a1c",
+      "front" : "7 - 2",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "201c5815-4aa7-4bfb-b3b3-b8c4d10c21ca",
+      "front" : "10 - 5",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "d05c87fd-7600-45f6-aabd-a95002649de0",
+      "front" : "4 - 2",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "3215bf2c-aa6a-4dc3-885a-85f882d91559",
+      "front" : "3 - 3",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "6e2d34c8-77db-4346-a5a1-eed1a502d1e1",
+      "front" : "7 - 1",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "9525f9f7-e363-4d23-9605-712660ea5688",
+      "front" : "8 - 4",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "a55a1722-8049-4fa4-925b-9906d33234b9",
+      "front" : "8 - 2",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "025bdca0-20af-4339-9ffa-731df3c4d09b",
+      "front" : "13 - 3",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "eb4acd00-fdcb-4a0d-92e9-01e6bf113c43",
+      "front" : "10 - 3",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "2b58f22e-dcb5-4aaa-9017-774474e110a7",
+      "front" : "3 - 1",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "63406ca4-4bb9-4f62-a2ab-532d0db6d2d9",
+      "front" : "6 - 2",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "52e38588-d740-4fa0-a661-aa7426ba667c",
+      "front" : "6 - 1",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "a1e9b3f6-124f-4f54-adf3-251889418a00",
+      "front" : "7 - 5",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "6e773412-0886-44e4-b798-9f5602db68e6",
+      "front" : "5 - 1",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "f4f14055-87c0-4852-8d90-58b0e7efb3c3",
+      "front" : "2 - 1",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "43d30396-473a-4c85-8cc1-287be2f3dd8c",
+      "front" : "5 - 3",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "1f90c48f-2748-43fb-9e63-340efd265b4b",
+      "front" : "9 - 4",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "9b8afb5a-fea0-427e-92bc-faa880e40926",
+      "front" : "5 - 4",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "fa174023-bc35-4cbe-afed-cf217f862463",
+      "front" : "1 - 1",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "5f944296-7b9a-4e4b-abcf-13187bd15ed5",
+      "front" : "5 - 5",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "1cff1897-fcdf-47de-abf8-10f891dcc09e",
+      "front" : "11 - 4",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "e6b6255f-0d3b-4693-b42e-92d8321e3642",
+      "front" : "13 - 4",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "4b51bd1d-ffab-4be2-aec3-24cd9dd3448c",
+      "front" : "12 - 4",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "7a4324e5-0dc6-46bd-81d5-15e413e19309",
+      "front" : "4 - 4",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "181f6559-6613-4ef1-aa94-f2e74ffd2c2b",
+      "front" : "7 - 4",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "705cc950-7350-4fe5-b20e-f5cf5c3543d3",
+      "front" : "9 - 3",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "7cb17202-73b8-49dc-bb95-0a764c82956d",
+      "front" : "8 - 1",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "a7fb9690-4462-4538-80a7-15760b6cdf44",
+      "front" : "9 - 5",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "f3b7202a-17ad-49b2-b978-4d2c77bf09c3",
+      "front" : "8 - 3",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    }
+  ]},
+  {"id": "a05933a9-8234-4d3e-a0d6-7b05879fdd98", "name": "Subtraction 6s-10s", "cards" : [
+    {
+      "id" : "a4fb160f-5e1e-4d7f-bd83-798a449be87e",
+      "front" : "11 - 9",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "adb9b0b3-c1fd-4b7e-b6de-64a281826da2",
+      "front" : "18 - 10",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "fbaa07a8-a79a-490c-9d24-96171ae3b024",
+      "front" : "10 - 8",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "9ba5cacc-3b76-40c2-8b32-85f488c59aa7",
+      "front" : "11 - 10",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "4269fda5-d975-467a-a6a2-b2f11ceb7bed",
+      "front" : "15 - 7",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "3217448d-9f7e-414e-9724-a4abdf8e4149",
+      "front" : "9 - 6",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "39f7b6ac-a8de-4432-b836-9e7f76f86ed7",
+      "front" : "10 - 6",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "598ff80c-d187-4107-821a-750b19dfc684",
+      "front" : "6 - 6",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "f60988de-1f1b-4354-9226-0fbe709bceda",
+      "front" : "18 - 9",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "78ec896b-87c1-43bb-8b68-723f412a95a5",
+      "front" : "12 - 6",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "d41c81cc-7dd8-40c1-a68d-77b891ff67c9",
+      "front" : "14 - 7",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "e139b28f-476a-4ac8-9326-7c2be9a75f0a",
+      "front" : "15 - 10",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "fc3f2b00-c27a-47f0-9b31-ae20873bee1a",
+      "front" : "16 - 9",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "9b80a99e-4c20-4915-aafd-cae181a1d901",
+      "front" : "19 - 10",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "85e8d7ab-706e-4662-9752-6b62bfa14bcb",
+      "front" : "13 - 7",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "7e969f58-f430-4bbb-bdf7-36bbb9c5e183",
+      "front" : "8 - 8",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "46c1844e-de75-43b9-8e79-99cf800ee7af",
+      "front" : "18 - 8",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "19ef49c7-87e8-4d2e-9f4e-d24ef27421cc",
+      "front" : "13 - 6",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "ad7a5358-49fb-4ee2-9a46-7ac2453bdde8",
+      "front" : "11 - 7",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "f36a85eb-2ce3-4ec2-9740-d8c50c13201b",
+      "front" : "9 - 7",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "1a99951c-9f60-4ccc-ae45-9fd2820b2e53",
+      "front" : "10 - 9",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "6b270c57-e55b-4ed2-aada-ef48cd57ca22",
+      "front" : "17 - 9",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "7e476c9e-104e-4e99-98ba-b67980dedd20",
+      "front" : "11 - 6",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "09503fdf-d47c-45f8-b0cb-c283c69d6de3",
+      "front" : "9 - 8",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "0d25fc04-c703-474a-b072-2cc515de0afc",
+      "front" : "15 - 8",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "cbec04d6-c6af-4008-a632-e87b0d3327fe",
+      "front" : "16 - 6",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "631735c4-28a9-4c49-9795-9ef1c14ff659",
+      "front" : "7 - 6",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "a3b3b975-96ed-4dca-be71-233856a8c7c1",
+      "front" : "16 - 8",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "19182ec7-659c-415c-8573-260d94e401e3",
+      "front" : "12 - 7",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "1dd7366d-560e-4fa3-aafc-f6f4a5222a77",
+      "front" : "14 - 8",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "c2061529-22c3-40e0-9b53-75fd8f08a114",
+      "front" : "14 - 6",
+      "frontType" : "text",
+      "back" : 8,
+      "backType" : "text"
+    },
+    {
+      "id" : "38d7ebb8-2019-409f-b224-8be3fda8ffb1",
+      "front" : "16 - 7",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "6378b249-53da-4d5a-a34a-c586c1323e82",
+      "front" : "10 - 10",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "49510c36-ef94-419f-a5f1-e8af69760eab",
+      "front" : "13 - 10",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "4c86814a-b1c6-49b1-9103-9e302636145a",
+      "front" : "12 - 10",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "dacfd19c-38d7-4689-a8e8-884b6249e5e8",
+      "front" : "15 - 9",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "0aa05b41-1de3-4aaf-9393-6d25f68ffb12",
+      "front" : "12 - 8",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "f39ad1ce-3755-48ca-93e0-35b9d0b202bc",
+      "front" : "13 - 8",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    },
+    {
+      "id" : "605ab8ad-5252-4994-9747-f5690eb92b68",
+      "front" : "20 - 10",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "248766a6-21f3-4987-b0d3-43d7ca677053",
+      "front" : "10 - 7",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "713e81fd-b94e-4fd9-8078-8a097176f007",
+      "front" : "16 - 10",
+      "frontType" : "text",
+      "back" : 6,
+      "backType" : "text"
+    },
+    {
+      "id" : "24c72eb4-c354-453e-b5ab-1a652c90d26e",
+      "front" : "17 - 7",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "329b792e-1179-4d71-9056-2b143827539a",
+      "front" : "19 - 9",
+      "frontType" : "text",
+      "back" : 10,
+      "backType" : "text"
+    },
+    {
+      "id" : "acba9d97-d62c-48d1-b213-15c1d616ebf2",
+      "front" : "17 - 8",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "d0543ad9-202a-4322-97bc-678b0416b804",
+      "front" : "8 - 6",
+      "frontType" : "text",
+      "back" : 2,
+      "backType" : "text"
+    },
+    {
+      "id" : "d3bda1df-bb8d-4621-a048-b31b77fa90e5",
+      "front" : "9 - 9",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "d9b4c132-45c1-4ac2-99fc-1d9b76c96f0f",
+      "front" : "7 - 7",
+      "frontType" : "text",
+      "back" : 0,
+      "backType" : "text"
+    },
+    {
+      "id" : "65fb5da0-0d38-41b7-b6e7-211d699c1b96",
+      "front" : "11 - 8",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "363a97d1-37f6-497f-95b2-0bbb1e523cd2",
+      "front" : "17 - 10",
+      "frontType" : "text",
+      "back" : 7,
+      "backType" : "text"
+    },
+    {
+      "id" : "233af82a-c6ec-4f38-8ac0-143a961142f7",
+      "front" : "12 - 9",
+      "frontType" : "text",
+      "back" : 3,
+      "backType" : "text"
+    },
+    {
+      "id" : "92688343-2e26-4672-be96-3296b29cca8c",
+      "front" : "8 - 7",
+      "frontType" : "text",
+      "back" : 1,
+      "backType" : "text"
+    },
+    {
+      "id" : "c1ae7a94-1dbc-4f83-80a2-f53451726e6f",
+      "front" : "13 - 9",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "e598dbc0-e3a6-4c22-b245-11d537c11fd0",
+      "front" : "14 - 10",
+      "frontType" : "text",
+      "back" : 4,
+      "backType" : "text"
+    },
+    {
+      "id" : "75cbc9f8-ec54-45c7-b631-6788362a85a4",
+      "front" : "15 - 6",
+      "frontType" : "text",
+      "back" : 9,
+      "backType" : "text"
+    },
+    {
+      "id" : "2dca618a-4415-4fbe-9d18-b0274152fa1d",
+      "front" : "14 - 9",
+      "frontType" : "text",
+      "back" : 5,
+      "backType" : "text"
+    }
+  ]}
+]
