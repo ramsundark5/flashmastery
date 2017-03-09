@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Routes from './Routes';
-import codePush from "react-native-code-push";
+//import codePush from "react-native-code-push";
 import BackgroundSync from './sync/BackgroundSync';
 import { setCustomText } from 'react-native-global-props';
 
@@ -23,5 +23,5 @@ const customTextProps = {
     fontSize: 16
   }
 };
-
-export default codePush(Root);
+export default Root;
+//export default codePush(Root);

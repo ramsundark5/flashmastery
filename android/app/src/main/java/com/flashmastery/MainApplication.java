@@ -7,7 +7,6 @@ import com.facebook.react.ReactApplication;
 import im.shimo.react.prompt.RNPromptPackage;
 import io.realm.react.RealmReactPackage;
 import io.fullstack.firestack.FirestackPackage;
-import com.microsoft.codepush.react.CodePush;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -38,7 +37,6 @@ public class MainApplication extends Application implements ReactApplication {
             new RNPromptPackage(),
             new RealmReactPackage(),
             new FirestackPackage(getApplicationContext()),
-            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
             new VectorIconsPackage()
       );
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {View, Text, StyleSheet, Dimensions, Alert} from 'react-native';
 import { Container, Content, Center, Footer, HorizontalRow, Button } from '../common/Common';
-import SwipeableViews from 'react-swipeable-views/lib/index.native.scroll';
+import SwipeableViews from 'react-swipeable-views-native';
 import PracticeCard from '../card/PracticeCard';
 import EditableCard from '../card/EditableCard';
 import NavigationBar from 'react-native-navbar';
