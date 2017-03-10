@@ -8,6 +8,8 @@ import NavigationBar from 'react-native-navbar';
 import {Actions, ActionConst} from 'react-native-router-flux';
 import CardDao from '../dao/CardDao';
 import PracticeDao from '../dao/PracticeDao';
+import Analytics from 'mobile-center-analytics';
+import * as Constants from '../common/Constants';
 
 export default class Deck extends Component {
     constructor(props){
@@ -31,6 +33,11 @@ export default class Deck extends Component {
         let isCustom = this.props.isCustom;
         let newPracticeSession = PracticeDao.createPracticeSession(deck, this.props.user);
         this.setState({practiceSession: newPracticeSession, swipeIndex: 0});
+        if(isCustom){
+            let analyticsProps = new Map();
+            analyticsProps.set(Constants.CUSTOM_CARDS_COUNT, deck.cards.length);
+            Analytics.trackEvent(Constants.CUSTOM_CARDS_COUNT, analyticsProps);
+        }
     }
 
     _showFinishedOptions(){

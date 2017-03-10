@@ -7,6 +7,8 @@ import UserDao from '../dao/UserDao';
 import SwipeitemView from 'react-native-swipe-left';
 import UserListItem from './UserListItem';
 import AddUserInput from './AddUserInput';
+import Analytics from 'mobile-center-analytics';
+import * as Constants from '../common/Constants';
 
 export default class ManageUserPage extends Component {
     constructor(props){
@@ -20,6 +22,13 @@ export default class ManageUserPage extends Component {
             hasIdOpen: false
         };
         this.usersDatasource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    }
+
+    componentDidMount(){
+        let analyticsProps = new Map();
+        let userCount = this.state.users.length;
+        analyticsProps.set(Constants.USER_COUNT, userCount);
+        Analytics.trackEvent(Constants.USER_COUNT, analyticsProps);
     }
 
     _deleteUser(userToBeDeleted){

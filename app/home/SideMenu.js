@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
 import {View, ScrollView, StyleSheet, Text, TouchableOpacity,} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import Analytics from 'mobile-center-analytics';
+import * as Constants from '../common/Constants';
 
 export default class SideMenu extends Component{
 
    _gotoReports(deckSets, user){
      Actions.reportsPage({deckSets: deckSets, user: user});
      this.props.closeSideMenu();
+     Analytics.trackEvent(Constants.VIEW_REPORT);
    }
 
    _gotoManageUsers(){
      Actions.manageUsersPage();
      this.props.closeSideMenu();
+     Analytics.trackEvent(Constants.MANAGE_USERS);
    }
    
    _gotoSwitchUsersPage(){
      Actions.switchUsersPage();
      this.props.closeSideMenu();
+     Analytics.trackEvent(Constants.SWITCH_USER);
    }
 
    _gotoSettings(){
      Actions.settingsPage();
      this.props.closeSideMenu();
+     Analytics.trackEvent(Constants.SETTINGS);
    }
 
     render() {

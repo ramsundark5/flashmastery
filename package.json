@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "postinstall": "react-native link react-native-vector-icons && react-native link react-native-code-push && react-native link realm && react-native link react-native-prompt-android",
+    "postinstall": "pod install && react-native link react-native-vector-icons && react-native link mobile-center-analytics && react-native link mobile-center-crashes && react-native link realm && react-native link react-native-prompt-android",
     "build": "react-native bundle --platform ios --dev false --entry-file index.ios.js --bundle-output iOS/flashmastery/main.jsbundle —-sourcemap-output flashmastery.map",
     "codepush": "code-push release-react flashmastery ios --sourcemapOutput flashmastery.map"
   },
   "dependencies": {
     "firebase": "^3.6.1",
+    "mobile-center-analytics": "^0.3.0",
+    "mobile-center-crashes": "^0.3.0",
     "rc-input-number": "^3.3.0",
     "react": "15.4.2",
     "react-native": "^0.42.0",
