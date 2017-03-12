@@ -17,6 +17,7 @@
     "react-native": "^0.42.0",
     "react-native-code-push": "^1.17.2-beta",
     "react-native-collapsible": "^0.8.0",
+    "react-native-fence-html": "^1.0.6",
     "react-native-flip-card": "^3.3.1",
     "react-native-flip-view": "^1.0.5",
     "react-native-floating-label-text-input": "^0.1.1",

@@ -23,3 +23,4 @@ export const DECKSET_NAME = "Deckset Name";
 export const MANAGE_USERS = "Manage Users";
 export const SETTINGS = "View Settings";
 export const SWITCH_USER = "Switch User";
+export const HELP = "Help Page";

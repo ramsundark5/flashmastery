@@ -11,6 +11,7 @@ import DeckReport from './report/DeckReport';
 import ManageUserPage from './user/ManageUserPage';
 import SwitchUserPage from './user/SwitchUserPage';
 import SettingsPage from './profile/SettingsPage';
+import HelpPage from './home/HelpPage';
 
 const Routes = ({loading, needRegistration}) => (
     loading ?
@@ -26,6 +27,7 @@ const Routes = ({loading, needRegistration}) => (
             <Scene key="manageUsersPage" component={ManageUserPage} title="Manage Users" titleStyle={styles.titleStyle} hideNavBar={false} />
             <Scene key="switchUsersPage" component={SwitchUserPage} title="Switch Users" titleStyle={styles.titleStyle} hideNavBar={false} />
             <Scene key="settingsPage" component={SettingsPage} title="Settings" titleStyle={styles.titleStyle} hideNavBar={false} />
+            <Scene key="helpPage" component={HelpPage} title="Help" titleStyle={styles.titleStyle} hideNavBar={false} />
         </Router>
 );
 

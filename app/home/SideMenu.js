@@ -30,6 +30,12 @@ export default class SideMenu extends Component{
      Analytics.trackEvent(Constants.SETTINGS);
    }
 
+   _gotoHelp(){
+      Actions.helpPage();
+      this.props.closeSideMenu();
+      Analytics.trackEvent(Constants.HELP);
+   }
+
     render() {
         const {deckSets, user} = this.props;
         return (
@@ -45,6 +51,9 @@ export default class SideMenu extends Component{
             </TouchableOpacity>
             <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoSettings()}>
                 <Text style={styles.optionText}>Settings</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.optionContainer} onPress={() => this._gotoHelp()}>
+                <Text style={styles.optionText}>Help</Text>
             </TouchableOpacity>
         </ScrollView>
         );
