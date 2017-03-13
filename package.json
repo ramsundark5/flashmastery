@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "postinstall": "pod install && react-native link react-native-vector-icons && react-native link mobile-center-analytics && react-native link mobile-center-crashes && react-native link realm && react-native link react-native-prompt-android",
+    "postinstall": "pod install --project-directory=ios && react-native link react-native-vector-icons && react-native link mobile-center-analytics && react-native link mobile-center-crashes && react-native link realm && react-native link react-native-prompt-android",
     "build": "react-native bundle --platform ios --dev false --entry-file index.ios.js --bundle-output iOS/flashmastery/main.jsbundle —-sourcemap-output flashmastery.map",
     "codepush": "code-push release-react flashmastery ios --sourcemapOutput flashmastery.map"
   },
