@@ -1,104 +1,186 @@
 [
   {"id": "baa54625-1e3c-402a-8977-ae03b4c88452", "name": "Letters", "cards" : [
     {
-      "a" : "b",
-      "A" : "B"
+      "id" : "556ac6b7-cb75-4769-b0c7-cef3905f8ba5",
+      "front" : "a",
+      "frontType" : "text",
+      "back" : "A",
+      "backType" : "text"
     },
     {
-      "a" : "c",
-      "A" : "C"
+      "id" : "f11c01c8-619e-4e11-9b6b-818634121dc9",
+      "front" : "b",
+      "frontType" : "text",
+      "back" : "B",
+      "backType" : "text"
     },
     {
-      "a" : "d",
-      "A" : "D"
+      "id" : "2381f422-3cb6-4708-8311-85ac4db54da6",
+      "front" : "c",
+      "frontType" : "text",
+      "back" : "C",
+      "backType" : "text"
     },
     {
-      "a" : "e",
-      "A" : "E"
+      "id" : "6e7642a9-0476-4cd8-a9c8-1d63cee2f517",
+      "front" : "d",
+      "frontType" : "text",
+      "back" : "D",
+      "backType" : "text"
     },
     {
-      "a" : "f",
-      "A" : "F"
+      "id" : "f129f0e3-3e72-4c82-806a-3f0f7fb358bb",
+      "front" : "e",
+      "frontType" : "text",
+      "back" : "E",
+      "backType" : "text"
     },
     {
-      "a" : "g",
-      "A" : "G"
+      "id" : "766f249c-4d64-445b-b0f7-08ea95528370",
+      "front" : "f",
+      "frontType" : "text",
+      "back" : "F",
+      "backType" : "text"
     },
     {
-      "a" : "h",
-      "A" : "H"
+      "id" : "3da928ee-9b8b-4210-a989-1b1005a45a3a",
+      "front" : "g",
+      "frontType" : "text",
+      "back" : "G",
+      "backType" : "text"
     },
     {
-      "a" : "i",
-      "A" : "I"
+      "id" : "34416e67-8415-4a5d-82d4-aebd33f808e0",
+      "front" : "h",
+      "frontType" : "text",
+      "back" : "H",
+      "backType" : "text"
     },
     {
-      "a" : "j",
-      "A" : "J"
+      "id" : "60b19a35-2a9d-4701-9b36-85dbdccebd75",
+      "front" : "i",
+      "frontType" : "text",
+      "back" : "I",
+      "backType" : "text"
     },
     {
-      "a" : "k",
-      "A" : "K"
+      "id" : "461bdc6a-14b6-4845-9c57-21a351aef1fe",
+      "front" : "j",
+      "frontType" : "text",
+      "back" : "J",
+      "backType" : "text"
     },
     {
-      "a" : "l",
-      "A" : "L"
+      "id" : "cd7208e2-4289-48f1-825c-dfca6d06a0b0",
+      "front" : "k",
+      "frontType" : "text",
+      "back" : "K",
+      "backType" : "text"
     },
     {
-      "a" : "m",
-      "A" : "M"
+      "id" : "df33495b-8482-43f5-a2a3-d35cf42429f6",
+      "front" : "l",
+      "frontType" : "text",
+      "back" : "L",
+      "backType" : "text"
     },
     {
-      "a" : "n",
-      "A" : "N"
+      "id" : "cbac5500-1b0b-441c-9517-9115753ace3f",
+      "front" : "m",
+      "frontType" : "text",
+      "back" : "M",
+      "backType" : "text"
     },
     {
-      "a" : "o",
-      "A" : "O"
+      "id" : "add67d9d-dd57-4a0f-9212-39ead46ef9cd",
+      "front" : "n",
+      "frontType" : "text",
+      "back" : "N",
+      "backType" : "text"
     },
     {
-      "a" : "p",
-      "A" : "P"
+      "id" : "babc0783-4f45-4197-80c8-761f7706c420",
+      "front" : "o",
+      "frontType" : "text",
+      "back" : "O",
+      "backType" : "text"
     },
     {
-      "a" : "q",
-      "A" : "Q"
+      "id" : "de75a130-9543-4297-bf4c-482d60946c6f",
+      "front" : "p",
+      "frontType" : "text",
+      "back" : "P",
+      "backType" : "text"
     },
     {
-      "a" : "r",
-      "A" : "R"
+      "id" : "61ade9a2-bb53-4a5b-8e1f-b7852e42af8f",
+      "front" : "q",
+      "frontType" : "text",
+      "back" : "Q",
+      "backType" : "text"
     },
     {
-      "a" : "s",
-      "A" : "S"
+      "id" : "78ba5059-3313-42fc-8d51-e2369d213201",
+      "front" : "r",
+      "frontType" : "text",
+      "back" : "R",
+      "backType" : "text"
     },
     {
-      "a" : "t",
-      "A" : "T"
+      "id" : "3a49d4f0-5dd9-4a5e-a031-fc4a2f927765",
+      "front" : "s",
+      "frontType" : "text",
+      "back" : "S",
+      "backType" : "text"
     },
     {
-      "a" : "u",
-      "A" : "U"
+      "id" : "d592577e-d3e3-42e0-988c-1dbb7eb60889",
+      "front" : "t",
+      "frontType" : "text",
+      "back" : "T",
+      "backType" : "text"
     },
     {
-      "a" : "v",
-      "A" : "V"
+      "id" : "4f279aa9-7b92-423c-9483-10c4baf6c946",
+      "front" : "u",
+      "frontType" : "text",
+      "back" : "U",
+      "backType" : "text"
     },
     {
-      "a" : "w",
-      "A" : "W"
+      "id" : "4e440fe8-e6b3-4446-a7e3-746e4297abfa",
+      "front" : "v",
+      "frontType" : "text",
+      "back" : "V",
+      "backType" : "text"
     },
     {
-      "a" : "x",
-      "A" : "X"
+      "id" : "80be171d-d8e2-4b18-8d1d-e0256c5c28ed",
+      "front" : "w",
+      "frontType" : "text",
+      "back" : "W",
+      "backType" : "text"
     },
     {
-      "a" : "y",
-      "A" : "Y"
+      "id" : "4f7a6053-f6f1-46f4-b4c4-da4c973d441d",
+      "front" : "x",
+      "frontType" : "text",
+      "back" : "X",
+      "backType" : "text"
     },
     {
-      "a" : "z",
-      "A" : "Z"
+      "id" : "7a736739-6e67-46c1-aa9b-ddd5f22bfd12",
+      "front" : "y",
+      "frontType" : "text",
+      "back" : "Y",
+      "backType" : "text"
+    },
+    {
+      "id" : "2e566989-ae0b-451e-b639-b00bf0e55ff0",
+      "front" : "z",
+      "frontType" : "text",
+      "back" : "Z",
+      "backType" : "text"
     }
   ]},
   {"id": "e3c92d60-e09c-41d6-8258-6676074814a8", "name": "Consonant Blends 1", "cards" : [
