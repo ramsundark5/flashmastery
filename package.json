@@ -14,6 +14,7 @@
     "mobile-center-crashes": "^0.3.0",
     "rc-input-number": "^3.3.0",
     "react": "15.4.2",
+    "react-addons-shallow-compare": "^15.4.2",
     "react-native": "^0.42.0",
     "react-native-code-push": "^1.17.2-beta",
     "react-native-collapsible": "^0.8.0",
