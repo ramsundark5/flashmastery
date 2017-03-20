@@ -107,7 +107,9 @@ const styles = StyleSheet.create({
        width: width - 40
     },
     viewInputContainerStyle:{
-        margin: 10
+        marginBottom: 30,
+        marginLeft: 10,
+        marginRight: 10
     },
     editText:{
         fontSize: 32,
