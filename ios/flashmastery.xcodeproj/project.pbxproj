@@ -1105,8 +1105,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F84B6C85AEF51B3772B56EC /* Pods-flashmasteryTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ramsundar Kuppusamy (BEP4LU9648)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ramsundar Kuppusamy (BEP4LU9648)";
 				DEVELOPMENT_TEAM = BEP4LU9648;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1128,8 +1128,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E448576C9074899CC09E4AE /* Pods-flashmasteryTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ramsundar Kuppusamy (BEP4LU9648)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ramsundar Kuppusamy (BEP4LU9648)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = BEP4LU9648;
 				INFOPLIST_FILE = flashmasteryTests/Info.plist;
@@ -1150,6 +1150,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODEPUSH_KEY = "oqLlUCmuLuZjjpHkcH0MElJXzA4R41n_w-6Zl";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = BEP4LU9648;
@@ -1187,6 +1188,7 @@
 			baseConfigurationReference = 2C488706778A1C8EF0D04A9B /* Pods-flashmastery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = BEP4LU9648;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1361,6 +1363,7 @@
 			baseConfigurationReference = A8C923561A3C28639475B77D /* Pods-flashmastery.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = BEP4LU9648;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1396,8 +1399,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C776C8AB6E89360A7C0B807C /* Pods-flashmasteryTests.staging.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ramsundar Kuppusamy (BEP4LU9648)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ramsundar Kuppusamy (BEP4LU9648)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = BEP4LU9648;
 				INFOPLIST_FILE = flashmasteryTests/Info.plist;
