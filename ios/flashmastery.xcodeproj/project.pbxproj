@@ -649,7 +649,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = BEP4LU9648;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1144,7 +1144,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODEPUSH_KEY = "oqLlUCmuLuZjjpHkcH0MElJXzA4R41n_w-6Zl";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = BEP4LU9648;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1170,6 +1170,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plearning.flashmastery;
 				PRODUCT_NAME = flashmastery;
+				PROVISIONING_PROFILE = "b91ed2a6-ae35-4034-b84c-aeda63da6ea8";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: com.plearning.flashmastery";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1179,7 +1181,7 @@
 			baseConfigurationReference = 2C488706778A1C8EF0D04A9B /* Pods-flashmastery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = BEP4LU9648;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1204,6 +1206,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plearning.flashmastery;
 				PRODUCT_NAME = flashmastery;
+				PROVISIONING_PROFILE = "b91ed2a6-ae35-4034-b84c-aeda63da6ea8";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: com.plearning.flashmastery";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1351,7 +1355,7 @@
 			baseConfigurationReference = A8C923561A3C28639475B77D /* Pods-flashmastery.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = BEP4LU9648;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1376,6 +1380,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plearning.flashmastery;
 				PRODUCT_NAME = flashmastery;
+				PROVISIONING_PROFILE = "b91ed2a6-ae35-4034-b84c-aeda63da6ea8";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: com.plearning.flashmastery";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Staging;
