@@ -49,6 +49,7 @@ export default class CardListPage extends Component {
                 <View style={styles.container}>
                     <ListView
                         dataSource={cardsDS}
+                        enableEmptySections={true}
                         renderRow={ (card, sectionId, rowId) => this._renderCardItem(card, sectionId, rowId)}
                         ref="listview"
                         renderScrollComponent={(props)=>{

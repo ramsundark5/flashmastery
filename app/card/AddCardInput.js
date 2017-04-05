@@ -30,7 +30,7 @@ export default class AddCardInput extends Component {
                 <View style={[styles.addTextInputContainer, styles.backTextInputContainer]}>
                     <TextInput
                         ref='frontTextInput'
-                        style={[styles.addTextInput]}
+                        style={[styles.addTextInput, styles.frontTextInput]}
                         placeholder={'Type front card text here..'}
                         value={this.state.frontText}
                         onChangeText={(changedText) => this.setState({frontText: changedText})}/>
@@ -87,10 +87,13 @@ const styles = StyleSheet.create({
     addTextInput: {
         height  : 26,
         fontSize: 14,
-        flex    : 1,
+        flexGrow: 1,
+    },
+    frontTextInput:{
+        marginBottom: 25
     },
     backTextInputContainer:{
         marginLeft: 15,
-        marginRight: 70
+        marginRight: 70,
     }
 });
