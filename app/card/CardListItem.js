@@ -3,7 +3,7 @@ import {View, StyleSheet, Easing, Text, TouchableOpacity, Dimensions} from 'reac
 import { EditableText, Center, Button } from '../common/Common';
 import CardDao from '../dao/CardDao';
 const { width } = Dimensions.get('window');
-import FlipCard from 'react-native-flip-card';
+import FlipCard from '../common/FlipCard';
 
 export default class CardListItem extends Component {
     constructor(props){
