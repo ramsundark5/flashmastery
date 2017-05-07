@@ -35,8 +35,6 @@
 		A22A17CB1D9E127100AAB145 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C51D9E127100AAB145 /* CoreTelephony.framework */; };
 		A22A17CC1D9E127100AAB145 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C61D9E127100AAB145 /* SystemConfiguration.framework */; };
 		A22A17CD1D9E127100AAB145 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C71D9E127100AAB145 /* UIKit.framework */; };
-		A22A17DC1D9E12BA00AAB145 /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17DB1D9E12BA00AAB145 /* Instabug.framework */; };
-		A22A17DE1D9E12F700AAB145 /* Instabug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A22A17DD1D9E12F700AAB145 /* Instabug.bundle */; };
 		A2D136E01E7123FD002C69A1 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D136C51E7123E5002C69A1 /* libRCTAnimation.a */; };
 		C5AA1BE41D4843CD9B69B8C0 /* MobileCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A130E0F25348058B9182A0 /* MobileCenter-Config.plist */; };
 		E170CD679387426F712AABBF /* libPods-flashmastery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97957D6A587AD22525B4BDCE /* libPods-flashmastery.a */; };
@@ -287,9 +285,6 @@
 		A22A17C51D9E127100AAB145 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A22A17C61D9E127100AAB145 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A22A17C71D9E127100AAB145 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A22A17DB1D9E12BA00AAB145 /* Instabug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Instabug.framework; path = Instabug/Instabug.framework; sourceTree = "<group>"; };
-		A22A17DD1D9E12F700AAB145 /* Instabug.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Instabug.bundle; path = Instabug/Instabug.bundle; sourceTree = "<group>"; };
-		A2BEBF041D88507500D667BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "flashmastery/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A2D136BE1E7123E5002C69A1 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		A365A67D292B433ABC574265 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		A8C923561A3C28639475B77D /* Pods-flashmastery.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flashmastery.staging.xcconfig"; path = "Pods/Target Support Files/Pods-flashmastery/Pods-flashmastery.staging.xcconfig"; sourceTree = "<group>"; };
@@ -316,7 +311,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A22A17C81D9E127100AAB145 /* AVFoundation.framework in Frameworks */,
-				A22A17DC1D9E12BA00AAB145 /* Instabug.framework in Frameworks */,
 				A22A17C91D9E127100AAB145 /* CoreGraphics.framework in Frameworks */,
 				A22A17CA1D9E127100AAB145 /* CoreMotion.framework in Frameworks */,
 				A22A17CB1D9E127100AAB145 /* CoreTelephony.framework in Frameworks */,
@@ -425,7 +419,6 @@
 		13B07FAE1A68108700A75B9A /* flashmastery */ = {
 			isa = PBXGroup;
 			children = (
-				A2BEBF041D88507500D667BE /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -455,7 +448,6 @@
 		40A8077D959F4DF99CABE317 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A22A17DB1D9E12BA00AAB145 /* Instabug.framework */,
 				A22A17C21D9E127100AAB145 /* AVFoundation.framework */,
 				A22A17C31D9E127100AAB145 /* CoreGraphics.framework */,
 				A22A17C41D9E127100AAB145 /* CoreMotion.framework */,
@@ -531,7 +523,6 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				8503F3C1C2D547D9B2CED469 /* Resources */,
 				40A8077D959F4DF99CABE317 /* Frameworks */,
-				A22A17DD1D9E12F700AAB145 /* Instabug.bundle */,
 				84A130E0F25348058B9182A0 /* MobileCenter-Config.plist */,
 				41BA6D7F091F70D6480730FE /* Pods */,
 			);
@@ -942,7 +933,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A22A17DE1D9E12F700AAB145 /* Instabug.bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				514B95E46945489FB05FFCA6 /* Ionicons.ttf in Resources */,
@@ -1151,21 +1141,17 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = BEP4LU9648;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Instabug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)/../node_modules/react-native-firestack/ios/Firestack/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = flashmastery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1188,21 +1174,17 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = BEP4LU9648;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Instabug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)/../node_modules/react-native-firestack/ios/Firestack/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = flashmastery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1363,21 +1345,17 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = BEP4LU9648;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Instabug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)/../node_modules/react-native-firestack/ios/Firestack/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = flashmastery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
