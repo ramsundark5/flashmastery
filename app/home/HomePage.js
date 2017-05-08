@@ -14,7 +14,7 @@ import SideMenu from './SideMenu';
 import Drawer from 'react-native-side-menu';
 import prompt from 'react-native-prompt-android';
 import UserDao from '../dao/UserDao';
-import Analytics from 'mobile-center-analytics';
+//import Analytics from 'mobile-center-analytics';
 import * as Constants from '../common/Constants';
 
 const colors = ["#00B0FF", "#1DE9B6", "#FFC400", "#E65100", "#F44336"];
@@ -78,7 +78,7 @@ export default class HomePage extends Component {
         let customDeckSetCount = customDeckSets ? customDeckSets.length : 0;
         let analyticsProps = new Map();
         analyticsProps.set(Constants.CUSTOM_DECKSET_COUNT, customDeckSetCount);
-        Analytics.trackEvent(Constants.CUSTOM_DECKSET_COUNT, analyticsProps);
+        //Analytics.trackEvent(Constants.CUSTOM_DECKSET_COUNT, analyticsProps);
     }
 
     _addNewDeckOptionAtEnd(){
@@ -97,7 +97,7 @@ export default class HomePage extends Component {
                 deckSet = DeckDao.getDeckSetForId(deckSet.id);
             }
             Actions.deckSetPage({deckSet: deckSet, user: this.state.user});
-            Analytics.trackEvent(Constants.SELECT_DECKSET);
+            //Analytics.trackEvent(Constants.SELECT_DECKSET);
         }
     }
 
@@ -112,7 +112,7 @@ export default class HomePage extends Component {
             
         );
         this.setState({deckSets: deckSetsAfterUpdate, openDrawer: false});
-        Analytics.trackEvent(Constants.UPDATE_DECKSET);
+        //Analytics.trackEvent(Constants.UPDATE_DECKSET);
     }
 
     _onNewDeckSetAdd(addedDeckSet){
@@ -125,14 +125,14 @@ export default class HomePage extends Component {
         this._addNewDeckOptionAtEnd();
         let deckSetsAfterAdd = this.state.deckSets.concat(addedDeckSet);
         this.setState({deckSets: deckSetsAfterAdd, openDrawer: false});
-        Analytics.trackEvent(Constants.ADD_DECKSET);
+        //Analytics.trackEvent(Constants.ADD_DECKSET);
     }
 
     _onDeckSetDelete(){
         DeckDao.deleteDeckSets(this.selectedDeckSets);
         this.selectedDeckSets = new Set();
         this._addCustomDeckSetsToLocalDatabase();
-        Analytics.trackEvent(Constants.DELETE_DECKSET);
+        //Analytics.trackEvent(Constants.DELETE_DECKSET);
     }
 
     _toggleSideMenu(){

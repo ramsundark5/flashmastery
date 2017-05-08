@@ -6,8 +6,8 @@ target 'flashmastery' do
   # use_frameworks!
 
   # Pods for flashmastery
-  pod 'RNMobileCenter'
-  pod 'MobileCenter'
+  #pod 'RNMobileCenter'
+  #pod 'MobileCenter'
   target 'flashmasteryTests' do
     inherit! :search_paths
     # Pods for testing

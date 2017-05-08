@@ -8,7 +8,6 @@
  */
 
 #import "AppDelegate.h"
-#import <RNAnalytics/RNAnalytics.h>
 
 
 #import <React/RCTBundleURLProvider.h>
@@ -20,7 +19,7 @@
 {
   NSURL *jsCodeLocation;
 
-  [RNAnalytics registerWithInitiallyEnabled:true];  // Initialize Mobile Center analytics
+  //[RNAnalytics registerWithInitiallyEnabled:true];  // Initialize Mobile Center analytics
 
   
 #ifdef DEBUG

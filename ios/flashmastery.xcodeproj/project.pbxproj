@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -24,16 +23,10 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		4BFCF889939B402C80169C2B /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 923128A520F34AFC845E78EB /* libRealmReact.a */; };
 		514B95E46945489FB05FFCA6 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 458C8D3B83674981B557FCCB /* Ionicons.ttf */; };
-		59800540051B4C2F8140A06A /* libRNAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB88984892B4FD68326FEF0 /* libRNAnalytics.a */; };
 		5A7AB5E7B5D202C03AE07BA2 /* libPods-flashmasteryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2A455BC6CBAF9AFAF190B5 /* libPods-flashmasteryTests.a */; };
 		5E5119CCA6B24CEB9C2F9B1E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A365A67D292B433ABC574265 /* libc++.tbd */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		953D2B3631FE4782B610B378 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E60995E35B3E4DC8B7E18F96 /* libRNVectorIcons.a */; };
-		A22A17C81D9E127100AAB145 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C21D9E127100AAB145 /* AVFoundation.framework */; };
-		A22A17C91D9E127100AAB145 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C31D9E127100AAB145 /* CoreGraphics.framework */; };
-		A22A17CA1D9E127100AAB145 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C41D9E127100AAB145 /* CoreMotion.framework */; };
-		A22A17CB1D9E127100AAB145 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C51D9E127100AAB145 /* CoreTelephony.framework */; };
-		A22A17CC1D9E127100AAB145 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C61D9E127100AAB145 /* SystemConfiguration.framework */; };
 		A22A17CD1D9E127100AAB145 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22A17C71D9E127100AAB145 /* UIKit.framework */; };
 		A2D136E01E7123FD002C69A1 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D136C51E7123E5002C69A1 /* libRCTAnimation.a */; };
 		C5AA1BE41D4843CD9B69B8C0 /* MobileCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A130E0F25348058B9182A0 /* MobileCenter-Config.plist */; };
@@ -238,13 +231,6 @@
 			remoteGlobalIDString = 2D2A28201D9B03D100D4039D;
 			remoteInfo = "RCTAnimation-tvOS";
 		};
-		A2D137281E71F2D1002C69A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 127E46CF2C6944BBB7182089 /* RNAnalytics.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 548694001D8384E600E6685A;
-			remoteInfo = RNAnalytics;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -257,7 +243,6 @@
 		00E356EE1AD99517003FC87E /* flashmasteryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flashmasteryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* flashmasteryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flashmasteryTests.m; sourceTree = "<group>"; };
-		127E46CF2C6944BBB7182089 /* RNAnalytics.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAnalytics.xcodeproj; path = "../node_modules/mobile-center-analytics/ios/RNAnalytics.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* flashmastery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flashmastery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,16 +259,10 @@
 		65E7038C66494F8A8E4F80FB /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		6F84B6C85AEF51B3772B56EC /* Pods-flashmasteryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flashmasteryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flashmasteryTests/Pods-flashmasteryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		7BB88984892B4FD68326FEF0 /* libRNAnalytics.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAnalytics.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		84A130E0F25348058B9182A0 /* MobileCenter-Config.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "MobileCenter-Config.plist"; path = "flashmastery/MobileCenter-Config.plist"; sourceTree = "<group>"; };
 		923128A520F34AFC845E78EB /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		97957D6A587AD22525B4BDCE /* libPods-flashmastery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-flashmastery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A22A17C21D9E127100AAB145 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		A22A17C31D9E127100AAB145 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A22A17C41D9E127100AAB145 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		A22A17C51D9E127100AAB145 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		A22A17C61D9E127100AAB145 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A22A17C71D9E127100AAB145 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A2D136BE1E7123E5002C69A1 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		A365A67D292B433ABC574265 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -294,6 +273,7 @@
 		CC657927A02A4078BF7855E2 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
 		DC7945FB424F4AA4924AFA17 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E60995E35B3E4DC8B7E18F96 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+	
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,11 +290,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A22A17C81D9E127100AAB145 /* AVFoundation.framework in Frameworks */,
-				A22A17C91D9E127100AAB145 /* CoreGraphics.framework in Frameworks */,
-				A22A17CA1D9E127100AAB145 /* CoreMotion.framework in Frameworks */,
-				A22A17CB1D9E127100AAB145 /* CoreTelephony.framework in Frameworks */,
-				A22A17CC1D9E127100AAB145 /* SystemConfiguration.framework in Frameworks */,
 				A22A17CD1D9E127100AAB145 /* UIKit.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				A2D136E01E7123FD002C69A1 /* libRCTAnimation.a in Frameworks */,
@@ -331,7 +306,6 @@
 				E4EEEBD3573447688FA674B1 /* libz.tbd in Frameworks */,
 				4BFCF889939B402C80169C2B /* libRealmReact.a in Frameworks */,
 				5E5119CCA6B24CEB9C2F9B1E /* libc++.tbd in Frameworks */,
-				59800540051B4C2F8140A06A /* libRNAnalytics.a in Frameworks */,
 				E170CD679387426F712AABBF /* libPods-flashmastery.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,11 +422,6 @@
 		40A8077D959F4DF99CABE317 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A22A17C21D9E127100AAB145 /* AVFoundation.framework */,
-				A22A17C31D9E127100AAB145 /* CoreGraphics.framework */,
-				A22A17C41D9E127100AAB145 /* CoreMotion.framework */,
-				A22A17C51D9E127100AAB145 /* CoreTelephony.framework */,
-				A22A17C61D9E127100AAB145 /* SystemConfiguration.framework */,
 				A22A17C71D9E127100AAB145 /* UIKit.framework */,
 				DC7945FB424F4AA4924AFA17 /* libz.tbd */,
 				A365A67D292B433ABC574265 /* libc++.tbd */,
@@ -500,7 +469,6 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				65E7038C66494F8A8E4F80FB /* RNVectorIcons.xcodeproj */,
 				CC657927A02A4078BF7855E2 /* RealmReact.xcodeproj */,
-				127E46CF2C6944BBB7182089 /* RNAnalytics.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -568,14 +536,6 @@
 			children = (
 				A2D136C51E7123E5002C69A1 /* libRCTAnimation.a */,
 				A2D136C71E7123E5002C69A1 /* libRCTAnimation-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A2D1370B1E71F2D1002C69A1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A2D137291E71F2D1002C69A1 /* libRNAnalytics.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -704,10 +664,6 @@
 				{
 					ProductGroup = A20F680D1D899DE0009F8043 /* Products */;
 					ProjectRef = CC657927A02A4078BF7855E2 /* RealmReact.xcodeproj */;
-				},
-				{
-					ProductGroup = A2D1370B1E71F2D1002C69A1 /* Products */;
-					ProjectRef = 127E46CF2C6944BBB7182089 /* RNAnalytics.xcodeproj */;
 				},
 				{
 					ProductGroup = A2BA2C6E1D865DC000617569 /* Products */;
@@ -912,13 +868,6 @@
 			remoteRef = A2D136C61E7123E5002C69A1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A2D137291E71F2D1002C69A1 /* libRNAnalytics.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNAnalytics.a;
-			remoteRef = A2D137281E71F2D1002C69A1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -937,6 +886,7 @@
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				514B95E46945489FB05FFCA6 /* Ionicons.ttf in Resources */,
 				C5AA1BE41D4843CD9B69B8C0 /* MobileCenter-Config.plist in Resources */,
+				
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1148,7 +1098,6 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/realm/src/**",
-					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = flashmastery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1181,7 +1130,6 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/realm/src/**",
-					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = flashmastery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1352,7 +1300,6 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/realm/src/**",
-					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = flashmastery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
