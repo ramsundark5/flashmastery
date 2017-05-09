@@ -127,6 +127,7 @@ android {
 }
 
 dependencies {
+    compile project(':mobile-center-crashes')
     compile project(':mobile-center-analytics')
     compile project(':react-native-prompt-android')
     compile project(':realm')

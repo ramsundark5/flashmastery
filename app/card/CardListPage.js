@@ -14,13 +14,22 @@ export default class CardListPage extends Component {
         super(props);
         this._dataRow = {};
         this.openRowId = '';
-        let cards = CardDao.getCardsAsPlainObjects(props.deck.cards || []);
+        //let cards = CardDao.getCardsAsPlainObjects(props.deck.cards || []);
         this.state = {
-            cards: cards,
+            cards: [],
             scrollEnable: true,
             hasIdOpen: false
         };
         this.cardsDatasource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    }
+    
+    componentDidMount(){
+        try{
+            let cards = CardDao.getCardsAsPlainObjects(this.props.deck.cards || []);
+            this.setState({cards: cards});
+        }catch(err){
+            console.error("error opening cardlist page "+err);
+        }
     }
 
     _deleteCard(cardToBeDeleted){

@@ -8,7 +8,7 @@ import NavigationBar from 'react-native-navbar';
 import {Actions, ActionConst} from 'react-native-router-flux';
 import CardDao from '../dao/CardDao';
 import PracticeDao from '../dao/PracticeDao';
-//import Analytics from 'mobile-center-analytics';
+import Analytics from 'mobile-center-analytics';
 import * as Constants from '../common/Constants';
 
 export default class Deck extends Component {
@@ -36,7 +36,7 @@ export default class Deck extends Component {
         if(isCustom){
             let analyticsProps = new Map();
             analyticsProps.set(Constants.CUSTOM_CARDS_COUNT, deck.cards.length);
-            //Analytics.trackEvent(Constants.CUSTOM_CARDS_COUNT, analyticsProps);
+            Analytics.trackEvent(Constants.CUSTOM_CARDS_COUNT, analyticsProps);
         }
     }
 

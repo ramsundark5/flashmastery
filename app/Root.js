@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Routes from './Routes';
 //import codePush from "react-native-code-push";
-import BackgroundSync from './sync/BackgroundSync';
+//import BackgroundSync from './sync/BackgroundSync';
 import { setCustomText } from 'react-native-global-props';
 import normalize from './utils/NormalizeText';
 

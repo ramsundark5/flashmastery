@@ -11,7 +11,7 @@ import DeckDao from '../dao/DeckDao';
 import PracticeService from '../service/PracticeService';
 import PracticeDao from '../dao/PracticeDao';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-//import Analytics from 'mobile-center-analytics';
+import Analytics from 'mobile-center-analytics';
 import * as Constants from '../common/Constants';
 
 const {deviceWidth} = Dimensions.get('window');
@@ -36,7 +36,7 @@ export default class DeckSet extends Component {
             let analyticsProps = new Map();
             let deckCount = this.state.decks ? this.state.decks.length : 0;
             analyticsProps.set(Constants.CUSTOM_DECK_COUNT, deckCount);
-            //Analytics.trackEvent(Constants.CUSTOM_DECK_COUNT, analyticsProps);
+            Analytics.trackEvent(Constants.CUSTOM_DECK_COUNT, analyticsProps);
         }
     }
 
@@ -83,31 +83,36 @@ export default class DeckSet extends Component {
     }
 
     _onStartPracticeSession(deck, onlyShowLearningCards){
-        let isCustom = this.props.deckSet.custom;
-        let analyticsProps = new Map();
-        analyticsProps.set(Constants.DECK_NAME, deck.name);
-        //Analytics.trackEvent(Constants.SELECT_DECK, analyticsProps);
-        let newPracticeSession = PracticeDao.createPracticeSession(deck, this.props.user);
-        if(onlyShowLearningCards){
-            //Analytics.trackEvent(Constants.ADAPTIVE_PRACTICE, analyticsProps);
-            let cardsForPractice = PracticeService.getOnlyLearningCards(deck, this.props.user);
-            deck.cards = cardsForPractice.learningCards;
-            if(deck.cards.length < 1){
-                Alert.alert(
-                    'All cards are mastered!',
-                    null,
-                    [
-                        {text: 'OK'}
-                    ]
-                );
-                return;
+        //try{
+            let isCustom = this.props.deckSet.custom;
+            let analyticsProps = new Map();
+            analyticsProps.set(Constants.DECK_NAME, deck.name);
+            Analytics.trackEvent(Constants.SELECT_DECK + deck.name, analyticsProps);
+            let newPracticeSession = PracticeDao.createPracticeSession(deck, this.props.user);
+            if(onlyShowLearningCards){
+                Analytics.trackEvent(Constants.ADAPTIVE_PRACTICE + deck.name, analyticsProps);
+                let cardsForPractice = PracticeService.getOnlyLearningCards(deck, this.props.user);
+                deck.cards = cardsForPractice.learningCards;
+                if(deck.cards.length < 1){
+                    Alert.alert(
+                        'All cards are mastered!',
+                        null,
+                        [
+                            {text: 'OK'}
+                        ]
+                    );
+                    return;
+                }
+            }else{
+                Analytics.trackEvent(Constants.PRACTICE_ALL + deck.name, analyticsProps);
             }
-        }else{
-            //Analytics.trackEvent(Constants.PRACTICE_ALL, analyticsProps);
-        }
+            
+            Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true, 
+                practiceSession: newPracticeSession, user: this.props.user});
+        /*}catch(err){
+            console.error("error starting practice session "+err);
+        }*/
         
-        Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true, 
-            practiceSession: newPracticeSession, user: this.props.user});
     }
 
     _onDeckNameUpdate(updatedDeck){
@@ -122,7 +127,7 @@ export default class DeckSet extends Component {
         DeckDao.updateDeck(updatedDeck);
         let analyticsProps = new Map();
         analyticsProps.set(Constants.DECKSET_NAME, this.props.deckSet.name);
-        //Analytics.trackEvent(Constants.UPDATE_DECK, analyticsProps);
+        Analytics.trackEvent(Constants.UPDATE_DECK, analyticsProps);
     }
 
     _onNewDeckAdd(addedDeck){
@@ -134,7 +139,7 @@ export default class DeckSet extends Component {
         this.setState({decks: decksAfterAdd});
         let analyticsProps = new Map();
         analyticsProps.set(Constants.DECKSET_NAME, this.props.deckSet.name);
-        //Analytics.trackEvent(Constants.ADD_DECK, analyticsProps);
+        Analytics.trackEvent(Constants.ADD_DECK, analyticsProps);
     }
 
     _onDecksDelete(){
@@ -146,7 +151,7 @@ export default class DeckSet extends Component {
         this.setState({decks: customDecks, selectionModeEnabled: false});
         let analyticsProps = new Map();
         analyticsProps.set(Constants.DECKSET_NAME, this.props.deckSet.name);
-        //Analytics.trackEvent(Constants.DELETE_DECK, analyticsProps);
+        Analytics.trackEvent(Constants.DELETE_DECK, analyticsProps);
     }
 
     render(){
