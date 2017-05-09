@@ -96,7 +96,7 @@ export default class HomePage extends Component {
                 deckSet = DeckDao.getDeckSetForId(deckSet.id);
             }
             Actions.deckSetPage({deckSet: deckSet, user: this.state.user});
-            Analytics.trackEvent(Constants.SELECT_DECKSET + deckSet.name);
+            Analytics.trackEvent(Constants.SELECT_DECKSET  + ' ' + deckSet.name);
         }
     }
 

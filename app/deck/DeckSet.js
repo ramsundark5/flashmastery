@@ -90,7 +90,7 @@ export default class DeckSet extends Component {
             Analytics.trackEvent(Constants.SELECT_DECK + deck.name, analyticsProps);
             let newPracticeSession = PracticeDao.createPracticeSession(deck, this.props.user);
             if(onlyShowLearningCards){
-                Analytics.trackEvent(Constants.ADAPTIVE_PRACTICE + deck.name, analyticsProps);
+                Analytics.trackEvent(Constants.ADAPTIVE_PRACTICE + ' ' +deck.name, analyticsProps);
                 let cardsForPractice = PracticeService.getOnlyLearningCards(deck, this.props.user);
                 deck.cards = cardsForPractice.learningCards;
                 if(deck.cards.length < 1){
@@ -104,7 +104,7 @@ export default class DeckSet extends Component {
                     return;
                 }
             }else{
-                Analytics.trackEvent(Constants.PRACTICE_ALL + deck.name, analyticsProps);
+                Analytics.trackEvent(Constants.PRACTICE_ALL  + ' ' + deck.name, analyticsProps);
             }
             
             Actions.deckPage({deck: deck, isCustom: isCustom, practiseMode: true, 
